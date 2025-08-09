@@ -330,8 +330,8 @@
 		1240F4DF2E4775E9001DEFDC /* MaterialDesign */ = {
 			isa = PBXGroup;
 			children = (
-				1240F4DD2E4775DE001DEFDC /* Font+.swift */,
 				1240F4E02E477710001DEFDC /* Colours.xcassets */,
+				1240F4DD2E4775DE001DEFDC /* Font+.swift */,
 			);
 			path = MaterialDesign;
 			sourceTree = "<group>";
