@@ -31,6 +31,7 @@
 		1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */; };
 		1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */; };
 		1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */; };
+		1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DD2E4775DE001DEFDC /* Font+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Paths.swift"; sourceTree = "<group>"; };
 		1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
 		1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Preview.swift"; sourceTree = "<group>"; };
+		1240F4DD2E4775DE001DEFDC /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F4AA2E476D4E001DEFDC /* Assets.xcassets */,
+				1240F4DF2E4775E9001DEFDC /* MaterialDesign */,
 				1240F4D72E47712D001DEFDC /* Previews */,
 			);
 			path = Resources;
@@ -320,6 +323,14 @@
 			children = (
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		1240F4DF2E4775E9001DEFDC /* MaterialDesign */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4DD2E4775DE001DEFDC /* Font+.swift */,
+			);
+			path = MaterialDesign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +484,7 @@
 				1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */,
 				1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */,
 				1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */,
+				1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */,
 				1240F4B82E476D4E001DEFDC /* NetworkSession.swift in Sources */,
 				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
 				1240F4CC2E477020001DEFDC /* BaseCoordinatable.swift in Sources */,
