@@ -8,3 +8,9 @@ struct ShowsListDTO: Codable {
       self.shows = try container.decode([SingleShowDTO].self)
    }
 }
+
+extension ShowsListDTO: DataTransferableObjects {
+   var domainModelObject: ShowsListModel {
+      .init(shows: shows.compactMap(\.domainModelObject))
+   }
+}

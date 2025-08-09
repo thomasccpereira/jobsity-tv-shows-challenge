@@ -8,3 +8,10 @@ struct EpisodesListDTO: Codable {
       self.episodes = try container.decode([SingleEpisodeDTO].self)
    }
 }
+
+extension EpisodesListDTO: DataTransferableObjects {
+   var domainModelObject: EpisodesListModel {
+      .init(episodes: episodes.compactMap(\.domainModelObject))
+   }
+}
+

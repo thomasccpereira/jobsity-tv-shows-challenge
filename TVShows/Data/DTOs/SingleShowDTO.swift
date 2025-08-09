@@ -19,3 +19,15 @@ struct SingleShowDTO: Codable {
    let runtime: Int?
    let summary: String?
 }
+
+extension SingleShowDTO: DataTransferableObjects {
+   var domainModelObject: SingleShowModel {
+      .init(id: id,
+            image: .init(medium: image?.medium, original: image?.original),
+            name: name,
+            schedule: .init(time: schedule.time, days: schedule.days),
+            genres: genres,
+            runtime: runtime,
+            summary: summary)
+   }
+}

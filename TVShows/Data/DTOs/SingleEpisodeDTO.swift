@@ -13,3 +13,14 @@ struct SingleEpisodeDTO: Codable {
    let name: String
    let runtime: Int?
 }
+
+extension SingleEpisodeDTO: DataTransferableObjects {
+   var domainModelObject: SingleEpisodeModel {
+      .init(id: id,
+            season: season,
+            number: number,
+            image: .init(medium: image?.medium, original: image?.original),
+            name: name,
+            runtime: runtime)
+   }
+}
