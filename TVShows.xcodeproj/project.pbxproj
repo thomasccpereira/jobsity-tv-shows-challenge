@@ -32,6 +32,7 @@
 		1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */; };
 		1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */; };
 		1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DD2E4775DE001DEFDC /* Font+.swift */; };
+		1240F4E12E477710001DEFDC /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1240F4E02E477710001DEFDC /* Colours.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
 		1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Preview.swift"; sourceTree = "<group>"; };
 		1240F4DD2E4775DE001DEFDC /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		1240F4E02E477710001DEFDC /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F4DD2E4775DE001DEFDC /* Font+.swift */,
+				1240F4E02E477710001DEFDC /* Colours.xcassets */,
 			);
 			path = MaterialDesign;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1240F4BC2E476D4E001DEFDC /* Assets.xcassets in Resources */,
+				1240F4E12E477710001DEFDC /* Colours.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +657,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6NW28QCL54;
@@ -688,7 +692,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6NW28QCL54;
