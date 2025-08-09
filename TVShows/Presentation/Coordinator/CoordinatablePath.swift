@@ -1,7 +1,7 @@
 import Foundation
 
 // Definition
-typealias CoordinatablePathDefinition = CaseIterable & Hashable & Equatable
+typealias CoordinatablePathDefinition = Hashable & Equatable
 
 // Protocol
 protocol RequiresCoordinatablePathEnum {
