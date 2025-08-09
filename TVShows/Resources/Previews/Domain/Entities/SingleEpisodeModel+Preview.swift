@@ -9,6 +9,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4388.jpg")),
             name: "Pilot",
+            summary: "When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.",
             runtime: 60)
    }
    
@@ -19,6 +20,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4389.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4389.jpg")),
             name: "The Fire",
+            summary: "While the residents of Chester's Mill face the uncertainty of life in the dome, panic is heightened when a house goes up in flames and their fire department is outside of the dome.",
             runtime: 60)
    }
    
@@ -29,6 +31,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4390.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4390.jpg")),
             name: "Manhunt",
+            summary: "When a former deputy goes rogue, Big Jim recruits Barbie to join the manhunt to keep the town safe. Meanwhile, Junior is determined to escape the dome by going underground.",
             runtime: 60)
    }
    
@@ -39,6 +42,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4391.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4391.jpg")),
             name: "Outbreak",
+            summary: "The people of Chester's Mill fall into a state of panic as an outbreak of meningitis strikes their community, threatening their already depleted medical supplies. Meanwhile, Julia continues to search for answers into her husband's disappearance.",
             runtime: 60)
    }
    
@@ -49,6 +53,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4392.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4392.jpg")),
             name: "The Age of Reason",
+            summary: "The Chester's Mill residents receive an unexpected visit from their loved ones on the other side. Meanwhile, the community braces for a threat from outside the Dome.",
             runtime: 60)
    }
    
@@ -59,6 +64,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4393.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4393.jpg")),
             name: "Get Behind the Mule",
+            summary: "When the town begins to run low on water, the residents of Chester's Mill begin to fight for the remaining resources. Meanwhile, Julia discovers a strange connection that two of the town's residents have with the Dome.",
             runtime: 60)
    }
    
@@ -69,6 +75,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4394.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4394.jpg")),
             name: "Blue Gold",
+            summary: "Big Jim takes matters into his own hands when he feels his authority slipping away, and the dome displays its power when a life is taken just as a newborn arrives.",
             runtime: 60)
    }
    
@@ -79,6 +86,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4395.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4395.jpg")),
             name: "Two Ships",
+            summary: "Junior stands up to his father and is shattered when he discovers the truth about his mother's past. Meanwhile, Julia learns firsthand the powers of the \"mini dome\"",
             runtime: 60)
    }
    
@@ -89,6 +97,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4396.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4396.jpg")),
             name: "Achilles",
+            summary: "Big Jim and Barbie discover their lives are more intertwined than they knew when a mysterious woman, Maxine, shows up unexpectedly in Chester's Mill.",
             runtime: 60)
    }
    
@@ -99,6 +108,7 @@ extension SingleEpisodeModel {
             image: .init(mediumURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_landscape/1/4397.jpg"),
                          originalURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/1/4397.jpg")),
             name: "No Place Like Home",
+            summary: "Julia uncovers the truth about her husband's disappearance and unravels some of Chester's Mill's darkest secrets. Meanwhile, Maxine shows Barbie how she plans to take control of the town.",
             runtime: 60)
    }
    
