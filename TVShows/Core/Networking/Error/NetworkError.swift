@@ -1,7 +1,7 @@
 import Foundation
 
-public enum NetworkError: Error, Equatable, Sendable {
-   public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+enum NetworkError: Error, Equatable, Sendable {
+   static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
       switch (lhs, rhs) {
       case (.genericError(let lError), .genericError(let rError)):
          lError.localizedDescription == rError.localizedDescription

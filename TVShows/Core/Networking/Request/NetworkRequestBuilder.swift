@@ -1,22 +1,35 @@
 import Foundation
 
-public protocol NetworkRequestBuilder: Sendable {
-   var requestConfig: NetworkRequestConfig { get }
-   
-   func buildRequest() throws -> URLRequest
+protocol NetworkRequestBuilding: Sendable {
+   func makeRequest(with config: NetworkRequestConfig) throws -> URLRequest
 }
 
-extension NetworkRequestBuilder {
-   // Default implementation
-   func buildRequest() throws -> URLRequest {
+final class DefaultRequestBuilder: NetworkRequestBuilding {
+   init() { }
+   
+   func makeRequest(with requestConfig: NetworkRequestConfig) throws -> URLRequest {
       let urlString = requestConfig.host + requestConfig.path
-      guard urlString.isValidURL, let url = URL(string: urlString) else {
+      
+      var urlComponents = URLComponents(string: urlString)
+      if let queryItems = requestConfig.queryItems {
+         urlComponents?.queryItems = queryItems
+      }
+      
+      guard let urlComponents,
+            let encodedURLString = urlComponents.string?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+            encodedURLString.isValidURL,
+            let url = URL(string: encodedURLString) else {
          throw NetworkError.networkRequestBuildFailure
       }
       
       var request = URLRequest(url: url)
       request.httpMethod = requestConfig.method.rawValue
       request.allHTTPHeaderFields = requestConfig.headers
+      
+      if let queryItems = requestConfig.queryItems {
+         request.url = request.url?.appending(queryItems: queryItems)
+      }
+      
       request.httpBody = httpBody(requestConfig)
       request.timeoutInterval = 10
       

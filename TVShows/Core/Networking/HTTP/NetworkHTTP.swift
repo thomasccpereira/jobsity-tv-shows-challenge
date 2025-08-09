@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NetworkHTTPMethod: String, Sendable {
+enum NetworkHTTPMethod: String, Sendable {
    case head = "HEAD"
    case get = "GET"
    case post = "POST"

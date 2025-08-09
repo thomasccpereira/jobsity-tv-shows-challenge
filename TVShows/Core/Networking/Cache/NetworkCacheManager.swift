@@ -1,55 +1,26 @@
 import Foundation
 
 // MARK: - Cache - Protocol
-public protocol NetworkCacheManager: Sendable {
-   func cachedData<T: Decodable & Sendable>(for key: String) async -> T?
-   
-   func cacheData<T: Encodable & Sendable>(_ data: T,
-                                           for key: String,
-                                           timeToLive: TimeInterval) async
-   
-   func clearCache(for key: String) async
-}
-
-public extension NetworkCacheManager {
-   func cacheData<T: Encodable & Sendable>(_ data: T,
-                                           for key: String) async {
-      await cacheData(data,
-                      for: key,
-                      timeToLive: 300)
-   }
+protocol NetworkResponseCaching: Sendable {
+   func cachedResponse(for request: URLRequest) -> Data?
+   func store(_ data: Data, response: URLResponse, for request: URLRequest)
 }
 
 // MARK: - Cache - In-Memory implementation
-public actor InMemoryCacheManager: NetworkCacheManager {
-   // Properties
-   private var cache: [String: (data: Data, expiration: Date)] = [:]
+final class DefaultNetworkResponseCache: NetworkResponseCaching {
+   private let urlCache: URLCache
    
-   // Init
-   public init() { }
-   
-   // Protocol methods
-   public func cachedData<T: Decodable & Sendable>(for key: String) async -> T? {
-      guard let entry = cache[key],
-            entry.expiration > Date() else {
-         cache.removeValue(forKey: key)
-         return nil
-      }
-      return try? JSONDecoder().decode(T.self, from: entry.data)
+   public init(urlCache: URLCache = .shared) {
+      self.urlCache = urlCache
    }
    
-   public func cacheData<T: Encodable & Sendable>(_ data: T,
-                                           for key: String,
-                                           timeToLive: TimeInterval) async {
-      if let encoded = try? JSONEncoder().encode(data) {
-         cache[key] = (
-            data: encoded,
-            expiration: Date().addingTimeInterval(timeToLive)
-         )
-      }
+   func cachedResponse(for request: URLRequest) -> Data? {
+      if let cached = urlCache.cachedResponse(for: request) { return cached.data }
+      return nil
    }
    
-   public func clearCache(for key: String) async {
-      cache.removeValue(forKey: key)
+   func store(_ data: Data, response: URLResponse, for request: URLRequest) {
+      let cached = CachedURLResponse(response: response, data: data)
+      urlCache.storeCachedResponse(cached, for: request)
    }
 }

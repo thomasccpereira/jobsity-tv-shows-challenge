@@ -1,13 +1,14 @@
 import Foundation
 
-public protocol NetworkLogger: Sendable {
+protocol NetworkLogging: Sendable {
    func logRequest(_ request: URLRequest)
    func logResponse(_ response: URLResponse, data: Data?)
 }
 
-public final class DefaultNetworkLogger: NetworkLogger {
-   public init() {}
-   public func logRequest(_ request: URLRequest) {
+final class DefaultNetworkLogger: NetworkLogging {
+   init() { }
+   
+   func logRequest(_ request: URLRequest) {
       #if DEBUG
       print("-------------------------- NETWORK REQUEST START --------------------------")
       
@@ -27,7 +28,7 @@ public final class DefaultNetworkLogger: NetworkLogger {
       #endif
    }
    
-   public func logResponse(_ response: URLResponse, data: Data?) {
+   func logResponse(_ response: URLResponse, data: Data?) {
       #if DEBUG
       print("--------------------------- NETWORK RESPONSE START ---------------------------")
       

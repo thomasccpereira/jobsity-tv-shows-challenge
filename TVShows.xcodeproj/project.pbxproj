@@ -13,11 +13,11 @@
 		1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4982E476D4E001DEFDC /* NetworkCacheManager.swift */; };
 		1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49A2E476D4E001DEFDC /* NetworkError.swift */; };
 		1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49C2E476D4E001DEFDC /* NetworkHTTP.swift */; };
-		1240F4B42E476D4E001DEFDC /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49E2E476D4E001DEFDC /* NetworkLogger.swift */; };
+		1240F4B42E476D4E001DEFDC /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49E2E476D4E001DEFDC /* NetworkLogging.swift */; };
 		1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A02E476D4E001DEFDC /* NetworkRequestBuilder.swift */; };
 		1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A12E476D4E001DEFDC /* NetworkRequestConfig.swift */; };
 		1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */; };
-		1240F4B82E476D4E001DEFDC /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A52E476D4E001DEFDC /* NetworkSession.swift */; };
+		1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A52E476D4E001DEFDC /* NetworkSessionManager.swift */; };
 		1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */; };
 		1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */; };
 		1240F4BC2E476D4E001DEFDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1240F4AA2E476D4E001DEFDC /* Assets.xcassets */; };
@@ -49,6 +49,10 @@
 		1240F50E2E478BF0001DEFDC /* ShowsListModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F50D2E478BED001DEFDC /* ShowsListModel+Preview.swift */; };
 		1240F5102E478D29001DEFDC /* QueriedShowsModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F50F2E478D27001DEFDC /* QueriedShowsModel+Preview.swift */; };
 		1240F5122E479365001DEFDC /* EpisodesList+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5112E47935D001DEFDC /* EpisodesList+Preview.swift */; };
+		1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5252E47F025001DEFDC /* NetworkFactory.swift */; };
+		1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */; };
+		1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */; };
+		1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,11 +82,11 @@
 		1240F4982E476D4E001DEFDC /* NetworkCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCacheManager.swift; sourceTree = "<group>"; };
 		1240F49A2E476D4E001DEFDC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1240F49C2E476D4E001DEFDC /* NetworkHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHTTP.swift; sourceTree = "<group>"; };
-		1240F49E2E476D4E001DEFDC /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		1240F49E2E476D4E001DEFDC /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
 		1240F4A02E476D4E001DEFDC /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
 		1240F4A12E476D4E001DEFDC /* NetworkRequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestConfig.swift; sourceTree = "<group>"; };
 		1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseValidator.swift; sourceTree = "<group>"; };
-		1240F4A52E476D4E001DEFDC /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		1240F4A52E476D4E001DEFDC /* NetworkSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManager.swift; sourceTree = "<group>"; };
 		1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkExecutor.swift; sourceTree = "<group>"; };
 		1240F4AA2E476D4E001DEFDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsApp.swift; sourceTree = "<group>"; };
@@ -114,6 +118,10 @@
 		1240F50D2E478BED001DEFDC /* ShowsListModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowsListModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F50F2E478D27001DEFDC /* QueriedShowsModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueriedShowsModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F5112E47935D001DEFDC /* EpisodesList+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EpisodesList+Preview.swift"; sourceTree = "<group>"; };
+		1240F5252E47F025001DEFDC /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
+		1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorMapper.swift; sourceTree = "<group>"; };
+		1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDependencies.swift; sourceTree = "<group>"; };
+		1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,7 @@
 		1240F49B2E476D4E001DEFDC /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */,
 				1240F49A2E476D4E001DEFDC /* NetworkError.swift */,
 			);
 			path = Error;
@@ -198,7 +207,7 @@
 		1240F49F2E476D4E001DEFDC /* Logging */ = {
 			isa = PBXGroup;
 			children = (
-				1240F49E2E476D4E001DEFDC /* NetworkLogger.swift */,
+				1240F49E2E476D4E001DEFDC /* NetworkLogging.swift */,
 			);
 			path = Logging;
 			sourceTree = "<group>";
@@ -216,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */,
+				1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -223,7 +233,7 @@
 		1240F4A62E476D4E001DEFDC /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				1240F4A52E476D4E001DEFDC /* NetworkSession.swift */,
+				1240F4A52E476D4E001DEFDC /* NetworkSessionManager.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -238,6 +248,8 @@
 				1240F4A22E476D4E001DEFDC /* Request */,
 				1240F4A42E476D4E001DEFDC /* Response */,
 				1240F4A62E476D4E001DEFDC /* Session */,
+				1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */,
+				1240F5252E47F025001DEFDC /* NetworkFactory.swift */,
 				1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */,
 			);
 			path = Networking;
@@ -558,6 +570,7 @@
 				1240F4FD2E478803001DEFDC /* ShowsListModel.swift in Sources */,
 				1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */,
 				1240F4B02E476D4E001DEFDC /* String+.swift in Sources */,
+				1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */,
 				1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */,
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
 				1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */,
@@ -572,7 +585,7 @@
 				1240F50A2E478931001DEFDC /* SingleShowModel+Preview.swift in Sources */,
 				1240F50E2E478BF0001DEFDC /* ShowsListModel+Preview.swift in Sources */,
 				1240F4F62E478599001DEFDC /* QueriedShowsDTO.swift in Sources */,
-				1240F4B42E476D4E001DEFDC /* NetworkLogger.swift in Sources */,
+				1240F4B42E476D4E001DEFDC /* NetworkLogging.swift in Sources */,
 				1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */,
 				1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */,
 				1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */,
@@ -580,15 +593,18 @@
 				1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */,
 				1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */,
 				1240F5012E478813001DEFDC /* SingleShowModel.swift in Sources */,
-				1240F4B82E476D4E001DEFDC /* NetworkSession.swift in Sources */,
+				1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */,
+				1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */,
 				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
 				1240F50C2E478942001DEFDC /* SingleEpisodeModel+Preview.swift in Sources */,
 				1240F5032E47881D001DEFDC /* EpisodesListModel.swift in Sources */,
 				1240F5122E479365001DEFDC /* EpisodesList+Preview.swift in Sources */,
 				1240F4CC2E477020001DEFDC /* BaseCoordinatable.swift in Sources */,
 				1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */,
+				1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */,
 				1240F4F02E4782FB001DEFDC /* SingleShowDTO.swift in Sources */,
 				1240F5052E478823001DEFDC /* SingleEpisodeModel.swift in Sources */,
+				1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */,
 				1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
