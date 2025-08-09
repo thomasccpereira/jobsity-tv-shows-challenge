@@ -1,12 +1,12 @@
 import Foundation
 
-struct SingleShowModel {
-   struct Posters: Codable {
-      let medium: String?
-      let original: String?
+struct SingleShowModel: Sendable, Equatable {
+   struct Posters: Sendable, Equatable {
+      let mediumURL: URL?
+      let originalURL: URL?
    }
    
-   struct Schedule: Codable {
+   struct Schedule: Sendable, Equatable {
       let time: String
       let days: [String]
    }

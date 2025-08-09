@@ -11,6 +11,7 @@ struct SingleEpisodeDTO: Codable {
    let number: Int
    let image: Posters?
    let name: String
+   let summary: String?
    let runtime: Int?
 }
 
@@ -19,8 +20,10 @@ extension SingleEpisodeDTO: DataTransferableObjects {
       .init(id: id,
             season: season,
             number: number,
-            image: .init(medium: image?.medium, original: image?.original),
+            image: .init(mediumURL: image?.medium.flatMap(URL.init(string:)),
+                         originalURL: image?.original.flatMap(URL.init(string:))),
             name: name,
+            summary: summary?.strippingHTML,
             runtime: runtime)
    }
 }

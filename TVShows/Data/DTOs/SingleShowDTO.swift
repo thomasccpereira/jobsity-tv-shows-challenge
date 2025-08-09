@@ -23,11 +23,12 @@ struct SingleShowDTO: Codable {
 extension SingleShowDTO: DataTransferableObjects {
    var domainModelObject: SingleShowModel {
       .init(id: id,
-            image: .init(medium: image?.medium, original: image?.original),
+            image: .init(mediumURL: image?.medium.flatMap(URL.init(string:)),
+                         originalURL: image?.original.flatMap(URL.init(string:))),
             name: name,
             schedule: .init(time: schedule.time, days: schedule.days),
             genres: genres,
             runtime: runtime,
-            summary: summary)
+            summary: summary?.strippingHTML)
    }
 }

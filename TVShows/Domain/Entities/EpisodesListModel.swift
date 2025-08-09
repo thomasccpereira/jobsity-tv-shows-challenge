@@ -1,5 +1,5 @@
 import Foundation
 
-struct EpisodesListModel {
+struct EpisodesListModel: Sendable, Equatable {
    let episodes: [SingleEpisodeModel]
 }

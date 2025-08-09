@@ -1,9 +1,9 @@
 import Foundation
 
-struct SingleEpisodeModel {
-   struct Posters: Codable {
-      let medium: String?
-      let original: String?
+struct SingleEpisodeModel: Sendable, Equatable {
+   struct Posters: Sendable, Equatable {
+      let mediumURL: URL?
+      let originalURL: URL?
    }
    
    let id: Int
@@ -11,5 +11,6 @@ struct SingleEpisodeModel {
    let number: Int
    let image: Posters?
    let name: String
+   let summary: String?
    let runtime: Int?
 }

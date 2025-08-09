@@ -1,5 +1,5 @@
 import Foundation
 
-struct ShowsListModel {
+struct ShowsListModel: Sendable, Equatable {
    let shows: [SingleShowModel]
 }
