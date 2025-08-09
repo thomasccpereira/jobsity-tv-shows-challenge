@@ -19,12 +19,18 @@
 		1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */; };
 		1240F4B82E476D4E001DEFDC /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A52E476D4E001DEFDC /* NetworkSession.swift */; };
 		1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */; };
-		1240F4BA2E476D4E001DEFDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4AB2E476D4E001DEFDC /* ContentView.swift */; };
 		1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */; };
 		1240F4BC2E476D4E001DEFDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1240F4AA2E476D4E001DEFDC /* Assets.xcassets */; };
 		1240F4BF2E476D54001DEFDC /* TVShowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4BD2E476D54001DEFDC /* TVShowsTests.swift */; };
 		1240F4C32E476D57001DEFDC /* TVShowsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4C02E476D57001DEFDC /* TVShowsUITests.swift */; };
 		1240F4C42E476D57001DEFDC /* TVShowsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4C12E476D57001DEFDC /* TVShowsUITestsLaunchTests.swift */; };
+		1240F4CC2E477020001DEFDC /* BaseCoordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4CB2E47701C001DEFDC /* BaseCoordinatable.swift */; };
+		1240F4CE2E477027001DEFDC /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4CD2E477025001DEFDC /* Coordinatable.swift */; };
+		1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4CF2E47702D001DEFDC /* CoordinatablePath.swift */; };
+		1240F4D22E477094001DEFDC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4D12E477091001DEFDC /* AppCoordinator.swift */; };
+		1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */; };
+		1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */; };
+		1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,11 +67,17 @@
 		1240F4A52E476D4E001DEFDC /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkExecutor.swift; sourceTree = "<group>"; };
 		1240F4AA2E476D4E001DEFDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1240F4AB2E476D4E001DEFDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsApp.swift; sourceTree = "<group>"; };
 		1240F4BD2E476D54001DEFDC /* TVShowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsTests.swift; sourceTree = "<group>"; };
 		1240F4C02E476D57001DEFDC /* TVShowsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsUITests.swift; sourceTree = "<group>"; };
 		1240F4C12E476D57001DEFDC /* TVShowsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1240F4CB2E47701C001DEFDC /* BaseCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatable.swift; sourceTree = "<group>"; };
+		1240F4CD2E477025001DEFDC /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		1240F4CF2E47702D001DEFDC /* CoordinatablePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatablePath.swift; sourceTree = "<group>"; };
+		1240F4D12E477091001DEFDC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Paths.swift"; sourceTree = "<group>"; };
+		1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
+		1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,10 +219,12 @@
 		1240F4AD2E476D4E001DEFDC /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */,
+				1240F4C62E476F88001DEFDC /* Domain */,
+				1240F4C82E476FAB001DEFDC /* Presentation */,
+				1240F4C72E476FA5001DEFDC /* Data */,
 				1240F4A92E476D4E001DEFDC /* Core */,
 				1240F4C52E476E70001DEFDC /* Resources */,
-				1240F4AB2E476D4E001DEFDC /* ContentView.swift */,
-				1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */,
 			);
 			path = TVShows;
 			sourceTree = "<group>";
@@ -236,8 +250,76 @@
 			isa = PBXGroup;
 			children = (
 				1240F4AA2E476D4E001DEFDC /* Assets.xcassets */,
+				1240F4D72E47712D001DEFDC /* Previews */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1240F4C62E476F88001DEFDC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1240F4C72E476FA5001DEFDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1240F4C82E476FAB001DEFDC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4C92E47700D001DEFDC /* Coordinator */,
+				1240F4D12E477091001DEFDC /* AppCoordinator.swift */,
+				1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */,
+				1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1240F4C92E47700D001DEFDC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4CB2E47701C001DEFDC /* BaseCoordinatable.swift */,
+				1240F4CF2E47702D001DEFDC /* CoordinatablePath.swift */,
+				1240F4CD2E477025001DEFDC /* Coordinatable.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1240F4D72E47712D001DEFDC /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4DA2E477164001DEFDC /* Domain */,
+				1240F4D92E47715D001DEFDC /* Presentation */,
+				1240F4D82E477158001DEFDC /* Data */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
+		1240F4D82E477158001DEFDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1240F4D92E47715D001DEFDC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1240F4DA2E477164001DEFDC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,18 +460,24 @@
 			files = (
 				1240F4AE2E476D4E001DEFDC /* Dictionary+.swift in Sources */,
 				1240F4AF2E476D4E001DEFDC /* Encodable+.swift in Sources */,
+				1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */,
 				1240F4B02E476D4E001DEFDC /* String+.swift in Sources */,
 				1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */,
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
+				1240F4CE2E477027001DEFDC /* Coordinatable.swift in Sources */,
+				1240F4D22E477094001DEFDC /* AppCoordinator.swift in Sources */,
 				1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */,
+				1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */,
 				1240F4B42E476D4E001DEFDC /* NetworkLogger.swift in Sources */,
 				1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */,
 				1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */,
 				1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */,
+				1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */,
 				1240F4B82E476D4E001DEFDC /* NetworkSession.swift in Sources */,
 				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
-				1240F4BA2E476D4E001DEFDC /* ContentView.swift in Sources */,
+				1240F4CC2E477020001DEFDC /* BaseCoordinatable.swift in Sources */,
 				1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */,
+				1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
