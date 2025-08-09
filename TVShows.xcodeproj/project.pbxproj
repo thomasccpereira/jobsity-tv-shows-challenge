@@ -33,6 +33,7 @@
 		1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */; };
 		1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4DD2E4775DE001DEFDC /* Font+.swift */; };
 		1240F4E12E477710001DEFDC /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1240F4E02E477710001DEFDC /* Colours.xcassets */; };
+		1240F4E72E477F07001DEFDC /* ShowRequestConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4E62E477EBB001DEFDC /* ShowRequestConfigs.swift */; };
 		1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4ED2E47822A001DEFDC /* DataTransferableObjects.swift */; };
 		1240F4F02E4782FB001DEFDC /* SingleShowDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4EF2E47823A001DEFDC /* SingleShowDTO.swift */; };
 		1240F4F42E4784E3001DEFDC /* ShowsListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4F32E4784DC001DEFDC /* ShowsListDTO.swift */; };
@@ -49,10 +50,15 @@
 		1240F50E2E478BF0001DEFDC /* ShowsListModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F50D2E478BED001DEFDC /* ShowsListModel+Preview.swift */; };
 		1240F5102E478D29001DEFDC /* QueriedShowsModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F50F2E478D27001DEFDC /* QueriedShowsModel+Preview.swift */; };
 		1240F5122E479365001DEFDC /* EpisodesList+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5112E47935D001DEFDC /* EpisodesList+Preview.swift */; };
+		1240F5152E47E0FD001DEFDC /* Paginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5142E47E0F2001DEFDC /* Paginated.swift */; };
+		1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */; };
+		1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */; };
+		1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */; };
 		1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5252E47F025001DEFDC /* NetworkFactory.swift */; };
 		1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */; };
 		1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */; };
 		1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */; };
+		1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +108,7 @@
 		1240F4DB2E477171001DEFDC /* AppCoordinator+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Preview.swift"; sourceTree = "<group>"; };
 		1240F4DD2E4775DE001DEFDC /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		1240F4E02E477710001DEFDC /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
+		1240F4E62E477EBB001DEFDC /* ShowRequestConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRequestConfigs.swift; sourceTree = "<group>"; };
 		1240F4ED2E47822A001DEFDC /* DataTransferableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferableObjects.swift; sourceTree = "<group>"; };
 		1240F4EF2E47823A001DEFDC /* SingleShowDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleShowDTO.swift; sourceTree = "<group>"; };
 		1240F4F32E4784DC001DEFDC /* ShowsListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListDTO.swift; sourceTree = "<group>"; };
@@ -118,10 +125,15 @@
 		1240F50D2E478BED001DEFDC /* ShowsListModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowsListModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F50F2E478D27001DEFDC /* QueriedShowsModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueriedShowsModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F5112E47935D001DEFDC /* EpisodesList+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EpisodesList+Preview.swift"; sourceTree = "<group>"; };
+		1240F5142E47E0F2001DEFDC /* Paginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginated.swift; sourceTree = "<group>"; };
+		1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepository.swift; sourceTree = "<group>"; };
+		1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchShowsPageUseCase.swift; sourceTree = "<group>"; };
+		1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRemoteDataSource.swift; sourceTree = "<group>"; };
 		1240F5252E47F025001DEFDC /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
 		1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorMapper.swift; sourceTree = "<group>"; };
 		1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDependencies.swift; sourceTree = "<group>"; };
 		1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseDecoder.swift; sourceTree = "<group>"; };
+		1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				1240F4FB2E4787F3001DEFDC /* Entities */,
+				1240F5132E47E0E9001DEFDC /* ValueObjects */,
+				1240F5162E47E1A1001DEFDC /* Repositories */,
+				1240F5192E47E246001DEFDC /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -315,6 +330,9 @@
 		1240F4C72E476FA5001DEFDC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1240F4E32E477E79001DEFDC /* Requests */,
+				1240F52E2E480B03001DEFDC /* DataSources */,
+				1240F5222E47EB24001DEFDC /* Repositories */,
 				1240F4EB2E478211001DEFDC /* DTOs */,
 			);
 			path = Data;
@@ -383,6 +401,14 @@
 			path = MaterialDesign;
 			sourceTree = "<group>";
 		};
+		1240F4E32E477E79001DEFDC /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4E62E477EBB001DEFDC /* ShowRequestConfigs.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		1240F4EB2E478211001DEFDC /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +452,46 @@
 				1240F50B2E478940001DEFDC /* SingleEpisodeModel+Preview.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		1240F5132E47E0E9001DEFDC /* ValueObjects */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5142E47E0F2001DEFDC /* Paginated.swift */,
+			);
+			path = ValueObjects;
+			sourceTree = "<group>";
+		};
+		1240F5162E47E1A1001DEFDC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		1240F5192E47E246001DEFDC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		1240F5222E47EB24001DEFDC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		1240F52E2E480B03001DEFDC /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -574,12 +640,16 @@
 				1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */,
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
 				1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */,
+				1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */,
 				1240F4F82E4786CE001DEFDC /* SingleEpisodeDTO.swift in Sources */,
 				1240F4CE2E477027001DEFDC /* Coordinatable.swift in Sources */,
 				1240F4FF2E47880E001DEFDC /* QueriedShowsModel.swift in Sources */,
+				1240F5152E47E0FD001DEFDC /* Paginated.swift in Sources */,
 				1240F5102E478D29001DEFDC /* QueriedShowsModel+Preview.swift in Sources */,
 				1240F4D22E477094001DEFDC /* AppCoordinator.swift in Sources */,
+				1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */,
 				1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */,
+				1240F4E72E477F07001DEFDC /* ShowRequestConfigs.swift in Sources */,
 				1240F4F42E4784E3001DEFDC /* ShowsListDTO.swift in Sources */,
 				1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */,
 				1240F50A2E478931001DEFDC /* SingleShowModel+Preview.swift in Sources */,
@@ -594,6 +664,8 @@
 				1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */,
 				1240F5012E478813001DEFDC /* SingleShowModel.swift in Sources */,
 				1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */,
+				1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */,
+				1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */,
 				1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */,
 				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
 				1240F50C2E478942001DEFDC /* SingleEpisodeModel+Preview.swift in Sources */,
