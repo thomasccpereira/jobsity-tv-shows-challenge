@@ -89,19 +89,11 @@
 			remoteGlobalIDString = 1240F4202E475BE1001DEFDC;
 			remoteInfo = TVShows;
 		};
-		1240F4392E475BE3001DEFDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1240F4192E475BE1001DEFDC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1240F4202E475BE1001DEFDC;
-			remoteInfo = TVShows;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1240F4212E475BE1001DEFDC /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1240F42E2E475BE3001DEFDC /* TVShowsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVShowsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1240F4382E475BE3001DEFDC /* TVShowsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVShowsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1240F4942E476D4E001DEFDC /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		1240F4952E476D4E001DEFDC /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		1240F4962E476D4E001DEFDC /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -117,8 +109,6 @@
 		1240F4AA2E476D4E001DEFDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsApp.swift; sourceTree = "<group>"; };
 		1240F4BD2E476D54001DEFDC /* TVShowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsTests.swift; sourceTree = "<group>"; };
-		1240F4C02E476D57001DEFDC /* TVShowsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsUITests.swift; sourceTree = "<group>"; };
-		1240F4C12E476D57001DEFDC /* TVShowsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1240F4CB2E47701C001DEFDC /* BaseCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatable.swift; sourceTree = "<group>"; };
 		1240F4CD2E477025001DEFDC /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		1240F4CF2E47702D001DEFDC /* CoordinatablePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatablePath.swift; sourceTree = "<group>"; };
@@ -191,13 +181,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1240F4352E475BE3001DEFDC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -206,7 +189,6 @@
 			children = (
 				1240F4AD2E476D4E001DEFDC /* TVShows */,
 				1240F4BE2E476D54001DEFDC /* TVShowsTests */,
-				1240F4C22E476D57001DEFDC /* TVShowsUITests */,
 				1240F4222E475BE1001DEFDC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -216,7 +198,6 @@
 			children = (
 				1240F4212E475BE1001DEFDC /* TVShows.app */,
 				1240F42E2E475BE3001DEFDC /* TVShowsTests.xctest */,
-				1240F4382E475BE3001DEFDC /* TVShowsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,15 +317,6 @@
 				1240F4BD2E476D54001DEFDC /* TVShowsTests.swift */,
 			);
 			path = TVShowsTests;
-			sourceTree = "<group>";
-		};
-		1240F4C22E476D57001DEFDC /* TVShowsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1240F4C02E476D57001DEFDC /* TVShowsUITests.swift */,
-				1240F4C12E476D57001DEFDC /* TVShowsUITestsLaunchTests.swift */,
-			);
-			path = TVShowsUITests;
 			sourceTree = "<group>";
 		};
 		1240F4C52E476E70001DEFDC /* Resources */ = {
@@ -652,26 +624,6 @@
 			productReference = 1240F42E2E475BE3001DEFDC /* TVShowsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1240F4372E475BE3001DEFDC /* TVShowsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1240F4482E475BE3001DEFDC /* Build configuration list for PBXNativeTarget "TVShowsUITests" */;
-			buildPhases = (
-				1240F4342E475BE3001DEFDC /* Sources */,
-				1240F4352E475BE3001DEFDC /* Frameworks */,
-				1240F4362E475BE3001DEFDC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1240F43A2E475BE3001DEFDC /* PBXTargetDependency */,
-			);
-			name = TVShowsUITests;
-			packageProductDependencies = (
-			);
-			productName = TVShowsUITests;
-			productReference = 1240F4382E475BE3001DEFDC /* TVShowsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -686,10 +638,6 @@
 						CreatedOnToolsVersion = 16.4;
 					};
 					1240F42D2E475BE3001DEFDC = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 1240F4202E475BE1001DEFDC;
-					};
-					1240F4372E475BE3001DEFDC = {
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 1240F4202E475BE1001DEFDC;
 					};
@@ -711,7 +659,6 @@
 			targets = (
 				1240F4202E475BE1001DEFDC /* TVShows */,
 				1240F42D2E475BE3001DEFDC /* TVShowsTests */,
-				1240F4372E475BE3001DEFDC /* TVShowsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -727,13 +674,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1240F42C2E475BE3001DEFDC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1240F4362E475BE3001DEFDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -825,15 +765,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1240F4342E475BE3001DEFDC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1240F4C32E476D57001DEFDC /* TVShowsUITests.swift in Sources */,
-				1240F4C42E476D57001DEFDC /* TVShowsUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -841,11 +772,6 @@
 			isa = PBXTargetDependency;
 			target = 1240F4202E475BE1001DEFDC /* TVShows */;
 			targetProxy = 1240F42F2E475BE3001DEFDC /* PBXContainerItemProxy */;
-		};
-		1240F43A2E475BE3001DEFDC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1240F4202E475BE1001DEFDC /* TVShows */;
-			targetProxy = 1240F4392E475BE3001DEFDC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1081,40 +1007,6 @@
 			};
 			name = Release;
 		};
-		1240F4492E475BE3001DEFDC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6NW28QCL54;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.thomasccpereira.TVShowsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TVShows;
-			};
-			name = Debug;
-		};
-		1240F44A2E475BE3001DEFDC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6NW28QCL54;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.thomasccpereira.TVShowsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TVShows;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1141,15 +1033,6 @@
 			buildConfigurations = (
 				1240F4462E475BE3001DEFDC /* Debug */,
 				1240F4472E475BE3001DEFDC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1240F4482E475BE3001DEFDC /* Build configuration list for PBXNativeTarget "TVShowsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1240F4492E475BE3001DEFDC /* Debug */,
-				1240F44A2E475BE3001DEFDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
