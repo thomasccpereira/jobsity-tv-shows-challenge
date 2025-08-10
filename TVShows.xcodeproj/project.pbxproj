@@ -62,6 +62,7 @@
 		1240F5332E48108C001DEFDC /* ShowsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5322E481084001DEFDC /* ShowsListViewModel.swift */; };
 		1240F5352E481092001DEFDC /* ShowsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5342E48108F001DEFDC /* ShowsListView.swift */; };
 		1240F5372E4814E1001DEFDC /* ShowsListSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5362E4814D7001DEFDC /* ShowsListSingleItemView.swift */; };
+		1240F53B2E482703001DEFDC /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53A2E482701001DEFDC /* ShimmerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		1240F5322E481084001DEFDC /* ShowsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListViewModel.swift; sourceTree = "<group>"; };
 		1240F5342E48108F001DEFDC /* ShowsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListView.swift; sourceTree = "<group>"; };
 		1240F5362E4814D7001DEFDC /* ShowsListSingleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListSingleItemView.swift; sourceTree = "<group>"; };
+		1240F53A2E482701001DEFDC /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 				1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */,
 				1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */,
 				1240F5312E48107C001DEFDC /* ShowsList */,
+				1240F5382E4826D8001DEFDC /* CommonUI */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -509,6 +512,22 @@
 				1240F5362E4814D7001DEFDC /* ShowsListSingleItemView.swift */,
 			);
 			path = ShowsList;
+			sourceTree = "<group>";
+		};
+		1240F5382E4826D8001DEFDC /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5392E4826F8001DEFDC /* ShimmerView */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		1240F5392E4826F8001DEFDC /* ShimmerView */ = {
+			isa = PBXGroup;
+			children = (
+				1240F53A2E482701001DEFDC /* ShimmerView.swift */,
+			);
+			path = ShimmerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -671,6 +690,7 @@
 				1240F4E72E477F07001DEFDC /* ShowRequestConfigs.swift in Sources */,
 				1240F4F42E4784E3001DEFDC /* ShowsListDTO.swift in Sources */,
 				1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */,
+				1240F53B2E482703001DEFDC /* ShimmerView.swift in Sources */,
 				1240F50A2E478931001DEFDC /* SingleShowModel+Preview.swift in Sources */,
 				1240F50E2E478BF0001DEFDC /* ShowsListModel+Preview.swift in Sources */,
 				1240F4F62E478599001DEFDC /* QueriedShowsDTO.swift in Sources */,

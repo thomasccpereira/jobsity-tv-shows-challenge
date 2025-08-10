@@ -22,10 +22,13 @@ struct ShowsListView: View {
    private var listView: some View {
       List(viewModel.shows, id: \.id) { singleShow in
          ShowsListSingleItemView(singleShow: singleShow)
+            .redacted(reason: viewModel.isLoading ? .placeholder : [])
+            .shimmer(active: viewModel.isLoading)
             .onAppear {
                Task { try await viewModel.loadMoreShowsIfNeeded(after: singleShow) }
             }
       }
+      .scrollDisabled(viewModel.isLoading)
    }
 }
 

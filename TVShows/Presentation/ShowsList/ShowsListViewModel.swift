@@ -21,6 +21,8 @@ final class ShowsListViewModel {
    
    func loadFirstPage() async throws {
       if shows.isEmpty {
+         // Fill shows with mocked list for skeleton animation
+         shows = .showsListPreview
          try await loadMore()
       }
    }
@@ -33,13 +35,19 @@ final class ShowsListViewModel {
    
    private func loadMore() async throws {
       guard !isLoading else { return }
-      isLoading = true
+      withAnimation(.easeInOut) { isLoading = true }
       
       do {
          let repository = ShowsRepositoryImpl()
          let fetchPage = fetchShowsUseCase ?? FetchShowsPageUseCaseImpl(respository: repository)
          let page = try await fetchPage(page: nextPage)
-         shows += page.items
+         
+         if nextPage == 0 {
+            shows = page.items
+         } else {
+            shows += page.items
+         }
+         
          nextPage = page.pageIndex + 1
          canLoadMore = page.hasNextPage
          
@@ -47,6 +55,6 @@ final class ShowsListViewModel {
          self.error = String(describing: error)
       }
       
-      isLoading = false
+      withAnimation(.easeInOut) { isLoading = false }
    }
 }
