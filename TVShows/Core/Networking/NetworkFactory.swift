@@ -49,6 +49,7 @@ final class NetworkFactory: NetworkFactoryType {
          return try dependencies.decoder.decode(Model.self, from: data)
          
       } catch {
+         dependencies.cacher.clearCache(for: request)
          throw dependencies.errorMapper.map(error, url: request.url)
       }
    }

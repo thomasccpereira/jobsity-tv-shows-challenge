@@ -4,6 +4,7 @@ import Foundation
 protocol NetworkResponseCaching: Sendable {
    func cachedResponse(for request: URLRequest) -> Data?
    func store(_ data: Data, response: URLResponse, for request: URLRequest)
+   func clearCache(for request: URLRequest)
 }
 
 // MARK: - Cache - In-Memory implementation
@@ -22,5 +23,9 @@ final class DefaultNetworkResponseCache: NetworkResponseCaching {
    func store(_ data: Data, response: URLResponse, for request: URLRequest) {
       let cached = CachedURLResponse(response: response, data: data)
       urlCache.storeCachedResponse(cached, for: request)
+   }
+   
+   func clearCache(for request: URLRequest) {
+      urlCache.removeCachedResponse(for: request)
    }
 }
