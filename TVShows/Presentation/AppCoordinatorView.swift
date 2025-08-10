@@ -13,8 +13,10 @@ struct AppCoordinatorView: View {
             .onAppear {
                coordinator.start()
             }
-            .navigationDestination(for: AppCoordinator.Paths.self) { destination in
-               switch destination {
+            .navigationDestination(for: AppCoordinator.Paths.self) { [paths = coordinator.paths] destination in
+               let nextDestination = paths.last ?? destination
+               
+               switch nextDestination {
                case .showDetails(let show):
                   let viewModel = ShowDetailViewModel(coordinator: coordinator, show: show)
                   ShowDetailView(viewModel: viewModel)

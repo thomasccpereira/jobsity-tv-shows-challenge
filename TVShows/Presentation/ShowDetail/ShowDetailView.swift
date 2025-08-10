@@ -120,6 +120,7 @@ struct ShowDetailView: View {
             
             seasonsListView
          }
+         .disabled(viewModel.isLoading)
       }
    }
    
@@ -153,7 +154,6 @@ struct ShowDetailView: View {
             } label: {
                singleSeasonEpisodeView(episode: episode)
             }
-            .disabled(viewModel.isLoading)
          }
       }
       .border(edges: [.leading])
