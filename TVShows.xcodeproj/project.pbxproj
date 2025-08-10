@@ -89,6 +89,7 @@
 		1240F58F2E4957A8001DEFDC /* StubShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56C2E495360001DEFDC /* StubShowsRepository.swift */; };
 		1240F5902E4957A8001DEFDC /* NetworkRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5792E495508001DEFDC /* NetworkRequestBuilderTests.swift */; };
 		1240F5912E4957A8001DEFDC /* NetworkFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5782E4954E9001DEFDC /* NetworkFactoryTests.swift */; };
+		1240F5922E4957A8001DEFDC /* ShowsRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F57C2E495542001DEFDC /* ShowsRemoteDataSourceTests.swift */; };
 		1240F5932E4957A8001DEFDC /* DefaultErrorMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5752E495497001DEFDC /* DefaultErrorMapperTests.swift */; };
 		1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56B2E49534B001DEFDC /* StubNetworkFactory.swift */; };
 		1240F5952E4957A8001DEFDC /* StatusCodeValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F57D2E495560001DEFDC /* StatusCodeValidatorTests.swift */; };
@@ -191,6 +192,7 @@
 		1240F5762E4954AD001DEFDC /* JSONResponseDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponseDecoderTests.swift; sourceTree = "<group>"; };
 		1240F5782E4954E9001DEFDC /* NetworkFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactoryTests.swift; sourceTree = "<group>"; };
 		1240F5792E495508001DEFDC /* NetworkRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilderTests.swift; sourceTree = "<group>"; };
+		1240F57C2E495542001DEFDC /* ShowsRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRemoteDataSourceTests.swift; sourceTree = "<group>"; };
 		1240F57D2E495560001DEFDC /* StatusCodeValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodeValidatorTests.swift; sourceTree = "<group>"; };
 		1240F57E2E4955D0001DEFDC /* ShowsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListViewModelTests.swift; sourceTree = "<group>"; };
 		1240F5812E49560C001DEFDC /* ShowsRepositoryImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepositoryImplTests.swift; sourceTree = "<group>"; };
@@ -700,6 +702,14 @@
 			path = Stub;
 			sourceTree = "<group>";
 		};
+		1240F57B2E49553D001DEFDC /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				1240F57C2E495542001DEFDC /* ShowsRemoteDataSourceTests.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
 		1240F5962E495C9A001DEFDC /* Stub */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +922,7 @@
 				1240F59E2E495D18001DEFDC /* ShowDetailViewModelTests.swift in Sources */,
 				1240F5902E4957A8001DEFDC /* NetworkRequestBuilderTests.swift in Sources */,
 				1240F5912E4957A8001DEFDC /* NetworkFactoryTests.swift in Sources */,
+				1240F5922E4957A8001DEFDC /* ShowsRemoteDataSourceTests.swift in Sources */,
 				1240F5932E4957A8001DEFDC /* DefaultErrorMapperTests.swift in Sources */,
 				1240F59A2E495CD5001DEFDC /* QueryShowsUseCaseImplTests.swift in Sources */,
 				1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */,
