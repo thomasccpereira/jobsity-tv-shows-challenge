@@ -76,13 +76,17 @@
 		1240F55C2E490CFF001DEFDC /* ShowDetailViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F55B2E490CFC001DEFDC /* ShowDetailViewModel+Preview.swift */; };
 		1240F55E2E490E60001DEFDC /* EpisodeDetailViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F55D2E490E5D001DEFDC /* EpisodeDetailViewModel+Preview.swift */; };
 		1240F5602E4915BA001DEFDC /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F55F2E4915B8001DEFDC /* Int+.swift */; };
+		1240F5852E4956EE001DEFDC /* TVShowsTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 1240F5842E4956EE001DEFDC /* TVShowsTests.xctestplan */; };
 		1240F5862E495790001DEFDC /* StubFetchShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56E2E495386001DEFDC /* StubFetchShowsUseCase.swift */; };
 		1240F5872E495790001DEFDC /* StubFetchEpisodesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56F2E49538D001DEFDC /* StubFetchEpisodesUseCase.swift */; };
+		1240F5882E495790001DEFDC /* FetchShowsPageUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5822E49563F001DEFDC /* FetchShowsPageUseCaseImplTests.swift */; };
 		1240F5892E495790001DEFDC /* StubQueryShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5702E495394001DEFDC /* StubQueryShowsUseCase.swift */; };
 		1240F58B2E4957A8001DEFDC /* StubURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5692E495310001DEFDC /* StubURLProtocol.swift */; };
 		1240F58C2E4957A8001DEFDC /* StubSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56A2E495322001DEFDC /* StubSessionManager.swift */; };
 		1240F58F2E4957A8001DEFDC /* StubShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56C2E495360001DEFDC /* StubShowsRepository.swift */; };
 		1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56B2E49534B001DEFDC /* StubNetworkFactory.swift */; };
+		1240F5982E495CA8001DEFDC /* FetchEpisodesUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5972E495CA6001DEFDC /* FetchEpisodesUseCaseImplTests.swift */; };
+		1240F59A2E495CD5001DEFDC /* QueryShowsUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5992E495CCF001DEFDC /* QueryShowsUseCaseImplTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +178,9 @@
 		1240F56E2E495386001DEFDC /* StubFetchShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFetchShowsUseCase.swift; sourceTree = "<group>"; };
 		1240F56F2E49538D001DEFDC /* StubFetchEpisodesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFetchEpisodesUseCase.swift; sourceTree = "<group>"; };
 		1240F5702E495394001DEFDC /* StubQueryShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubQueryShowsUseCase.swift; sourceTree = "<group>"; };
+		1240F5822E49563F001DEFDC /* FetchShowsPageUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchShowsPageUseCaseImplTests.swift; sourceTree = "<group>"; };
+		1240F5972E495CA6001DEFDC /* FetchEpisodesUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEpisodesUseCaseImplTests.swift; sourceTree = "<group>"; };
+		1240F5992E495CCF001DEFDC /* QueryShowsUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryShowsUseCaseImplTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +640,9 @@
 			isa = PBXGroup;
 			children = (
 				1240F5962E495C9A001DEFDC /* Stub */,
+				1240F5822E49563F001DEFDC /* FetchShowsPageUseCaseImplTests.swift */,
+				1240F5992E495CCF001DEFDC /* QueryShowsUseCaseImplTests.swift */,
+				1240F5972E495CA6001DEFDC /* FetchEpisodesUseCaseImplTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -855,11 +865,14 @@
 			files = (
 				1240F5862E495790001DEFDC /* StubFetchShowsUseCase.swift in Sources */,
 				1240F5872E495790001DEFDC /* StubFetchEpisodesUseCase.swift in Sources */,
+				1240F5882E495790001DEFDC /* FetchShowsPageUseCaseImplTests.swift in Sources */,
 				1240F5892E495790001DEFDC /* StubQueryShowsUseCase.swift in Sources */,
 				1240F58B2E4957A8001DEFDC /* StubURLProtocol.swift in Sources */,
 				1240F58C2E4957A8001DEFDC /* StubSessionManager.swift in Sources */,
 				1240F58F2E4957A8001DEFDC /* StubShowsRepository.swift in Sources */,
+				1240F59A2E495CD5001DEFDC /* QueryShowsUseCaseImplTests.swift in Sources */,
 				1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */,
+				1240F5982E495CA8001DEFDC /* FetchEpisodesUseCaseImplTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
