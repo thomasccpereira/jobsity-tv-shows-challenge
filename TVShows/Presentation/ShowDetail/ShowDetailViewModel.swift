@@ -91,6 +91,6 @@ final class ShowDetailViewModel {
    
    // MARK: - Navigation
    func navigateToEpisodeDetail(for episode: SingleEpisodeModel) {
-      coordinator.goToPath(.episodeDetails(show: show, episode: episode))
+      coordinator.goToPath(.episodeDetails(episode: episode))
    }
 }

@@ -18,6 +18,10 @@ struct AppCoordinatorView: View {
                case .showDetails(let show):
                   let viewModel = ShowDetailViewModel(coordinator: coordinator, show: show)
                   ShowDetailView(viewModel: viewModel)
+                  
+               case .episodeDetails(let episode):
+                  let viewModel = EpisodeDetailViewModel(coordinator: coordinator, episode: episode)
+                  EpisodeDetailView(viewModel: viewModel)
                }
             }
       }
