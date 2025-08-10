@@ -171,8 +171,5 @@ struct ShowDetailView: View {
 }
 
 #Preview {
-   let viewModel = ShowDetailViewModel(coordinator: .preview,
-                                       show: .previewShow1,
-                                       fetchEpisodesUseCase: MockedFetchEpisodesUseCase())
-   ShowDetailView(viewModel: viewModel)
+   ShowDetailView(viewModel: .preview)
 }

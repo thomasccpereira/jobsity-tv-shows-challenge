@@ -134,3 +134,6 @@ struct ShowsListView: View {
    }
 }
 
+#Preview {
+   ShowsListView(viewModel: .preview)
+}
