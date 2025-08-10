@@ -137,7 +137,7 @@ final class ShowsListViewModel {
    private func performQueryIfNeeded(_ query: String) {
       searchTask?.cancel()
       
-      let trimmed = searchText.trimmed
+      let trimmed = searchText.trimmed.lowercased()
       guard !trimmed.isEmpty else {
          cancelSearch()
          return
@@ -168,7 +168,7 @@ final class ShowsListViewModel {
             if !Task.isCancelled {
                await MainActor.run {
                   // Handle error
-                  self.queriedShows = []
+                  cancelSearch()
                }
             }
          }
@@ -189,7 +189,10 @@ final class ShowsListViewModel {
          return queriedShows.model?.queriedShows.compactMap(\.show) ?? []
          
       } catch {
-         queriedShows = []
+         if case NetworkError.cancelled = error {
+            return self.queriedShows
+         }
+         
          errorMessage = error.localizedDescription
          return []
       }

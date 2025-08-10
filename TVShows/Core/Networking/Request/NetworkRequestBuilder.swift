@@ -16,9 +16,8 @@ final class DefaultRequestBuilder: NetworkRequestBuilding {
       }
       
       guard let urlComponents,
-            let encodedURLString = urlComponents.string?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
-            encodedURLString.isValidURL,
-            let url = URL(string: encodedURLString) else {
+            let url = urlComponents.url,
+            url.absoluteString.isValidURL else {
          throw NetworkError.networkRequestBuildFailure
       }
       
