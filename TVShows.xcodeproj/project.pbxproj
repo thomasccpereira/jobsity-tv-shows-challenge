@@ -76,6 +76,13 @@
 		1240F55C2E490CFF001DEFDC /* ShowDetailViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F55B2E490CFC001DEFDC /* ShowDetailViewModel+Preview.swift */; };
 		1240F55E2E490E60001DEFDC /* EpisodeDetailViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F55D2E490E5D001DEFDC /* EpisodeDetailViewModel+Preview.swift */; };
 		1240F5602E4915BA001DEFDC /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F55F2E4915B8001DEFDC /* Int+.swift */; };
+		1240F5862E495790001DEFDC /* StubFetchShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56E2E495386001DEFDC /* StubFetchShowsUseCase.swift */; };
+		1240F5872E495790001DEFDC /* StubFetchEpisodesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56F2E49538D001DEFDC /* StubFetchEpisodesUseCase.swift */; };
+		1240F5892E495790001DEFDC /* StubQueryShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5702E495394001DEFDC /* StubQueryShowsUseCase.swift */; };
+		1240F58B2E4957A8001DEFDC /* StubURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5692E495310001DEFDC /* StubURLProtocol.swift */; };
+		1240F58C2E4957A8001DEFDC /* StubSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56A2E495322001DEFDC /* StubSessionManager.swift */; };
+		1240F58F2E4957A8001DEFDC /* StubShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56C2E495360001DEFDC /* StubShowsRepository.swift */; };
+		1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F56B2E49534B001DEFDC /* StubNetworkFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +167,13 @@
 		1240F55B2E490CFC001DEFDC /* ShowDetailViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowDetailViewModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F55D2E490E5D001DEFDC /* EpisodeDetailViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EpisodeDetailViewModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F55F2E4915B8001DEFDC /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		1240F5692E495310001DEFDC /* StubURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLProtocol.swift; sourceTree = "<group>"; };
+		1240F56A2E495322001DEFDC /* StubSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSessionManager.swift; sourceTree = "<group>"; };
+		1240F56B2E49534B001DEFDC /* StubNetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkFactory.swift; sourceTree = "<group>"; };
+		1240F56C2E495360001DEFDC /* StubShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubShowsRepository.swift; sourceTree = "<group>"; };
+		1240F56E2E495386001DEFDC /* StubFetchShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFetchShowsUseCase.swift; sourceTree = "<group>"; };
+		1240F56F2E49538D001DEFDC /* StubFetchEpisodesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFetchEpisodesUseCase.swift; sourceTree = "<group>"; };
+		1240F5702E495394001DEFDC /* StubQueryShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubQueryShowsUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +324,11 @@
 		1240F4BE2E476D54001DEFDC /* TVShowsTests */ = {
 			isa = PBXGroup;
 			children = (
+				1240F5842E4956EE001DEFDC /* TVShowsTests.xctestplan */,
+				1240F5642E495294001DEFDC /* Domain */,
+				1240F5652E495299001DEFDC /* Presentation */,
+				1240F5662E4952A8001DEFDC /* Data */,
+				1240F5672E4952B6001DEFDC /* Core */,
 			);
 			path = TVShowsTests;
 			sourceTree = "<group>";
@@ -577,6 +596,83 @@
 			path = EpisodeDetail;
 			sourceTree = "<group>";
 		};
+		1240F5642E495294001DEFDC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1240F56D2E495380001DEFDC /* UseCases */,
+				1240F5802E495606001DEFDC /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1240F5652E495299001DEFDC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1240F5662E4952A8001DEFDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1240F57B2E49553D001DEFDC /* DataSources */,
+				1240F5742E495432001DEFDC /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1240F5672E4952B6001DEFDC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5722E4953C7001DEFDC /* Network */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1240F56D2E495380001DEFDC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5962E495C9A001DEFDC /* Stub */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		1240F5722E4953C7001DEFDC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5772E4954E1001DEFDC /* Stub */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1240F5742E495432001DEFDC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				1240F56C2E495360001DEFDC /* StubShowsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		1240F5772E4954E1001DEFDC /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5692E495310001DEFDC /* StubURLProtocol.swift */,
+				1240F56A2E495322001DEFDC /* StubSessionManager.swift */,
+				1240F56B2E49534B001DEFDC /* StubNetworkFactory.swift */,
+			);
+			path = Stub;
+			sourceTree = "<group>";
+		};
+		1240F5962E495C9A001DEFDC /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				1240F56E2E495386001DEFDC /* StubFetchShowsUseCase.swift */,
+				1240F5702E495394001DEFDC /* StubQueryShowsUseCase.swift */,
+				1240F56F2E49538D001DEFDC /* StubFetchEpisodesUseCase.swift */,
+			);
+			path = Stub;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -757,6 +853,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1240F5862E495790001DEFDC /* StubFetchShowsUseCase.swift in Sources */,
+				1240F5872E495790001DEFDC /* StubFetchEpisodesUseCase.swift in Sources */,
+				1240F5892E495790001DEFDC /* StubQueryShowsUseCase.swift in Sources */,
+				1240F58B2E4957A8001DEFDC /* StubURLProtocol.swift in Sources */,
+				1240F58C2E4957A8001DEFDC /* StubSessionManager.swift in Sources */,
+				1240F58F2E4957A8001DEFDC /* StubShowsRepository.swift in Sources */,
+				1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
