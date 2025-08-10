@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "2CD71852-D61C-4104-BF10-86CA974CE5CD",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:TVShows.xcodeproj",
+          "identifier" : "1240F4202E475BE1001DEFDC",
+          "name" : "TVShows"
+        }
+      ]
+    },
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TVShows.xcodeproj",
+        "identifier" : "1240F42D2E475BE3001DEFDC",
+        "name" : "TVShowsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
