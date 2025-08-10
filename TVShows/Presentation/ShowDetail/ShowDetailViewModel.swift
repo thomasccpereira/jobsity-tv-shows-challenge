@@ -13,6 +13,8 @@ final class ShowDetailViewModel {
    // State
    // Helper model
    struct Seasons: Identifiable {
+      static let previews: [Self] = [ .init(id: 1, episodes: .showEpisodesPreview) ]
+      
       let id: Int
       let episodes: [SingleEpisodeModel]
    }
@@ -53,6 +55,11 @@ final class ShowDetailViewModel {
    // MARK: - Fetching
    func loadEpisodes() async throws {
       do {
+         withAnimation {
+            seasons = Seasons.previews
+            isLoading = true
+         }
+         
          let repository = ShowsRepositoryImpl()
          let fetchs = fetchEpisodesUseCase ?? FetchEpisodesUseCaseImpl(repository: repository)
          let fetchedEpisodes = try await fetchs(showID: show.id)

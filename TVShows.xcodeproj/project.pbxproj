@@ -53,6 +53,7 @@
 		1240F5152E47E0FD001DEFDC /* Paginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5142E47E0F2001DEFDC /* Paginated.swift */; };
 		1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */; };
 		1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */; };
+		1240F51F2E47E393001DEFDC /* FetchEpisodesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */; };
 		1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */; };
 		1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5252E47F025001DEFDC /* NetworkFactory.swift */; };
 		1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */; };
@@ -66,7 +67,10 @@
 		1240F53E2E489595001DEFDC /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53D2E489593001DEFDC /* BorderedView.swift */; };
 		1240F5402E4896C9001DEFDC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53F2E4896C6001DEFDC /* Color+.swift */; };
 		1240F5422E489F1B001DEFDC /* APIErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5412E489F18001DEFDC /* APIErrorDTO.swift */; };
+		1240F5472E48B50B001DEFDC /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5462E48B504001DEFDC /* ShowDetailViewModel.swift */; };
+		1240F5492E48B510001DEFDC /* ShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5482E48B50E001DEFDC /* ShowDetailView.swift */; };
 		1240F54B2E48B965001DEFDC /* Enveloped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F54A2E48B962001DEFDC /* Enveloped.swift */; };
+		1240F5512E48D863001DEFDC /* FetchEpisodesUseCase+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5502E48D863001DEFDC /* FetchEpisodesUseCase+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +140,7 @@
 		1240F5142E47E0F2001DEFDC /* Paginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginated.swift; sourceTree = "<group>"; };
 		1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepository.swift; sourceTree = "<group>"; };
 		1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchShowsPageUseCase.swift; sourceTree = "<group>"; };
+		1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEpisodesUseCase.swift; sourceTree = "<group>"; };
 		1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRemoteDataSource.swift; sourceTree = "<group>"; };
 		1240F5252E47F025001DEFDC /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
 		1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorMapper.swift; sourceTree = "<group>"; };
@@ -149,7 +154,10 @@
 		1240F53D2E489593001DEFDC /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
 		1240F53F2E4896C6001DEFDC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		1240F5412E489F18001DEFDC /* APIErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorDTO.swift; sourceTree = "<group>"; };
+		1240F5462E48B504001DEFDC /* ShowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewModel.swift; sourceTree = "<group>"; };
+		1240F5482E48B50E001DEFDC /* ShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailView.swift; sourceTree = "<group>"; };
 		1240F54A2E48B962001DEFDC /* Enveloped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enveloped.swift; sourceTree = "<group>"; };
+		1240F5502E48D863001DEFDC /* FetchEpisodesUseCase+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchEpisodesUseCase+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +370,7 @@
 				1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */,
 				1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */,
 				1240F5312E48107C001DEFDC /* ShowsList */,
+				1240F5452E48B4FD001DEFDC /* ShowDetail */,
 				1240F5382E4826D8001DEFDC /* CommonUI */,
 			);
 			path = Presentation;
@@ -406,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F5082E478923001DEFDC /* Entities */,
+				1240F54F2E48D847001DEFDC /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -495,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */,
+				1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -548,6 +559,23 @@
 				1240F53D2E489593001DEFDC /* BorderedView.swift */,
 			);
 			path = BorderedView;
+			sourceTree = "<group>";
+		};
+		1240F5452E48B4FD001DEFDC /* ShowDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5462E48B504001DEFDC /* ShowDetailViewModel.swift */,
+				1240F5482E48B50E001DEFDC /* ShowDetailView.swift */,
+			);
+			path = ShowDetail;
+			sourceTree = "<group>";
+		};
+		1240F54F2E48D847001DEFDC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5502E48D863001DEFDC /* FetchEpisodesUseCase+Preview.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,6 +720,7 @@
 				1240F4AE2E476D4E001DEFDC /* Dictionary+.swift in Sources */,
 				1240F4AF2E476D4E001DEFDC /* Encodable+.swift in Sources */,
 				1240F4FD2E478803001DEFDC /* ShowsListModel.swift in Sources */,
+				1240F5472E48B50B001DEFDC /* ShowDetailViewModel.swift in Sources */,
 				1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */,
 				1240F4B02E476D4E001DEFDC /* String+.swift in Sources */,
 				1240F5352E481092001DEFDC /* ShowsListView.swift in Sources */,
@@ -699,10 +728,12 @@
 				1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */,
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
 				1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */,
+				1240F5512E48D863001DEFDC /* FetchEpisodesUseCase+Preview.swift in Sources */,
 				1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */,
 				1240F4F82E4786CE001DEFDC /* SingleEpisodeDTO.swift in Sources */,
 				1240F4CE2E477027001DEFDC /* Coordinatable.swift in Sources */,
 				1240F4FF2E47880E001DEFDC /* QueriedShowsModel.swift in Sources */,
+				1240F5492E48B510001DEFDC /* ShowDetailView.swift in Sources */,
 				1240F5152E47E0FD001DEFDC /* Paginated.swift in Sources */,
 				1240F5102E478D29001DEFDC /* QueriedShowsModel+Preview.swift in Sources */,
 				1240F4D22E477094001DEFDC /* AppCoordinator.swift in Sources */,
@@ -735,6 +766,7 @@
 				1240F5032E47881D001DEFDC /* EpisodesListModel.swift in Sources */,
 				1240F5122E479365001DEFDC /* EpisodesList+Preview.swift in Sources */,
 				1240F4CC2E477020001DEFDC /* BaseCoordinatable.swift in Sources */,
+				1240F51F2E47E393001DEFDC /* FetchEpisodesUseCase.swift in Sources */,
 				1240F5402E4896C9001DEFDC /* Color+.swift in Sources */,
 				1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */,
 				1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */,

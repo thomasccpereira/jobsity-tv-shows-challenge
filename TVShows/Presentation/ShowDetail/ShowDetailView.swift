@@ -3,6 +3,8 @@ import SwiftUI
 struct ShowDetailView: View {
    var viewModel: ShowDetailViewModel
    @State private var firstLoad = true
+   private var seasonsCardBackgroundColor: Color { viewModel.isLoading ? .lightGray : .gold }
+   private var episodesForegroundColor: Color { viewModel.isLoading ? .lightGray : .primaryRoyalPurple }
    
    var body: some View {
       ScrollView {
@@ -32,6 +34,7 @@ struct ShowDetailView: View {
          showGenresView
          
          seasonEpisodesView
+            .shimmer(active: viewModel.isLoading)
          
          Spacer()
       }
@@ -107,14 +110,13 @@ struct ShowDetailView: View {
    private var seasonEpisodesView: some View {
       if !viewModel.seasons.isEmpty {
          VStack(spacing: 12) {
-            let foregroundStyle = Color.primaryRoyalPurple
             Text("Episodes")
                .font(.bold14)
-               .foregroundStyle(foregroundStyle)
+               .foregroundStyle(.primaryRoyalPurple)
                .padding(.top, 16)
                .padding(.bottom, 8)
                .frame(maxWidth: .infinity, alignment: .leading)
-               .border(edges: [.bottom], color: foregroundStyle)
+               .border(edges: [.bottom], color: episodesForegroundColor)
             
             seasonsListView
          }
@@ -132,7 +134,7 @@ struct ShowDetailView: View {
                   .padding(.all, 8)
                   .background {
                      RoundedRectangle(cornerRadius: 8)
-                        .fill(.gold)
+                        .fill(seasonsCardBackgroundColor)
                   }
                
                seasonsEpisodesListView(season: season)
@@ -169,6 +171,8 @@ struct ShowDetailView: View {
 }
 
 #Preview {
-   let viewModel = ShowDetailViewModel(coordinator: .preview, show: .previewShow1, fetchEpisodesUseCase: MockedFetchEpisodesUseCase())
+   let viewModel = ShowDetailViewModel(coordinator: .preview,
+                                       show: .previewShow1,
+                                       fetchEpisodesUseCase: MockedFetchEpisodesUseCase())
    ShowDetailView(viewModel: viewModel)
 }
