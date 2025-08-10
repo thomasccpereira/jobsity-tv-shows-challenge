@@ -9,6 +9,12 @@ enum NetworkError: Error, Equatable, Sendable {
       case (.noInternetConnection, .noInternetConnection):
          true
          
+      case (.cancelled, .cancelled):
+         true
+         
+      case (.timedOut, .timedOut):
+         true
+         
       case (.networkBadRequest, .networkBadRequest):
          true
          
@@ -48,6 +54,8 @@ enum NetworkError: Error, Equatable, Sendable {
    // Generic
    case genericError(Error)
    case noInternetConnection
+   case cancelled
+   case timedOut
    
    // Request
    case networkBadRequest
