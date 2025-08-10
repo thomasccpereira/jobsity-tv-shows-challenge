@@ -17,7 +17,10 @@ final class ShowsRepositoryImpl: ShowsRepository {
                      hasNextPage: true)
          
       } catch {
-         if case NetworkError.networkClientFailure(let code, _) = error, code == 404 {
+         if page > 0,
+            case NetworkError.networkClientFailure(let code, _) = error,
+            code == 404 {
+            
             return Page(items: [],
                         pageIndex: page,
                         hasNextPage: false)
