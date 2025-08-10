@@ -1,7 +1,7 @@
 import Foundation
 
 protocol FetchShowsPageUseCase: Sendable {
-   func callAsFunction(page: Int) async throws -> Page<SingleShowModel>
+   func callAsFunction(page: Int) async throws -> Envelope<Page<SingleShowModel>>
 }
 
 struct FetchShowsPageUseCaseImpl: FetchShowsPageUseCase {
@@ -11,7 +11,7 @@ struct FetchShowsPageUseCaseImpl: FetchShowsPageUseCase {
       self.repository = respository
    }
    
-   func callAsFunction(page: Int) async throws -> Page<SingleShowModel> {
+   func callAsFunction(page: Int) async throws -> Envelope<Page<SingleShowModel>> {
       try await repository.fetchShows(page: page)
    }
 }

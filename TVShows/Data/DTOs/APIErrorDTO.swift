@@ -13,14 +13,3 @@ struct APIErrorDTO: Codable, Sendable {
    let status: Int?
    let previous: Previous?
 }
-
-extension APIErrorDTO: DataTransferableObjects {
-   var domainModelObject: APIErrorModel {
-      .init(name: name,
-            message: message,
-            code: code,
-            httpStatus: status,
-            underlying: .init(name: previous?.name, message: previous?.message, code: previous?.code))
-   }
-}
-

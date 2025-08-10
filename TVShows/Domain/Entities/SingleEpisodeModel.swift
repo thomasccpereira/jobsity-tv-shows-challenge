@@ -1,7 +1,7 @@
 import Foundation
 
-struct SingleEpisodeModel: Sendable, Equatable {
-   struct Posters: Sendable, Equatable {
+struct SingleEpisodeModel: Sendable, Equatable, Hashable {
+   struct Posters: Sendable, Equatable, Hashable {
       let mediumURL: URL?
       let originalURL: URL?
    }

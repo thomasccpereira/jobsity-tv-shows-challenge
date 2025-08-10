@@ -7,16 +7,20 @@ final class ShowsRepositoryImpl: ShowsRepository {
       self.remote = remote
    }
    
-   func fetchShows(page: Int) async throws -> Page<SingleShowModel> {
-      let dtos = try await remote.shows(page: page)
-      let items = dtos.domainModelObject
+   func fetchShows(page: Int) async throws -> Envelope<Page<SingleShowModel>> {
+      let dto = try await remote.shows(page: page)
+      let items = dto.domainModelObject
       let hasNextPage = !items.shows.isEmpty
-      let errorMessage = dtos.error?.previous?.message ?? dtos.error?.message
       
-      return Page(items: items.shows,
-                  pageIndex: page,
-                  hasNextPage: hasNextPage,
-                  errorMessage: errorMessage)
+      if let errorMessage = dto.error?.previous?.message ?? dto.error?.message {
+         return .init(errorMessage: errorMessage)
+      }
+      
+      let model = Page(items: items.shows,
+                      pageIndex: page,
+                      hasNextPage: hasNextPage)
+      return .init(model: model)
+   }
    }
    }
 }

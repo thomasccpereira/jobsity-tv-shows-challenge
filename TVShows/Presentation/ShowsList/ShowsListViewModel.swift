@@ -4,14 +4,7 @@ import Foundation
 @MainActor
 @Observable
 final class ShowsListViewModel {
-   enum PaginationState: Equatable {
-      case idle(nextPage: Int)
-      case isPaginating
-      case didFail(page: Int, errorMessage: String)
-      case endOfList
-   }
-   
-   // Properties
+   // MARK: - Properties
    // Coordinator
    private unowned let coordinator: AppCoordinator
    // Use cases
@@ -19,15 +12,26 @@ final class ShowsListViewModel {
    // State
    private(set) var shows: [SingleShowModel] = []
    private(set) var isLoading = false
+   // Pagination
+   enum PaginationState: Equatable {
+      case idle(nextPage: Int)
+      case isPaginating
+      case didFail(page: Int, errorMessage: String)
+      case endOfList
+   }
+   // Pagination state
    private(set) var paginationState: PaginationState = .idle(nextPage: 0)
+   // Errors
    private(set) var errorMessage: String?
    
+   // MARK: - Init
    init(coordinator: AppCoordinator,
         fetchShowsUseCase: FetchShowsPageUseCase? = nil) {
       self.coordinator = coordinator
       self.fetchShowsUseCase = fetchShowsUseCase
    }
    
+   // MARK: - Fetching
    func loadShowsIfNeeded(after presentedShow: SingleShowModel? = nil) async throws {
       switch paginationState {
       case .idle(let nextPage):
@@ -55,21 +59,22 @@ final class ShowsListViewModel {
       do {
          let repository = ShowsRepositoryImpl()
          let fetchsPage = fetchShowsUseCase ?? FetchShowsPageUseCaseImpl(respository: repository)
-         let fetchedPage = try await fetchsPage(page: page)
+         let fetchedEnvelope = try await fetchsPage(page: page)
          
-         if let fetchedError = fetchedPage.errorMessage, !fetchedError.isEmpty {
+         if let fetchedError = fetchedEnvelope.errorMessage, !fetchedError.isEmpty {
             errorMessage = fetchedError
             return
          }
          
+         let fetchedShows = fetchedEnvelope.model?.items ?? []
          if page == 0 {
-            shows = fetchedPage.items
+            shows = fetchedShows
          } else {
-            shows += fetchedPage.items
+            shows += fetchedShows
          }
          
-         if fetchedPage.hasNextPage {
-            let nextPage = fetchedPage.pageIndex + 1
+         if let model = fetchedEnvelope.model, model.hasNextPage {
+            let nextPage = model.pageIndex + 1
             paginationState = .idle(nextPage: nextPage)
             
          } else {

@@ -66,7 +66,7 @@
 		1240F53E2E489595001DEFDC /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53D2E489593001DEFDC /* BorderedView.swift */; };
 		1240F5402E4896C9001DEFDC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53F2E4896C6001DEFDC /* Color+.swift */; };
 		1240F5422E489F1B001DEFDC /* APIErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5412E489F18001DEFDC /* APIErrorDTO.swift */; };
-		1240F5442E489F4F001DEFDC /* APIErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5432E489F4C001DEFDC /* APIErrorModel.swift */; };
+		1240F54B2E48B965001DEFDC /* Enveloped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F54A2E48B962001DEFDC /* Enveloped.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +149,7 @@
 		1240F53D2E489593001DEFDC /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
 		1240F53F2E4896C6001DEFDC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		1240F5412E489F18001DEFDC /* APIErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorDTO.swift; sourceTree = "<group>"; };
-		1240F5432E489F4C001DEFDC /* APIErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorModel.swift; sourceTree = "<group>"; };
+		1240F54A2E48B962001DEFDC /* Enveloped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enveloped.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,7 +458,6 @@
 				1240F5002E478811001DEFDC /* SingleShowModel.swift */,
 				1240F5022E478816001DEFDC /* EpisodesListModel.swift */,
 				1240F5042E478820001DEFDC /* SingleEpisodeModel.swift */,
-				1240F5432E489F4C001DEFDC /* APIErrorModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -478,6 +477,7 @@
 		1240F5132E47E0E9001DEFDC /* ValueObjects */ = {
 			isa = PBXGroup;
 			children = (
+				1240F54A2E48B962001DEFDC /* Enveloped.swift */,
 				1240F5142E47E0F2001DEFDC /* Paginated.swift */,
 			);
 			path = ValueObjects;
@@ -700,7 +700,6 @@
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
 				1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */,
 				1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */,
-				1240F5442E489F4F001DEFDC /* APIErrorModel.swift in Sources */,
 				1240F4F82E4786CE001DEFDC /* SingleEpisodeDTO.swift in Sources */,
 				1240F4CE2E477027001DEFDC /* Coordinatable.swift in Sources */,
 				1240F4FF2E47880E001DEFDC /* QueriedShowsModel.swift in Sources */,
@@ -720,6 +719,7 @@
 				1240F4B42E476D4E001DEFDC /* NetworkLogging.swift in Sources */,
 				1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */,
 				1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */,
+				1240F54B2E48B965001DEFDC /* Enveloped.swift in Sources */,
 				1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */,
 				1240F4FA2E478756001DEFDC /* EpisodesListDTO.swift in Sources */,
 				1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */,

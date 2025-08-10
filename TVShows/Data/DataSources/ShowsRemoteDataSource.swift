@@ -17,8 +17,8 @@ struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
          return object
          
       } catch {
-         if case NetworkError.networkClientFailure(let response, _) = error {
-            if page > 0 && response.statusCode == 404 {
+         if case NetworkError.networkClientFailure(let statusCode, _) = error {
+            if page > 0 && statusCode == 404 {
                return ShowsListDTO()
             }
          }
