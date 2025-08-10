@@ -32,6 +32,4 @@ struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
       let object: EpisodesListDTO = try await networkFactory.fetch(requestConfig: requestConfig)
       return object
    }
-      return object
-   }
 }

@@ -31,5 +31,4 @@ final class ShowsRepositoryImpl: ShowsRepository {
       
       return .init(model: model)
    }
-   }
 }
