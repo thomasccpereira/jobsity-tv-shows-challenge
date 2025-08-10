@@ -4,7 +4,9 @@ import Foundation
 @Observable
 final class AppCoordinator: Coordinatable {
    // Properties
-   private var showsListViewModel: ShowsListViewModel!
+   @ObservationIgnored
+   lazy var showsListViewModel: ShowsListViewModel = ShowsListViewModel(coordinator: self)
+   
    // Navigation
    var paths: [Paths] = []
    
@@ -13,14 +15,17 @@ final class AppCoordinator: Coordinatable {
    private var launchViewOpacity: Double { didFinishLoad ? 0.0 : 1.0 }
    
    // Init
-   init() { }
+   init(viewModel: ShowsListViewModel? = nil) {
+      if let viewModel {
+         self.showsListViewModel = viewModel
+      }
+   }
 }
 
 // MARK: - Start
 extension AppCoordinator {
    func start() {
       if didFinishLoad { return }
-      self.showsListViewModel = ShowsListViewModel(coordinator: self)
       
       didFinishLoad = true
    }

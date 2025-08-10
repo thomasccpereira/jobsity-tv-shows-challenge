@@ -29,5 +29,5 @@ struct AppCoordinatorView: View {
 
 // MARK: - Preview
 #Preview {
-   AppCoordinatorView(coordinator: .preview)
+   AppCoordinatorView(coordinator: AppCoordinator(viewModel: .preview))
 }
