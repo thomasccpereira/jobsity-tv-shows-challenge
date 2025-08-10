@@ -3,8 +3,8 @@ import SwiftUI
 struct ShowDetailView: View {
    var viewModel: ShowDetailViewModel
    @State private var firstLoad = true
-   private var seasonsCardBackgroundColor: Color { viewModel.isLoading ? .lightGray : .gold }
-   private var episodesForegroundColor: Color { viewModel.isLoading ? .lightGray : .primaryRoyalPurple }
+   private var seasonsCardBackgroundColor: Color { viewModel.isLoading ? .customLightGray : .gold }
+   private var episodesForegroundColor: Color { viewModel.isLoading ? .customLightGray : .primaryRoyalPurple }
    
    var body: some View {
       ScrollView {
@@ -61,6 +61,7 @@ struct ShowDetailView: View {
       Text(viewModel.showTitle)
          .font(.bold13)
          .foregroundColor(.textPrimary)
+         .multilineTextAlignment(.leading)
          .frame(maxWidth: .infinity, alignment: .leading)
    }
    
@@ -161,7 +162,7 @@ struct ShowDetailView: View {
    
    @ViewBuilder
    private func singleSeasonEpisodeView(episode: SingleEpisodeModel) -> some View {
-      HStack {
+      HStack(alignment: .firstTextBaseline) {
          Text(episode.prettyNumber)
             .font(.medium11)
             .foregroundStyle(.primaryRoyalPurple)
@@ -169,6 +170,7 @@ struct ShowDetailView: View {
          Text(episode.name)
             .font(.medium11)
             .foregroundStyle(.primaryRoyalPurple)
+            .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
       }
       .padding(.vertical, 8)

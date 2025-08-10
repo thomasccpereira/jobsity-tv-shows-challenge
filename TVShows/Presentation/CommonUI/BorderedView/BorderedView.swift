@@ -20,14 +20,14 @@ fileprivate struct ViewBorder: Shape {
 extension View {
    func border(width: CGFloat = 1.0,
                edges: [Edge] = [.top, .leading, .trailing, .bottom],
-               color: Color = .lightGray) -> some View {
+               color: Color = .customLightGray) -> some View {
       overlay(ViewBorder(width: width,
                          edges: edges).foregroundColor(color))
    }
    
    func border(width: CGFloat = 1.0,
                axis: Axis,
-               color: Color = .lightGray) -> some View {
+               color: Color = .customLightGray) -> some View {
       switch axis {
       case .horizontal:
          overlay(ViewBorder(width: width,

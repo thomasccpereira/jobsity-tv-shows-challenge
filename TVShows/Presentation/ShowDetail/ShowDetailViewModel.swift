@@ -66,6 +66,7 @@ final class ShowDetailViewModel {
          
          if let fetchedError = fetchedEpisodes.errorMessage, !fetchedError.isEmpty {
             errorMessage = fetchedError
+            withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
             return
          }
          
@@ -76,13 +77,13 @@ final class ShowDetailViewModel {
          }
          
          seasons = allSeasons.sorted(using: KeyPathComparator(\.id))
+         withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
          
       } catch {
          seasons = []
          errorMessage = error.localizedDescription
+         withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
       }
-      
-      withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
    }
    
    func retryLoad() async throws {

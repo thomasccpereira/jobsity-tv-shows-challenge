@@ -83,6 +83,7 @@ final class ShowsListViewModel {
          
          if let fetchedError = fetchedEnvelope.errorMessage, !fetchedError.isEmpty {
             errorMessage = fetchedError
+            withAnimation(.easeInOut) { isLoading = false }
             return
          }
          
@@ -101,6 +102,8 @@ final class ShowsListViewModel {
             paginationState = .endOfList
          }
          
+         withAnimation(.easeInOut) { isLoading = false }
+         
       } catch {
          if page == 0 {
             fetchedShows = []
@@ -109,9 +112,9 @@ final class ShowsListViewModel {
          } else {
             paginationState = .didFail(page: page, errorMessage: error.localizedDescription)
          }
+         
+         withAnimation(.easeInOut) { isLoading = false }
       }
-      
-      withAnimation(.easeInOut) { isLoading = false }
    }
    
    func retryLoad() async throws {

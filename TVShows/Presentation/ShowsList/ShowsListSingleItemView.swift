@@ -37,6 +37,7 @@ struct ShowsListSingleItemView: View {
       Text(singleShow.name)
          .font(.medium14)
          .foregroundStyle(.textPrimary)
+         .multilineTextAlignment(.leading)
    }
    
    @ViewBuilder

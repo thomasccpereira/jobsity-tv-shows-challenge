@@ -1,5 +1,5 @@
 import SwiftUI
 
 extension Color {
-   static let lightGray = Color(.systemGray5)
+   static let customLightGray = Color(.systemGray5)
 }

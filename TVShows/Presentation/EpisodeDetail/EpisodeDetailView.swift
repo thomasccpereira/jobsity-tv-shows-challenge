@@ -47,6 +47,7 @@ struct EpisodeDetailView: View {
       Text(viewModel.episodeTitle)
          .font(.bold16)
          .foregroundColor(.textPrimary)
+         .multilineTextAlignment(.leading)
          .frame(maxWidth: .infinity, alignment: .leading)
    }
    

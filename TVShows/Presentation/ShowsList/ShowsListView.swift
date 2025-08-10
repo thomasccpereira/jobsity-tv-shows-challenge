@@ -5,14 +5,19 @@ struct ShowsListView: View {
    @State var viewModel: ShowsListViewModel
    @State private var firstLoad = true
    @State private var isSearchPresented = false
+   private var emptyListSystemImageNamed: String { "movieclapper" }
+   private var errorSystemImageNamed: String { "xmark.octagon" }
    
    var body: some View {
       ZStack {
          if let errorMessage = viewModel.errorMessage {
-            loadErrorView(errorMessage: errorMessage)
+            loadStateView(stateImageNamed: errorSystemImageNamed,
+                          stateTitle: errorMessage,
+                          retryButtonTitle: "RETRY",
+                          foregroundStyle: .accentRed)
             
          } else {
-            listView
+            listContentView
          }
          
          fullScreenLoadingView
@@ -34,6 +39,18 @@ struct ShowsListView: View {
          }
       }
       .disabled(viewModel.isLoading)
+   }
+   
+   @ViewBuilder
+   private var listContentView: some View {
+      if viewModel.shows.isEmpty {
+         loadStateView(stateImageNamed: emptyListSystemImageNamed,
+                       stateTitle: "That's not time for \"show\".",
+                       foregroundStyle: .elevatedSurface)
+         
+      } else {
+         listView
+      }
    }
    
    @ViewBuilder
@@ -120,25 +137,29 @@ struct ShowsListView: View {
    }
    
    @ViewBuilder
-   private func loadErrorView(errorMessage: String) -> some View {
+   private func loadStateView(stateImageNamed: String,
+                              stateTitle: String,
+                              retryButtonTitle: String? = nil,
+                              foregroundStyle: Color) -> some View {
       VStack(alignment: .center, spacing: 12) {
-         Spacer()
-         
-         Image(systemName: "xmark.octagon")
+         Image(systemName: stateImageNamed)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 64)
+            .padding(.top, 64)
          
-         Text(errorMessage)
-            .font(.medium12)
-         
-         retryButton(with: "Retry")
+         Text(stateTitle)
             .font(.medium16)
-            .padding(.top, 24)
+         
+         if let retryButtonTitle {
+            retryButton(with: retryButtonTitle)
+               .font(.medium18)
+               .padding(.top, 24)
+         }
          
          Spacer()
       }
-      .foregroundStyle(.accentRed)
+      .foregroundStyle(foregroundStyle)
       .padding(.all, 32)
    }
    
