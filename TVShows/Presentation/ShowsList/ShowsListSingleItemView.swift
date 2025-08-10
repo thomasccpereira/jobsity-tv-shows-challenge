@@ -21,7 +21,8 @@ struct ShowsListSingleItemView: View {
          img.resizable().scaledToFill()
          
       } placeholder: {
-         Rectangle().opacity(0.1)
+         Image("placeholder-poster-medium")
+            .aspectRatio(contentMode: .fit)
       }
       .frame(width: 72, height: 96)
       .clipShape(RoundedRectangle(cornerRadius: 8))
