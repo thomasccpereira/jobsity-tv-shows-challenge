@@ -2,7 +2,10 @@ import Foundation
 
 protocol ShowsRemoteDataSource: Sendable {
    func shows(page: Int) async throws -> ShowsListDTO
+   func searchShow(query: String) async throws -> QueriedShowsDTO
    func episodes(showID: Int) async throws -> EpisodesListDTO
+}
+
 struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
    private let networkFactory: any NetworkFactoryType
    
@@ -27,6 +30,13 @@ struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
          throw error
       }
    }
+   
+   func searchShow(query: String) async throws -> QueriedShowsDTO {
+      let requestConfig: ShowRequestConfigs = .searchShows(query: query)
+      let object: QueriedShowsDTO = try await networkFactory.fetch(requestConfig: requestConfig)
+      return object
+   }
+   
    func episodes(showID: Int) async throws -> EpisodesListDTO {
       let requestConfig: ShowRequestConfigs = .getDetailedShow(showID: showID)
       let object: EpisodesListDTO = try await networkFactory.fetch(requestConfig: requestConfig)

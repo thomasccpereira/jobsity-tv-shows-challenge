@@ -53,6 +53,7 @@
 		1240F5152E47E0FD001DEFDC /* Paginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5142E47E0F2001DEFDC /* Paginated.swift */; };
 		1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */; };
 		1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */; };
+		1240F51D2E47E374001DEFDC /* QueryShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51C2E47E36F001DEFDC /* QueryShowsUseCase.swift */; };
 		1240F51F2E47E393001DEFDC /* FetchEpisodesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */; };
 		1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */; };
 		1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5252E47F025001DEFDC /* NetworkFactory.swift */; };
@@ -147,6 +148,7 @@
 		1240F5142E47E0F2001DEFDC /* Paginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginated.swift; sourceTree = "<group>"; };
 		1240F5172E47E1C0001DEFDC /* ShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepository.swift; sourceTree = "<group>"; };
 		1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchShowsPageUseCase.swift; sourceTree = "<group>"; };
+		1240F51C2E47E36F001DEFDC /* QueryShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryShowsUseCase.swift; sourceTree = "<group>"; };
 		1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEpisodesUseCase.swift; sourceTree = "<group>"; };
 		1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRemoteDataSource.swift; sourceTree = "<group>"; };
 		1240F5252E47F025001DEFDC /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F51A2E47E251001DEFDC /* FetchShowsPageUseCase.swift */,
+				1240F51C2E47E36F001DEFDC /* QueryShowsUseCase.swift */,
 				1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */,
 			);
 			path = UseCases;
@@ -770,6 +773,7 @@
 				1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */,
 				1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */,
 				1240F4E72E477F07001DEFDC /* ShowRequestConfigs.swift in Sources */,
+				1240F51D2E47E374001DEFDC /* QueryShowsUseCase.swift in Sources */,
 				1240F5422E489F1B001DEFDC /* APIErrorDTO.swift in Sources */,
 				1240F4F42E4784E3001DEFDC /* ShowsListDTO.swift in Sources */,
 				1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */,

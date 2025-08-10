@@ -12,10 +12,24 @@ struct QueriedShowsDTO: Codable {
    }
    
    let queriedShows: [SingleQueriedShow]
+   let error: APIErrorDTO?
    
    init(from decoder: any Decoder) throws {
-      var container = try decoder.unkeyedContainer()
-      self.queriedShows = try container.decode([SingleQueriedShow].self)
+      do {
+         let queriedShows = try [SingleQueriedShow](from: decoder)
+         self.queriedShows = queriedShows
+         self.error = nil
+         
+      } catch {
+         do {
+            let error = try APIErrorDTO(from: decoder)
+            self.queriedShows = []
+            self.error = error
+            
+         } catch {
+            throw NetworkError.decodingGenericError(error: error)
+         }
+      }
    }
 }
 

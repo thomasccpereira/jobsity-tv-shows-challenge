@@ -9,8 +9,24 @@ final class ShowsListViewModel {
    private unowned let coordinator: AppCoordinator
    // Use cases
    private let fetchShowsUseCase: FetchShowsPageUseCase?
+   private let queryShowsUseCase: QueryShowsUseCase?
    // State
-   private(set) var shows: [SingleShowModel] = []
+   var shows: [SingleShowModel] {
+      isQueryActive ? queriedShows : fetchedShows
+   }
+   private var fetchedShows: [SingleShowModel] = []
+   // Search
+   private var searchTask: Task<Void, Never>?
+   private let debounceDuration: Duration = .milliseconds(500)
+   var searchText: String = "" {
+      didSet {
+         performQueryIfNeeded(searchText)
+      }
+   }
+   private(set) var queriedShows: [SingleShowModel] = []
+   private(set) var isPerformingQuery = false
+   var isQueryActive: Bool { !searchText.trimmed.isEmpty }
+   // Loading
    private(set) var isLoading = false
    // Pagination
    enum PaginationState: Equatable {
@@ -26,18 +42,22 @@ final class ShowsListViewModel {
    
    // MARK: - Init
    init(coordinator: AppCoordinator,
-        fetchShowsUseCase: FetchShowsPageUseCase? = nil) {
+        fetchShowsUseCase: FetchShowsPageUseCase? = nil,
+        queryShowsUseCase: QueryShowsUseCase? = nil) {
       self.coordinator = coordinator
       self.fetchShowsUseCase = fetchShowsUseCase
+      self.queryShowsUseCase = queryShowsUseCase
    }
    
    // MARK: - Fetching
    func loadShowsIfNeeded(after presentedShow: SingleShowModel? = nil) async throws {
+      guard !isQueryActive else { return }
+      
       switch paginationState {
       case .idle(let nextPage):
          if nextPage == 0 {
             withAnimation {
-               shows = .showsListPreview
+               fetchedShows = .showsListPreview
                errorMessage = nil
                isLoading = true
                Task { try await loadShows(page: nextPage) }
@@ -68,9 +88,9 @@ final class ShowsListViewModel {
          
          let fetchedShows = fetchedEnvelope.model?.items ?? []
          if page == 0 {
-            shows = fetchedShows
+            self.fetchedShows = fetchedShows
          } else {
-            shows += fetchedShows
+            self.fetchedShows += fetchedShows
          }
          
          if let model = fetchedEnvelope.model, model.hasNextPage {
@@ -83,7 +103,7 @@ final class ShowsListViewModel {
          
       } catch {
          if page == 0 {
-            shows = []
+            fetchedShows = []
             errorMessage = error.localizedDescription
             
          } else {
@@ -104,6 +124,75 @@ final class ShowsListViewModel {
          
       default:
          break
+      }
+   }
+   
+   // MARK: - Search
+   func cancelSearch() {
+      searchText = ""
+      queriedShows = []
+      errorMessage = nil
+      isPerformingQuery = false
+   }
+   
+   private func performQueryIfNeeded(_ query: String) {
+      searchTask?.cancel()
+      
+      let trimmed = searchText.trimmed
+      guard !trimmed.isEmpty else {
+         queriedShows = []
+         return
+      }
+      
+      withAnimation(.easeInOut) { isPerformingQuery = true }
+      
+      searchTask = Task {
+         // Wait for debounce duration
+         do {
+            try await Task.sleep(for: debounceDuration)
+            
+            // Check if task was cancelled during sleep
+            guard !Task.isCancelled else { return }
+            
+            // Perform the actual search
+            let results = try await performQuery(trimmed)
+            
+            // Update UI on main thread if not cancelled
+            if !Task.isCancelled {
+               await MainActor.run {
+                  self.queriedShows = results
+                  
+                  withAnimation(.easeInOut) { isPerformingQuery = false }
+               }
+            }
+         } catch {
+            if !Task.isCancelled {
+               await MainActor.run {
+                  // Handle error
+                  self.queriedShows = []
+               }
+            }
+         }
+      }
+   }
+   
+   private func performQuery(_ query: String) async throws -> [SingleShowModel] {
+      do {
+         let repository = ShowsRepositoryImpl()
+         let queries = queryShowsUseCase ?? QueryShowsUseCaseImpl(repository: repository)
+         let queriedShows = try await queries(query: query)
+         
+         if let fetchedError = queriedShows.errorMessage, !fetchedError.isEmpty {
+            errorMessage = fetchedError
+            return []
+         }
+         
+         return queriedShows.model?.queriedShows.compactMap(\.show) ?? []
+         
+      } catch {
+         queriedShows = []
+         errorMessage = error.localizedDescription
+         return []
       }
    }
    

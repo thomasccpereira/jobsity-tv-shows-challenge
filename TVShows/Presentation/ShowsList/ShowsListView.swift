@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct ShowsListView: View {
-   var viewModel: ShowsListViewModel
+   static let scrollToTopViewID = "scrollToTop_showsList"
+   @State var viewModel: ShowsListViewModel
    @State private var firstLoad = true
+   @State private var isSearchPresented = false
    
    var body: some View {
       ZStack {
@@ -12,6 +14,17 @@ struct ShowsListView: View {
          } else {
             listView
          }
+         
+         fullScreenLoadingView
+      }
+      .searchable(text: $viewModel.searchText,
+                  isPresented: $isSearchPresented,
+                  placement: .navigationBarDrawer(displayMode: .always),
+                  prompt: "Search you TV show")
+      .onChange(of: isSearchPresented) { old, new in
+         if old == true && new == false {
+            viewModel.cancelSearch()
+         }
       }
       .navigationTitle("TV Shows")
       .onAppear {
@@ -20,28 +33,35 @@ struct ShowsListView: View {
             Task { try await viewModel.loadShowsIfNeeded() }
          }
       }
+      .disabled(viewModel.isLoading)
    }
    
    @ViewBuilder
    private var listView: some View {
-      List {
-         Section {
-            ForEach(viewModel.shows, id: \.id) { singleShow in
-               Button {
-                  viewModel.navigateToShowDetail(for: singleShow)
-               } label: {
-                  singleShowView(singleShow)
+      ScrollViewReader { scrollReader in
+         List {
+            Section {
+               ForEach(viewModel.shows, id: \.id) { singleShow in
+                  Button {
+                     viewModel.navigateToShowDetail(for: singleShow)
+                  } label: {
+                     singleShowView(singleShow)
+                  }
+                  .disabled(viewModel.isLoading)
                }
-               .disabled(viewModel.isLoading)
+            } footer: {
+               paginationStateView
             }
-         } footer: {
-            paginationStateView
+            .listRowSeparator(.hidden)
+            .id(ShowsListView.scrollToTopViewID)
          }
-         .listRowSeparator(.hidden)
+         .listStyle(.plain)
+         .scrollBounceBehavior(.basedOnSize, axes: [.vertical])
+         .scrollDisabled(viewModel.isLoading)
+         .onChange(of: viewModel.isQueryActive) {
+            scrollReader.scrollTo(ShowsListView.scrollToTopViewID, anchor: .topLeading)
+         }
       }
-      .listStyle(.plain)
-      .scrollBounceBehavior(.basedOnSize, axes: [.vertical])
-      .scrollDisabled(viewModel.isLoading)
    }
    
    @ViewBuilder
@@ -84,6 +104,19 @@ struct ShowsListView: View {
          .progressViewStyle(.circular)
          .controlSize(.mini)
          .tint(.primaryRoyalPurple)
+   }
+   
+   @ViewBuilder
+   private var fullScreenLoadingView: some View {
+      if viewModel.isPerformingQuery {
+         ZStack {
+            Color.black
+               .opacity(0.3)
+            
+            ProgressView()
+         }
+         .edgesIgnoringSafeArea(.all)
+      }
    }
    
    @ViewBuilder

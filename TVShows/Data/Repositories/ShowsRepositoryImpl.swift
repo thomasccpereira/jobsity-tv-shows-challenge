@@ -21,6 +21,18 @@ final class ShowsRepositoryImpl: ShowsRepository {
                       hasNextPage: hasNextPage)
       return .init(model: model)
    }
+   
+   func searchShow(query: String) async throws -> Envelope<QueriedShowsModel> {
+      let dto = try await remote.searchShow(query: query)
+      let model = dto.domainModelObject
+      
+      if let errorMessage = dto.error?.previous?.message ?? dto.error?.message {
+         return .init(errorMessage: errorMessage)
+      }
+      
+      return .init(model: model)
+   }
+   
    func fetchEpisodes(showID: Int) async throws -> Envelope<EpisodesListModel> {
       let dto = try await remote.episodes(showID: showID)
       let model = dto.domainModelObject
