@@ -38,8 +38,10 @@ extension View {
    func shimmer(active: Bool,
                 cornerRadius: CGFloat = 8,
                 blendMode: BlendMode = .plusLighter) -> some View {
-      modifier(ShimmerView(active: active,
-                           cornerRadius: cornerRadius,
-                           blendMode: blendMode))
+      self
+         .redacted(reason: active ? .placeholder : [])
+         .modifier(ShimmerView(active: active,
+                               cornerRadius: cornerRadius,
+                               blendMode: blendMode))
    }
 }
