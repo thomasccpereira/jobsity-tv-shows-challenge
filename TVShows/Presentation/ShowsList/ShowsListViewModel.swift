@@ -34,6 +34,7 @@ final class ShowsListViewModel {
          if nextPage == 0 {
             withAnimation {
                shows = .showsListPreview
+               errorMessage = nil
                isLoading = true
                Task { try await loadShows(page: nextPage) }
             }
@@ -72,6 +73,7 @@ final class ShowsListViewModel {
          
       } catch {
          if page == 0 {
+            shows = []
             errorMessage = error.localizedDescription
             
          } else {
@@ -82,9 +84,16 @@ final class ShowsListViewModel {
       withAnimation(.easeInOut) { isLoading = false }
    }
    
-   func retryPagination() async throws {
-      guard case .didFail(let page, _) = paginationState else { return }
-      
-      try await loadShows(page: page)
+   func retryLoad() async throws {
+      switch paginationState {
+      case .idle:
+         try await loadShowsIfNeeded()
+         
+      case .didFail(let page, _):
+         try await loadShows(page: page)
+         
+      default:
+         break
+      }
    }
 }

@@ -5,17 +5,21 @@ struct ShowsListView: View {
    @State private var firstLoad = true
    
    var body: some View {
-      listView
-         .navigationTitle("TV Shows")
-         .onAppear {
-            if firstLoad {
-               Task { try await viewModel.loadShowsIfNeeded() }
-               firstLoad = false
-            }
+      ZStack {
+         if let errorMessage = viewModel.errorMessage {
+            loadErrorView(errorMessage: errorMessage)
+            
+         } else {
+            listView
          }
-         // .alert("Error", isPresented: .constant(vm.error != nil), actions: {
-         //    Button("OK") { vm.error = nil }
-         // }, message: { Text(vm.error ?? "") })
+      }
+      .navigationTitle("TV Shows")
+      .onAppear {
+         if firstLoad {
+            Task { try await viewModel.loadShowsIfNeeded() }
+            firstLoad = false
+         }
+      }
    }
    
    @ViewBuilder
@@ -73,24 +77,51 @@ struct ShowsListView: View {
    }
    
    @ViewBuilder
+   private func loadErrorView(errorMessage: String) -> some View {
+      VStack(alignment: .center, spacing: 12) {
+         Spacer()
+         
+         Image(systemName: "xmark.octagon")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 64)
+         
+         Text(errorMessage)
+            .font(.medium12)
+         
+         retryButton(with: "Retry")
+            .font(.medium16)
+            .padding(.top, 24)
+         
+         Spacer()
+      }
+      .foregroundStyle(.accentRed)
+      .padding(.all, 32)
+   }
+   
+   @ViewBuilder
    private func paginationErrorView(errorMessage: String) -> some View {
+      retryButton(with : errorMessage)
+         .font(.regular11)
+         .padding(.all, 12)
+   }
+   
+   @ViewBuilder
+   private func retryButton(with buttonTitle: String) -> some View {
       Button {
-         Task { try await viewModel.retryPagination() }
+         Task { try await viewModel.retryLoad() }
          
       } label: {
          HStack(alignment: .center, spacing: 8) {
             Image(systemName: "arrow.clockwise")
                .resizable()
-               .frame(width: 40, height: 40)
                .aspectRatio(contentMode: .fit)
-               .foregroundStyle(.softTeal)
+               .frame(width: 24)
             
-            Text("Error when paginating...\nTap to try again.")
-               .font(.regular11)
-               .foregroundStyle(.softTeal)
+            Text(buttonTitle)
          }
+         .foregroundStyle(.softTeal)
       }
-      .padding(.all, 12)
    }
 }
 
