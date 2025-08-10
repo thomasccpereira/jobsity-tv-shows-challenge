@@ -43,7 +43,7 @@ struct ShowsListView: View {
    
    @ViewBuilder
    private var listContentView: some View {
-      if viewModel.shows.isEmpty {
+      if viewModel.shows.isEmpty, !viewModel.isPerformingQuery {
          loadStateView(stateImageNamed: emptyListSystemImageNamed,
                        stateTitle: "That's not time for \"show\".",
                        foregroundStyle: .elevatedSurface)
