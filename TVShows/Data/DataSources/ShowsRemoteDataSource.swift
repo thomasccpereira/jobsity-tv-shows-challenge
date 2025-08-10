@@ -2,6 +2,7 @@ import Foundation
 
 protocol ShowsRemoteDataSource: Sendable {
    func shows(page: Int) async throws -> ShowsListDTO
+   func episodes(showID: Int) async throws -> EpisodesListDTO
 struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
    private let networkFactory: any NetworkFactoryType
    
@@ -25,6 +26,11 @@ struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
          
          throw error
       }
+   }
+   func episodes(showID: Int) async throws -> EpisodesListDTO {
+      let requestConfig: ShowRequestConfigs = .getDetailedShow(showID: showID)
+      let object: EpisodesListDTO = try await networkFactory.fetch(requestConfig: requestConfig)
+      return object
    }
       return object
    }

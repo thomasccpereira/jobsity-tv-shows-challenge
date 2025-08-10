@@ -19,4 +19,8 @@ extension String {
       
       return (try? NSAttributedString(data: data, options: options, documentAttributes: nil).string) ?? self
    }
+   
+   var abbreviated: String {
+      self.prefix(3).capitalized
+   }
 }

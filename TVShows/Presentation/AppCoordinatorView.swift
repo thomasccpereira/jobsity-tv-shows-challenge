@@ -6,12 +6,19 @@ struct AppCoordinatorView: View {
    @StateObject var coordinator: AppCoordinator
    
    var body: some View {
-      NavigationStack {
+      NavigationStack(path: $coordinator.paths) {
          coordinator.startView
             .animation(.easeInOut(duration: 0.5).delay(0.5), value: coordinator.didFinishLoad)
             .transition(.opacity)
             .onAppear {
                coordinator.start()
+            }
+            .navigationDestination(for: AppCoordinator.Paths.self) { destination in
+               switch destination {
+               case .showDetails(let show):
+                  let viewModel = ShowDetailViewModel(coordinator: coordinator, show: show)
+                  ShowDetailView(viewModel: viewModel)
+               }
             }
       }
       .onChange(of: scenePhase) { _, scenePhase in

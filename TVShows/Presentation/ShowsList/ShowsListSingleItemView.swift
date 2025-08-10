@@ -33,7 +33,7 @@ struct ShowsListSingleItemView: View {
    @ViewBuilder
    private var nameView: some View {
       Text(singleShow.name)
-         .font(.medium12)
+         .font(.medium14)
          .foregroundStyle(.textPrimary)
    }
    

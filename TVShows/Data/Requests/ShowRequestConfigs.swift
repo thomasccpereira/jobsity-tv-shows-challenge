@@ -2,10 +2,12 @@ import Foundation
 
 enum ShowRequestConfigs {
    case listShows(page: Int)
+   case getDetailedShow(showID: Int)
 extension ShowRequestConfigs: NetworkRequestConfig {
    var path: String {
       switch self {
       case .listShows: "/shows"
+      case .getDetailedShow(let showID): "/seasons/\(showID)/episodes"
       }
    }
    
@@ -16,6 +18,7 @@ extension ShowRequestConfigs: NetworkRequestConfig {
             .init(name: "page", value: String(page))
          ]
          
+      case .getDetailedShow: nil
       }
    }
 }

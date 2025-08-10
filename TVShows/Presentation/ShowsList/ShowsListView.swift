@@ -27,13 +27,11 @@ struct ShowsListView: View {
       List {
          Section {
             ForEach(viewModel.shows, id: \.id) { singleShow in
-               ShowsListSingleItemView(singleShow: singleShow)
-                  .shimmer(active: viewModel.isLoading)
-                  .onAppear {
-                     Task {
-                        try await viewModel.loadShowsIfNeeded(after: singleShow)
-                     }
-                  }
+               Button {
+                  viewModel.navigateToShowDetail(for: singleShow)
+               } label: {
+                  singleShowView(singleShow)
+               }
             }
          } footer: {
             paginationStateView
@@ -46,7 +44,18 @@ struct ShowsListView: View {
    }
    
    @ViewBuilder
-   var paginationStateView: some View {
+   private func singleShowView(_ singleShow: SingleShowModel) -> some View {
+      ShowsListSingleItemView(singleShow: singleShow)
+         .shimmer(active: viewModel.isLoading)
+         .onAppear {
+            Task {
+               try await viewModel.loadShowsIfNeeded(after: singleShow)
+            }
+         }
+   }
+   
+   @ViewBuilder
+   private var paginationStateView: some View {
       ZStack(alignment: .center) {
          switch viewModel.paginationState {
          case .idle:

@@ -1,6 +1,7 @@
 import SwiftUI
 import Foundation
 
+@Observable
 final class AppCoordinator: Coordinatable {
    // Properties
    private var showsListViewModel: ShowsListViewModel!
@@ -60,16 +61,7 @@ extension AppCoordinator {
 // MARK: - Navigation
 extension AppCoordinator {
    func goToPath(_ path: Paths) {
-      switch path {
-      case .newEvent:
-         break
-         
-      case .editEvent(let eventID):
-         break
-         
-      case .settings:
-         break
-      }
+      paths.append(path)
    }
 }
 

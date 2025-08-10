@@ -2,10 +2,24 @@ import Foundation
 
 struct EpisodesListDTO: Codable {
    let episodes: [SingleEpisodeDTO]
+   let error: APIErrorDTO?
    
    init(from decoder: any Decoder) throws {
-      var container = try decoder.unkeyedContainer()
-      self.episodes = try container.decode([SingleEpisodeDTO].self)
+      do {
+         let shows = try [SingleEpisodeDTO](from: decoder)
+         self.episodes = shows
+         self.error = nil
+         
+      } catch {
+         do {
+            let error = try APIErrorDTO(from: decoder)
+            self.episodes = []
+            self.error = error
+            
+         } catch {
+            throw NetworkError.decodingGenericError(error: error)
+         }
+      }
    }
 }
 

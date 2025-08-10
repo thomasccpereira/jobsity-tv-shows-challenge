@@ -106,4 +106,9 @@ final class ShowsListViewModel {
          break
       }
    }
+   
+   // MARK: - Navigation
+   func navigateToShowDetail(for show: SingleShowModel) {
+      coordinator.goToPath(.showDetails(show: show))
+   }
 }
