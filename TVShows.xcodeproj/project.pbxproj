@@ -65,6 +65,8 @@
 		1240F53B2E482703001DEFDC /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53A2E482701001DEFDC /* ShimmerView.swift */; };
 		1240F53E2E489595001DEFDC /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53D2E489593001DEFDC /* BorderedView.swift */; };
 		1240F5402E4896C9001DEFDC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F53F2E4896C6001DEFDC /* Color+.swift */; };
+		1240F5422E489F1B001DEFDC /* APIErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5412E489F18001DEFDC /* APIErrorDTO.swift */; };
+		1240F5442E489F4F001DEFDC /* APIErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5432E489F4C001DEFDC /* APIErrorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,8 @@
 		1240F53A2E482701001DEFDC /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		1240F53D2E489593001DEFDC /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
 		1240F53F2E4896C6001DEFDC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		1240F5412E489F18001DEFDC /* APIErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorDTO.swift; sourceTree = "<group>"; };
+		1240F5432E489F4C001DEFDC /* APIErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +437,7 @@
 				1240F4EF2E47823A001DEFDC /* SingleShowDTO.swift */,
 				1240F4F92E478751001DEFDC /* EpisodesListDTO.swift */,
 				1240F4F72E4786CA001DEFDC /* SingleEpisodeDTO.swift */,
+				1240F5412E489F18001DEFDC /* APIErrorDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				1240F5002E478811001DEFDC /* SingleShowModel.swift */,
 				1240F5022E478816001DEFDC /* EpisodesListModel.swift */,
 				1240F5042E478820001DEFDC /* SingleEpisodeModel.swift */,
+				1240F5432E489F4C001DEFDC /* APIErrorModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
 				1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */,
 				1240F5182E47E1C6001DEFDC /* ShowsRepository.swift in Sources */,
+				1240F5442E489F4F001DEFDC /* APIErrorModel.swift in Sources */,
 				1240F4F82E4786CE001DEFDC /* SingleEpisodeDTO.swift in Sources */,
 				1240F4CE2E477027001DEFDC /* Coordinatable.swift in Sources */,
 				1240F4FF2E47880E001DEFDC /* QueriedShowsModel.swift in Sources */,
@@ -703,6 +710,7 @@
 				1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */,
 				1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */,
 				1240F4E72E477F07001DEFDC /* ShowRequestConfigs.swift in Sources */,
+				1240F5422E489F1B001DEFDC /* APIErrorDTO.swift in Sources */,
 				1240F4F42E4784E3001DEFDC /* ShowsListDTO.swift in Sources */,
 				1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */,
 				1240F53B2E482703001DEFDC /* ShimmerView.swift in Sources */,

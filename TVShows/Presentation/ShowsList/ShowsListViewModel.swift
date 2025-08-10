@@ -57,6 +57,11 @@ final class ShowsListViewModel {
          let fetchsPage = fetchShowsUseCase ?? FetchShowsPageUseCaseImpl(respository: repository)
          let fetchedPage = try await fetchsPage(page: page)
          
+         if let fetchedError = fetchedPage.errorMessage, !fetchedError.isEmpty {
+            errorMessage = fetchedError
+            return
+         }
+         
          if page == 0 {
             shows = fetchedPage.items
          } else {

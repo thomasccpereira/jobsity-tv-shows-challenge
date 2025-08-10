@@ -8,26 +8,15 @@ final class ShowsRepositoryImpl: ShowsRepository {
    }
    
    func fetchShows(page: Int) async throws -> Page<SingleShowModel> {
-      do {
-         let dtos = try await remote.shows(page: page)
-         let items = dtos.domainModelObject
-         
-         return Page(items: items.shows,
-                     pageIndex: page,
-                     hasNextPage: true)
-         
-      } catch {
-         if page > 0,
-            case NetworkError.networkClientFailure(let code, _) = error,
-            code == 404 {
-            
-            return Page(items: [],
-                        pageIndex: page,
-                        hasNextPage: false)
-         }
-         
-         throw error
-      }
+      let dtos = try await remote.shows(page: page)
+      let items = dtos.domainModelObject
+      let hasNextPage = !items.shows.isEmpty
+      let errorMessage = dtos.error?.previous?.message ?? dtos.error?.message
+      
+      return Page(items: items.shows,
+                  pageIndex: page,
+                  hasNextPage: hasNextPage,
+                  errorMessage: errorMessage)
    }
    }
 }
