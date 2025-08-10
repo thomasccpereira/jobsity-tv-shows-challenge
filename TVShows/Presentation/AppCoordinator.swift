@@ -3,6 +3,7 @@ import Foundation
 
 final class AppCoordinator: Coordinatable {
    // Properties
+   private var showsListViewModel: ShowsListViewModel!
    // Navigation
    var paths: [Paths] = []
    
@@ -11,15 +12,14 @@ final class AppCoordinator: Coordinatable {
    private var launchViewOpacity: Double { didFinishLoad ? 0.0 : 1.0 }
    
    // Init
-   init() {
-      
-   }
+   init() { }
 }
 
 // MARK: - Start
 extension AppCoordinator {
    func start() {
       if didFinishLoad { return }
+      self.showsListViewModel = ShowsListViewModel(coordinator: self)
       
       didFinishLoad = true
    }
@@ -36,10 +36,7 @@ extension AppCoordinator {
    
    @ViewBuilder
    private var mainView: some View {
-      Image(systemName: "exclamationmark.warninglight.fill")
-         .resizable()
-         .aspectRatio(contentMode: .fit)
-         .frame(width: 136, alignment: .center)
+      ShowsListView(viewModel: showsListViewModel)
    }
    
    @ViewBuilder
@@ -55,6 +52,7 @@ extension AppCoordinator {
          Spacer()
       }
       .frame(maxWidth: .infinity)
+      .background(Color.defaultBackground)
       .opacity(launchViewOpacity)
    }
 }

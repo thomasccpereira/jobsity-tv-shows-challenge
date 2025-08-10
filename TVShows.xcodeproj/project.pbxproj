@@ -59,6 +59,9 @@
 		1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */; };
 		1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */; };
 		1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */; };
+		1240F5332E48108C001DEFDC /* ShowsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5322E481084001DEFDC /* ShowsListViewModel.swift */; };
+		1240F5352E481092001DEFDC /* ShowsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5342E48108F001DEFDC /* ShowsListView.swift */; };
+		1240F5372E4814E1001DEFDC /* ShowsListSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5362E4814D7001DEFDC /* ShowsListSingleItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +137,9 @@
 		1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDependencies.swift; sourceTree = "<group>"; };
 		1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseDecoder.swift; sourceTree = "<group>"; };
 		1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepositoryImpl.swift; sourceTree = "<group>"; };
+		1240F5322E481084001DEFDC /* ShowsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListViewModel.swift; sourceTree = "<group>"; };
+		1240F5342E48108F001DEFDC /* ShowsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListView.swift; sourceTree = "<group>"; };
+		1240F5362E4814D7001DEFDC /* ShowsListSingleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListSingleItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +351,7 @@
 				1240F4D12E477091001DEFDC /* AppCoordinator.swift */,
 				1240F4D32E4770E1001DEFDC /* AppCoordinator+Paths.swift */,
 				1240F4D52E47711A001DEFDC /* AppCoordinatorView.swift */,
+				1240F5312E48107C001DEFDC /* ShowsList */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -494,6 +501,16 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		1240F5312E48107C001DEFDC /* ShowsList */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5322E481084001DEFDC /* ShowsListViewModel.swift */,
+				1240F5342E48108F001DEFDC /* ShowsListView.swift */,
+				1240F5362E4814D7001DEFDC /* ShowsListSingleItemView.swift */,
+			);
+			path = ShowsList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -631,11 +648,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1240F5372E4814E1001DEFDC /* ShowsListSingleItemView.swift in Sources */,
 				1240F4AE2E476D4E001DEFDC /* Dictionary+.swift in Sources */,
 				1240F4AF2E476D4E001DEFDC /* Encodable+.swift in Sources */,
 				1240F4FD2E478803001DEFDC /* ShowsListModel.swift in Sources */,
 				1240F4DC2E477173001DEFDC /* AppCoordinator+Preview.swift in Sources */,
 				1240F4B02E476D4E001DEFDC /* String+.swift in Sources */,
+				1240F5352E481092001DEFDC /* ShowsListView.swift in Sources */,
 				1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */,
 				1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */,
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
@@ -665,6 +684,7 @@
 				1240F5012E478813001DEFDC /* SingleShowModel.swift in Sources */,
 				1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */,
 				1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */,
+				1240F5332E48108C001DEFDC /* ShowsListViewModel.swift in Sources */,
 				1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */,
 				1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */,
 				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
@@ -867,7 +887,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -902,7 +922,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

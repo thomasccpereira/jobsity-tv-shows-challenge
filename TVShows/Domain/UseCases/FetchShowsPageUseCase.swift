@@ -1,6 +1,10 @@
 import Foundation
 
-struct FetchShowsPageUseCase {
+protocol FetchShowsPageUseCase: Sendable {
+   func callAsFunction(page: Int) async throws -> Page<SingleShowModel>
+}
+
+struct FetchShowsPageUseCaseImpl: FetchShowsPageUseCase {
    private let repository: ShowsRepository
    
    init(respository: ShowsRepository) {

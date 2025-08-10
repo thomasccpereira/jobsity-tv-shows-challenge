@@ -25,11 +25,6 @@ final class DefaultRequestBuilder: NetworkRequestBuilding {
       var request = URLRequest(url: url)
       request.httpMethod = requestConfig.method.rawValue
       request.allHTTPHeaderFields = requestConfig.headers
-      
-      if let queryItems = requestConfig.queryItems {
-         request.url = request.url?.appending(queryItems: queryItems)
-      }
-      
       request.httpBody = httpBody(requestConfig)
       request.timeoutInterval = 10
       
