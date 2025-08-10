@@ -11,7 +11,12 @@ final class ShowDetailViewModel {
    // Use cases
    private let fetchEpisodesUseCase: FetchEpisodesUseCase?
    // State
-   private(set) var episodes: [SingleEpisodeModel] = []
+   // Helper model
+   struct Seasons: Identifiable {
+      let id: Int
+      let episodes: [SingleEpisodeModel]
+   }
+   private(set) var seasons: [Seasons] = []
    private(set) var isLoading = false
    // Errors
    private(set) var errorMessage: String?
@@ -19,11 +24,11 @@ final class ShowDetailViewModel {
    var showPosterImageURL: URL? { show.image?.originalURL }
    var showTitle: String { show.name }
    // Schedule
-   // Helper struct
+   // Helper model
    struct ShowSchedule: Identifiable {
       var id: String { day + time }
-      var day: String
-      var time: String
+      let day: String
+      let time: String
    }
    // Schedules
    var showSchedules: [ShowSchedule] {
@@ -57,10 +62,16 @@ final class ShowDetailViewModel {
             return
          }
          
-         episodes = fetchedEpisodes.model?.episodes ?? []
+         let allEpisodes = fetchedEpisodes.model?.episodes ?? []
+         let episodesGroupedBySeason = Dictionary(grouping: allEpisodes, by: \.season)
+         let allSeasons = episodesGroupedBySeason.map { season, episodes in
+            Seasons(id: season, episodes: episodes)
+         }
+         
+         seasons = allSeasons.sorted(using: KeyPathComparator(\.id))
          
       } catch {
-         episodes = []
+         seasons = []
          errorMessage = error.localizedDescription
       }
       

@@ -19,12 +19,14 @@ struct ShowsListSingleItemView: View {
    
    @ViewBuilder
    private var posterImage: some View {
-      AsyncImage(url: singleShow.image?.mediumURL) { img in
-         img.resizable().scaledToFill()
+      AsyncImage(url: singleShow.image?.mediumURL) { posterImage in
+         posterImage
+            .resizable()
+            .scaledToFit()
          
       } placeholder: {
          Image("placeholder-poster-medium")
-            .aspectRatio(contentMode: .fit)
+            .scaledToFit()
       }
       .frame(width: 72, height: 96)
       .clipShape(RoundedRectangle(cornerRadius: 8))

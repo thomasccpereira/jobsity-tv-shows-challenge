@@ -5,20 +5,22 @@ struct ShowDetailView: View {
    @State private var firstLoad = true
    
    var body: some View {
-      showMainInfoView
-         .navigationTitle("TV Show")
-         .navigationBarTitleDisplayMode(.inline)
-         .onAppear {
-            if firstLoad {
-               Task { try await viewModel.loadEpisodes() }
-               firstLoad = false
-            }
+      ScrollView {
+         showMainInfoView
+      }
+      .navigationTitle("TV Show")
+      .navigationBarTitleDisplayMode(.inline)
+      .onAppear {
+         if firstLoad {
+            Task { try await viewModel.loadEpisodes() }
+            firstLoad = false
          }
+      }
    }
    
    @ViewBuilder
    private var showMainInfoView: some View {
-      VStack(alignment: .center, spacing: 16) {
+      VStack(alignment: .center, spacing: 12) {
          showPosterView
          
          showNameView
@@ -28,8 +30,12 @@ struct ShowDetailView: View {
          showSchedulesView
          
          showGenresView
+         
+         seasonEpisodesView
+         
+         Spacer()
       }
-      .padding(.all, 16)
+      .padding(.all, 12)
    }
    
    @ViewBuilder
@@ -43,6 +49,7 @@ struct ShowDetailView: View {
          Image("placeholder-poster-medium")
             .scaledToFit()
       }
+      .frame(maxHeight: 320)
       .clipShape(RoundedRectangle(cornerRadius: 8))
    }
    
@@ -96,110 +103,72 @@ struct ShowDetailView: View {
          .frame(maxWidth: .infinity, alignment: .leading)
    }
    
-   /*
    @ViewBuilder
-   private var listView: some View {
-      List {
-         Section {
-            ForEach(viewModel.shows, id: \.id) { singleShow in
-               ShowsListSingleItemView(singleShow: singleShow)
-                  .shimmer(active: viewModel.isLoading)
-                  .onAppear {
-                     Task {
-                        try await viewModel.loadShowsIfNeeded(after: singleShow)
-                     }
+   private var seasonEpisodesView: some View {
+      if !viewModel.seasons.isEmpty {
+         VStack(spacing: 12) {
+            let foregroundStyle = Color.primaryRoyalPurple
+            Text("Episodes")
+               .font(.bold14)
+               .foregroundStyle(foregroundStyle)
+               .padding(.top, 16)
+               .padding(.bottom, 8)
+               .frame(maxWidth: .infinity, alignment: .leading)
+               .border(edges: [.bottom], color: foregroundStyle)
+            
+            seasonsListView
+         }
+      }
+   }
+   
+   @ViewBuilder
+   private var seasonsListView: some View {
+      VStack(spacing: 4) {
+         ForEach(viewModel.seasons) { season in
+            HStack(alignment: .firstTextBaseline) {
+               Text("S\(season.id)")
+                  .font(.medium12)
+                  .foregroundStyle(.textPrimary)
+                  .padding(.all, 8)
+                  .background {
+                     RoundedRectangle(cornerRadius: 8)
+                        .fill(.gold)
                   }
+               
+               seasonsEpisodesListView(season: season)
             }
-         } footer: {
-            paginationStateView
-         }
-         .listRowSeparator(.hidden)
-      }
-      .listStyle(.plain)
-      .scrollBounceBehavior(.basedOnSize, axes: [.vertical])
-      .scrollDisabled(viewModel.isLoading)
-   }
-   
-   @ViewBuilder
-   var paginationStateView: some View {
-      ZStack(alignment: .center) {
-         switch viewModel.paginationState {
-         case .idle:
-            EmptyView()
-            
-         case .isPaginating:
-            circularProgressView
-            
-         case .didFail(_, let errorMessage):
-            paginationErrorView(errorMessage: errorMessage)
-            
-         case .endOfList:
-            Text("All TV shows loaded!")
-               .font(.thin11)
-               .foregroundStyle(.textSecondary)
          }
       }
-      .padding(.all, 8)
-      .frame(maxWidth: .infinity, alignment: .center)
    }
    
    @ViewBuilder
-   private var circularProgressView: some View {
-      ProgressView()
-         .progressViewStyle(.circular)
-         .controlSize(.mini)
-         .tint(.primaryRoyalPurple)
-   }
-   
-   @ViewBuilder
-   private func loadErrorView(errorMessage: String) -> some View {
-      VStack(alignment: .center, spacing: 12) {
-         Spacer()
-         
-         Image(systemName: "xmark.octagon")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 64)
-         
-         Text(errorMessage)
-            .font(.medium12)
-         
-         retryButton(with: "Retry")
-            .font(.medium16)
-            .padding(.top, 24)
-         
-         Spacer()
-      }
-      .foregroundStyle(.accentRed)
-      .padding(.all, 32)
-   }
-   
-   @ViewBuilder
-   private func paginationErrorView(errorMessage: String) -> some View {
-      retryButton(with : errorMessage)
-         .font(.regular11)
-         .padding(.all, 12)
-   }
-   
-   @ViewBuilder
-   private func retryButton(with buttonTitle: String) -> some View {
-      Button {
-         Task { try await viewModel.retryLoad() }
-         
-      } label: {
-         HStack(alignment: .center, spacing: 8) {
-            Image(systemName: "arrow.clockwise")
-               .resizable()
-               .aspectRatio(contentMode: .fit)
-               .frame(width: 24)
-            
-            Text(buttonTitle)
+   private func seasonsEpisodesListView(season: ShowDetailViewModel.Seasons) -> some View {
+      VStack {
+         ForEach(season.episodes, id: \.number) { episode in
+            singleSeasonEpisodeView(episode: episode)
          }
-         .foregroundStyle(.softTeal)
       }
-   } */
+      .border(edges: [.leading])
+   }
+   
+   @ViewBuilder
+   private func singleSeasonEpisodeView(episode: SingleEpisodeModel) -> some View {
+      HStack {
+         Text("EP #\(episode.number)")
+            .font(.medium11)
+            .foregroundStyle(.primaryRoyalPurple)
+         
+         Text(episode.name)
+            .font(.medium11)
+            .foregroundStyle(.primaryRoyalPurple)
+            .frame(maxWidth: .infinity, alignment: .leading)
+      }
+      .padding(.vertical, 8)
+      .padding(.horizontal, 12)
+   }
 }
 
 #Preview {
-   ShowDetailView(viewModel: ShowDetailViewModel(coordinator: .preview, show: .previewShow1))
+   let viewModel = ShowDetailViewModel(coordinator: .preview, show: .previewShow1, fetchEpisodesUseCase: MockedFetchEpisodesUseCase())
+   ShowDetailView(viewModel: viewModel)
 }
