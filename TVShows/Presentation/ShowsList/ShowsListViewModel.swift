@@ -129,7 +129,6 @@ final class ShowsListViewModel {
    
    // MARK: - Search
    func cancelSearch() {
-      searchText = ""
       queriedShows = []
       errorMessage = nil
       isPerformingQuery = false
@@ -140,7 +139,7 @@ final class ShowsListViewModel {
       
       let trimmed = searchText.trimmed
       guard !trimmed.isEmpty else {
-         queriedShows = []
+         cancelSearch()
          return
       }
       
