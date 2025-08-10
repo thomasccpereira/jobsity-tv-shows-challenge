@@ -13,6 +13,8 @@ struct ShowsListSingleItemView: View {
             summaryView
          }
       }
+      .padding(.bottom, 12)
+      .border(edges: [.bottom])
    }
    
    @ViewBuilder
