@@ -16,8 +16,8 @@ struct ShowsListView: View {
       .navigationTitle("TV Shows")
       .onAppear {
          if firstLoad {
-            Task { try await viewModel.loadShowsIfNeeded() }
             firstLoad = false
+            Task { try await viewModel.loadShowsIfNeeded() }
          }
       }
    }
@@ -32,6 +32,7 @@ struct ShowsListView: View {
                } label: {
                   singleShowView(singleShow)
                }
+               .disabled(viewModel.isLoading)
             }
          } footer: {
             paginationStateView

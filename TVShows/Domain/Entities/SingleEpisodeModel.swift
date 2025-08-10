@@ -8,7 +8,11 @@ struct SingleEpisodeModel: Sendable, Equatable, Hashable {
    
    let id: Int
    let season: Int
-   let number: Int
+   let number: Int?
+   var prettyNumber: String {
+      guard let number else { return "EP #N/A" }
+      return "EP #\(number)"
+   }
    let image: Posters?
    let name: String
    let summary: String?

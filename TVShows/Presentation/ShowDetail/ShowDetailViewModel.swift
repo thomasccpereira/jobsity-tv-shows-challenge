@@ -55,7 +55,7 @@ final class ShowDetailViewModel {
    // MARK: - Fetching
    func loadEpisodes() async throws {
       do {
-         withAnimation {
+         withAnimation(.easeInOut) {
             seasons = Seasons.previews
             isLoading = true
          }
@@ -82,7 +82,7 @@ final class ShowDetailViewModel {
          errorMessage = error.localizedDescription
       }
       
-      withAnimation(.easeInOut) { isLoading = false }
+      withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
    }
    
    func retryLoad() async throws {

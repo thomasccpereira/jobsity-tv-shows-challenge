@@ -14,8 +14,8 @@ struct ShowDetailView: View {
       .navigationBarTitleDisplayMode(.inline)
       .onAppear {
          if firstLoad {
-            Task { try await viewModel.loadEpisodes() }
             firstLoad = false
+            Task { try await viewModel.loadEpisodes() }
          }
       }
    }
@@ -50,9 +50,9 @@ struct ShowDetailView: View {
          
       } placeholder: {
          Image("placeholder-poster-medium")
-            .scaledToFit()
+            .scaledToFill()
       }
-      .frame(maxHeight: 320)
+      .frame(minHeight: 320, maxHeight: 320)
       .clipShape(RoundedRectangle(cornerRadius: 8))
    }
    
@@ -128,7 +128,7 @@ struct ShowDetailView: View {
       VStack(spacing: 4) {
          ForEach(viewModel.seasons) { season in
             HStack(alignment: .firstTextBaseline) {
-               Text("S\(season.id)")
+               Text(season.id.prettySeason)
                   .font(.medium12)
                   .foregroundStyle(.textPrimary)
                   .padding(.all, 8)
@@ -147,7 +147,13 @@ struct ShowDetailView: View {
    private func seasonsEpisodesListView(season: ShowDetailViewModel.Seasons) -> some View {
       VStack {
          ForEach(season.episodes, id: \.number) { episode in
-            singleSeasonEpisodeView(episode: episode)
+            Button {
+               viewModel.navigateToEpisodeDetail(for: episode)
+               
+            } label: {
+               singleSeasonEpisodeView(episode: episode)
+            }
+            .disabled(viewModel.isLoading)
          }
       }
       .border(edges: [.leading])
@@ -156,7 +162,7 @@ struct ShowDetailView: View {
    @ViewBuilder
    private func singleSeasonEpisodeView(episode: SingleEpisodeModel) -> some View {
       HStack {
-         Text("EP #\(episode.number)")
+         Text(episode.prettyNumber)
             .font(.medium11)
             .foregroundStyle(.primaryRoyalPurple)
          
