@@ -4,14 +4,23 @@ import Foundation
 @MainActor
 @Observable
 final class ShowsListViewModel {
-   private unowned let coordinator: AppCoordinator
-   private(set) var shows: [SingleShowModel] = []
-   private(set) var error: String?
-   private(set) var isLoading = false
-   private(set) var canLoadMore = true
+   enum PaginationState: Equatable {
+      case idle(nextPage: Int)
+      case isPaginating
+      case didFail(page: Int, errorMessage: String)
+      case endOfList
+   }
    
+   // Properties
+   // Coordinator
+   private unowned let coordinator: AppCoordinator
+   // Use cases
    private let fetchShowsUseCase: FetchShowsPageUseCase?
-   private var nextPage = 0
+   // State
+   private(set) var shows: [SingleShowModel] = []
+   private(set) var isLoading = false
+   private(set) var paginationState: PaginationState = .idle(nextPage: 0)
+   private(set) var errorMessage: String?
    
    init(coordinator: AppCoordinator,
         fetchShowsUseCase: FetchShowsPageUseCase? = nil) {
@@ -19,42 +28,63 @@ final class ShowsListViewModel {
       self.fetchShowsUseCase = fetchShowsUseCase
    }
    
-   func loadFirstPage() async throws {
-      if shows.isEmpty {
-         // Fill shows with mocked list for skeleton animation
-         shows = .showsListPreview
-         try await loadMore()
-      }
-   }
-   
-   func loadMoreShowsIfNeeded(after presentedShow: SingleShowModel) async throws {
-      if canLoadMore, presentedShow == shows.suffix(5).first {
-         try await loadMore()
-      }
-   }
-   
-   private func loadMore() async throws {
-      guard !isLoading else { return }
-      withAnimation(.easeInOut) { isLoading = true }
-      
-      do {
-         let repository = ShowsRepositoryImpl()
-         let fetchPage = fetchShowsUseCase ?? FetchShowsPageUseCaseImpl(respository: repository)
-         let page = try await fetchPage(page: nextPage)
-         
+   func loadShowsIfNeeded(after presentedShow: SingleShowModel? = nil) async throws {
+      switch paginationState {
+      case .idle(let nextPage):
          if nextPage == 0 {
-            shows = page.items
-         } else {
-            shows += page.items
+            withAnimation {
+               shows = .showsListPreview
+               isLoading = true
+               Task { try await loadShows(page: nextPage) }
+            }
+            
+         } else if let presentedShow, presentedShow == shows.suffix(5).first {
+            withAnimation {
+               paginationState = .isPaginating
+               Task { try await loadShows(page: nextPage) }
+            }
          }
          
-         nextPage = page.pageIndex + 1
-         canLoadMore = page.hasNextPage
+      case .isPaginating, .endOfList, .didFail:
+         return
+      }
+   }
+   
+   private func loadShows(page: Int) async throws {
+      do {
+         let repository = ShowsRepositoryImpl()
+         let fetchsPage = fetchShowsUseCase ?? FetchShowsPageUseCaseImpl(respository: repository)
+         let fetchedPage = try await fetchsPage(page: page)
+         
+         if page == 0 {
+            shows = fetchedPage.items
+         } else {
+            shows += fetchedPage.items
+         }
+         
+         if fetchedPage.hasNextPage {
+            let nextPage = fetchedPage.pageIndex + 1
+            paginationState = .idle(nextPage: nextPage)
+            
+         } else {
+            paginationState = .endOfList
+         }
          
       } catch {
-         self.error = String(describing: error)
+         if page == 0 {
+            errorMessage = error.localizedDescription
+            
+         } else {
+            paginationState = .didFail(page: page, errorMessage: error.localizedDescription)
+         }
       }
       
       withAnimation(.easeInOut) { isLoading = false }
+   }
+   
+   func retryPagination() async throws {
+      guard case .didFail(let page, _) = paginationState else { return }
+      
+      try await loadShows(page: page)
    }
 }
