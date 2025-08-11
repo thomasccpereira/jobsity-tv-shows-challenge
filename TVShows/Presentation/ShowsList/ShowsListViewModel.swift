@@ -7,6 +7,7 @@ final class ShowsListViewModel {
    // MARK: - Properties
    // Coordinator
    private unowned let coordinator: AppCoordinator
+   private let store: DatabaseStore
    // Use cases
    private let fetchShowsUseCase: FetchShowsPageUseCase?
    private let queryShowsUseCase: QueryShowsUseCase?
@@ -42,9 +43,11 @@ final class ShowsListViewModel {
    
    // MARK: - Init
    init(coordinator: AppCoordinator,
+        store: DatabaseStore,
         fetchShowsUseCase: FetchShowsPageUseCase? = nil,
         queryShowsUseCase: QueryShowsUseCase? = nil) {
       self.coordinator = coordinator
+      self.store = store
       self.fetchShowsUseCase = fetchShowsUseCase
       self.queryShowsUseCase = queryShowsUseCase
    }

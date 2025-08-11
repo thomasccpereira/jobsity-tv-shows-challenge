@@ -4,8 +4,11 @@ import Foundation
 @Observable
 final class AppCoordinator: Coordinatable {
    // Properties
+   private let store: DatabaseStore
+   
    @ObservationIgnored
-   lazy var showsListViewModel: ShowsListViewModel = ShowsListViewModel(coordinator: self)
+   lazy var showsListViewModel: ShowsListViewModel = ShowsListViewModel(coordinator: self,
+                                                                        store: store)
    
    // Navigation
    var paths: [Paths] = []
@@ -16,8 +19,15 @@ final class AppCoordinator: Coordinatable {
    
    // Init
    init(viewModel: ShowsListViewModel? = nil) {
-      if let viewModel {
-         self.showsListViewModel = viewModel
+      do {
+         self.store = try DatabaseStore(models: [ SingleShowDAO.self ],
+                                        config: .init(inMemory: false))
+         
+         if let viewModel {
+            self.showsListViewModel = viewModel
+         }
+      } catch {
+         fatalError("Couldn't initialize the store: \(error.localizedDescription)")
       }
    }
 }
