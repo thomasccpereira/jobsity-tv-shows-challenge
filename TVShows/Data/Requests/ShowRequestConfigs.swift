@@ -11,7 +11,7 @@ extension ShowRequestConfigs: NetworkRequestConfig {
       switch self {
       case .listShows: "/shows"
       case .searchShows: "/search/shows"
-      case .getDetailedShow(let showID): "/seasons/\(showID)/episodes"
+      case .getDetailedShow(let showID): "/shows/\(showID)/episodes"
       }
    }
    

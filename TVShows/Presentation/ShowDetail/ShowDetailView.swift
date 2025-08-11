@@ -138,6 +138,7 @@ struct ShowDetailView: View {
                      RoundedRectangle(cornerRadius: 8)
                         .fill(seasonsCardBackgroundColor)
                   }
+                  .frame(minWidth: 44)
                
                seasonsEpisodesListView(season: season)
             }
