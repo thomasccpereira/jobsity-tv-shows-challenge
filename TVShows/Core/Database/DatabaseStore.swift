@@ -60,6 +60,12 @@ final class DatabaseStore {
       try context.save()
    }
    
+   func delete<T: PersistentModel>(_ models: [T]) async throws {
+      try await transaction {
+         models.forEach { context.delete($0) }
+      }
+   }
+   
    @discardableResult
    func deleteAll<T: PersistentModel>(of type: T.Type,
                                       matching predicate: Predicate<T>? = nil) async throws -> Int {

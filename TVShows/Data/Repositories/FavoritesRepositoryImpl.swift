@@ -2,60 +2,79 @@ import SwiftData
 import Foundation
 
 @MainActor
-enum FavoritesRepositoryError: Error, @preconcurrency LocalizedError {
-   case notFound(id: Int)
-   case alreadyExists(id: Int)
-   
-   var errorDescription: String? {
-      switch self {
-      case .notFound(let id): return "Favorite with id \(id) was not found."
-      case .alreadyExists(let id): return "Favorite with id \(id) already exists."
-      }
-   }
-}
-
-@MainActor
 final class FavoritesRepositoryImpl: FavoritesRepository {
-   private let context: ModelContext
+   private let databaseStore: DatabaseStore
    
-   init(context: ModelContext) {
-      self.context = context
+   init(databaseStore: DatabaseStore) {
+      self.databaseStore = databaseStore
    }
    
    // MARK: - Create
    func addShowToFavorites(_ show: SingleShowModel) async throws {
-      if let existing = try await findDAO(by: show.id) {
+      if let existing = try await findSingleShowDAO(by: show.id) {
          existing.applyUpdate(from: show)
          
       } else {
          let dao = SingleShowDAO.make(from: show)
-         context.insert(dao)
+         try await databaseStore.insert(dao)
+      }
+   }
+   
+   func addShowEpisodesToFavorites(_ episodes: [SingleEpisodeModel],
+                                   ofShow show: SingleShowModel) async throws {
+      let existings = try await findShowEpisodeDAOs(by: show.id)
+      
+      if !existings.isEmpty {
+         try await databaseStore.delete(existings)
       }
       
-      try context.save()
+      var daos: [SingleEpisodeDAO] = []
+      
+      for episode in episodes {
+         let dao = SingleEpisodeDAO.make(from: episode,
+                                         ofShow: show)
+         daos.append(dao)
+      }
+      
+      try await databaseStore.insertAll(daos)
    }
    
    // MARK: - Read
    func fetchFavorites() async throws -> [SingleShowModel] {
-      let descriptor = FetchDescriptor<SingleShowDAO>(sortBy: [ SortDescriptor(\.name, order: .forward) ])
-      return try context.fetch(descriptor).map(\.domainModelObject)
+      let sortBy: [SortDescriptor<SingleShowDAO>] = [ SortDescriptor(\.name, order: .forward) ]
+      return try await databaseStore.fetch(sortBy: sortBy).map(\.domainModelObject)
+   }
+   
+   func fetchFavoritesEpisodes(showID: Int) async throws -> [SingleEpisodeModel] {
+      return try await findShowEpisodeDAOs(by: showID).map(\.domainModelObject)
    }
    
    // MARK: - Delete
    func removeShowFromFavorites(showID: Int) async throws {
-      if let dao = try await findDAO(by: showID) {
-         context.delete(dao)
-         try context.save()
+      if let dao = try await findSingleShowDAO(by: showID) {
+         try await databaseStore.delete(dao)
       }
    }
    
+   func removeShowEpisodesFromFavorites(showID: Int) async throws {
+      let daos = try await findShowEpisodeDAOs(by: showID)
+      try await databaseStore.delete(daos)
+   }
+   
    // MARK: - Helpers
-   private func findDAO(by id: Int) async throws -> SingleShowDAO? {
+   private func findSingleShowDAO(by id: Int) async throws -> SingleShowDAO? {
       let predicate = #Predicate<SingleShowDAO> { $0.id == id }
+      return try await databaseStore.fetch(matching: predicate).first
+   }
+   
+   private func findShowEpisodeDAOs(by showID: Int) async throws -> [SingleEpisodeDAO] {
+      let predicate = #Predicate<SingleEpisodeDAO> { $0.showID == showID }
       
-      var descriptor = FetchDescriptor<SingleShowDAO>(predicate: predicate)
-      descriptor.fetchLimit = 1
+      let sortBy: [SortDescriptor<SingleEpisodeDAO>] = [
+         SortDescriptor(\.season, order: .forward),
+         SortDescriptor(\.number, order: .forward)
+      ]
       
-      return try context.fetch(descriptor).first
+      return try await databaseStore.fetch(matching: predicate, sortBy: sortBy)
    }
 }
