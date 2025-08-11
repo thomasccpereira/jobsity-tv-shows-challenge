@@ -80,7 +80,6 @@ struct ShowDetailView: View {
                .resizable()
                .aspectRatio(contentMode: .fit)
                .frame(width: 32)
-               .padding(.all, 16)
                .foregroundStyle(.softTeal)
          }
          

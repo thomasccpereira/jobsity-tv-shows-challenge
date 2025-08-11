@@ -3,7 +3,6 @@ import SwiftUI
 struct FavoritesListView: View {
    static let scrollToTopViewID = "scrollToTop_favoritesList"
    @State var viewModel: FavoritesListViewModel
-   @State private var firstLoad = true
    private var emptyListSystemImageNamed: String { "movieclapper" }
    private var errorSystemImageNamed: String { "xmark.octagon" }
    
@@ -22,10 +21,7 @@ struct FavoritesListView: View {
       .navigationTitle("Favorites TV Shows")
       .navigationBarTitleDisplayMode(.inline)
       .onAppear {
-         if firstLoad {
-            firstLoad = false
-            Task { try await viewModel.loadFavorites() }
-         }
+         Task { try await viewModel.loadFavorites() }
       }
    }
    
@@ -67,6 +63,7 @@ struct FavoritesListView: View {
          } label: {
             ShowsListSingleItemView(singleShow: singleShow)
          }
+         .buttonStyle(.plain)
          
          let isShowFavorite = viewModel.isShowFavorite(singleShow)
          Button {
@@ -83,7 +80,6 @@ struct FavoritesListView: View {
                .resizable()
                .aspectRatio(contentMode: .fit)
                .frame(width: 32)
-               .padding(.all, 12)
                .foregroundStyle(.softTeal)
          }
 

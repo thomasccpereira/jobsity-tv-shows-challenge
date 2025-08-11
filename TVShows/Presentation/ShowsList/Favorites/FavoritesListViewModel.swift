@@ -17,6 +17,7 @@ final class FavoritesListViewModel {
    // State
    private(set) var favorites: [SingleShowModel] = []
    private var removed: [SingleShowModel] = []
+   private var firstLoad = true
    // Errors
    private(set) var errorMessage: String?
    
@@ -35,6 +36,9 @@ final class FavoritesListViewModel {
    }
    
    func loadFavorites() async throws {
+      guard firstLoad else { return }
+      firstLoad = false
+      
       do {
          let fetchs = fetchFavoriteUseCase ?? FetchFavoriteShowsUseCaseImpl(repository: repository)
          favorites = try await fetchs.execute()

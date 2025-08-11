@@ -18,6 +18,7 @@ final class ShowDetailViewModel {
    private let addEpisodesToFavoritesUseCase: AddShowEpisodesToFavoritesUseCase?
    private let removeFavoriteUseCase: RemoveShowFromFavoritesUseCase?
    private let removeEpisodesFavoriteUseCase: RemoveShowEpisodesFromFavoritesUseCase?
+   private let fetchFavoriteEpisodesUseCase: FetchFavoriteShowEpisodesUseCase?
    // State
    // Helper model
    struct Seasons: Identifiable {
@@ -62,7 +63,8 @@ final class ShowDetailViewModel {
         addToFavoritesUseCase: AddShowToFavoritesUseCase? = nil,
         addEpisodesToFavoritesUseCase: AddShowEpisodesToFavoritesUseCase? = nil,
         removeFavoriteUseCase: RemoveShowFromFavoritesUseCase? = nil,
-        removeEpisodesFavoriteUseCase: RemoveShowEpisodesFromFavoritesUseCase? = nil) {
+        removeEpisodesFavoriteUseCase: RemoveShowEpisodesFromFavoritesUseCase? = nil,
+        fetchFavoriteEpisodesUseCase: FetchFavoriteShowEpisodesUseCase? = nil) {
       self.coordinator = coordinator
       self.store = store
       self.show = show
@@ -73,18 +75,39 @@ final class ShowDetailViewModel {
       self.addEpisodesToFavoritesUseCase = addEpisodesToFavoritesUseCase
       self.removeFavoriteUseCase = removeFavoriteUseCase
       self.removeEpisodesFavoriteUseCase = removeEpisodesFavoriteUseCase
+      self.fetchFavoriteEpisodesUseCase = fetchFavoriteEpisodesUseCase
    }
    
    // MARK: - Checking favorite
-   private func checkingFavorite() async throws {
+   private func checkingFavorite() async throws -> Bool {
       let checks = checkFavoriteUseCase ?? CheckShowIsFavoriteUseCaseImpl(repository: repository)
       isFavorite = try await checks.execute(showID: show.id)
+      
+      if isFavorite {
+         let fetchs = fetchFavoriteEpisodesUseCase ?? FetchFavoriteShowEpisodesUseCaseImpl(repository: repository)
+         let episodes = try await fetchs.execute(showID: show.id)
+         mapSeasonsFrom(episodes: episodes)
+         return true
+      }
+      
+      return false
+   }
+   
+   // MARK: - Helper
+   private func mapSeasonsFrom(episodes: [SingleEpisodeModel]) {
+      let episodesGroupedBySeason = Dictionary(grouping: episodes, by: \.season)
+      let allSeasons = episodesGroupedBySeason.map { season, episodes in
+         Seasons(id: season, episodes: episodes)
+      }
+      
+      seasons = allSeasons.sorted(using: KeyPathComparator(\.id))
    }
    
    // MARK: - Fetching
    func loadEpisodes() async throws {
       do {
-         try await checkingFavorite()
+         let isFavorite = try await checkingFavorite()
+         if isFavorite { return }
          
          withAnimation(.easeInOut) {
             seasons = Seasons.previews
@@ -102,12 +125,8 @@ final class ShowDetailViewModel {
          }
          
          let allEpisodes = fetchedEpisodes.model?.episodes ?? []
-         let episodesGroupedBySeason = Dictionary(grouping: allEpisodes, by: \.season)
-         let allSeasons = episodesGroupedBySeason.map { season, episodes in
-            Seasons(id: season, episodes: episodes)
-         }
+         mapSeasonsFrom(episodes: allEpisodes)
          
-         seasons = allSeasons.sorted(using: KeyPathComparator(\.id))
          withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
          
       } catch {
