@@ -60,9 +60,9 @@ For each episode:
    git clone https://github.com/yourusername/tv-series-browser.git
 
 ### Project Structure
-TVSeriesBrowser/
+```TVSeriesBrowser/
 ├── Data/              # Networking, persistence, DTOs
 ├── Domain/            # Entities, Use Cases
 ├── Presentation/      # SwiftUI Views, ViewModels
 ├── Resources/         # Assets, localized strings
-└── SupportingFiles/   # App entry point, configurations
+└── SupportingFiles/   # App entry point, configurations```
