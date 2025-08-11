@@ -1,7 +1,7 @@
 #if DEBUG
 extension DatabaseStore {
    static var preview: Self {
-      try! .init(models: [ SingleShowDAO.self, SingleEpisodeDAO.self ],
+      try! .init(models: DatabaseStore.databaseModels,
                 config: .init(inMemory: true,
                               configurationName: "swiftui-previews.sqlite"))
    }
