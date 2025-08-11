@@ -15,13 +15,19 @@ struct SingleEpisodeDTO: Codable {
    let runtime: Int?
 }
 
+extension SingleEpisodeDTO.Posters: DataTransferableObjects {
+   var domainModelObject: SingleEpisodeModel.Posters {
+      .init(mediumURL: medium.flatMap(URL.init(string:)),
+            originalURL: original.flatMap(URL.init(string:)))
+   }
+}
+
 extension SingleEpisodeDTO: DataTransferableObjects {
    var domainModelObject: SingleEpisodeModel {
       .init(id: id,
             season: season,
             number: number,
-            image: .init(mediumURL: image?.medium.flatMap(URL.init(string:)),
-                         originalURL: image?.original.flatMap(URL.init(string:))),
+            image: image?.domainModelObject,
             name: name,
             summary: summary?.strippingHTML,
             runtime: runtime)

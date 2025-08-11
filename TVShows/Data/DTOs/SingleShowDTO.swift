@@ -20,13 +20,26 @@ struct SingleShowDTO: Codable {
    let summary: String?
 }
 
+extension SingleShowDTO.Posters: DataTransferableObjects {
+   var domainModelObject: SingleShowModel.Posters {
+      .init(mediumURL: medium.flatMap(URL.init(string:)),
+            originalURL: original.flatMap(URL.init(string:)))
+   }
+}
+
+extension SingleShowDTO.Schedule: DataTransferableObjects {
+   var domainModelObject: SingleShowModel.Schedule {
+      .init(time: time,
+            days: days)
+   }
+}
+
 extension SingleShowDTO: DataTransferableObjects {
    var domainModelObject: SingleShowModel {
       .init(id: id,
-            image: .init(mediumURL: image?.medium.flatMap(URL.init(string:)),
-                         originalURL: image?.original.flatMap(URL.init(string:))),
+            image: image?.domainModelObject,
             name: name,
-            schedule: .init(time: schedule.time, days: schedule.days),
+            schedule: schedule.domainModelObject,
             genres: genres,
             runtime: runtime,
             summary: summary?.strippingHTML)
