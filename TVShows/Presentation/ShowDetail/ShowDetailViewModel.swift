@@ -106,12 +106,15 @@ final class ShowDetailViewModel {
    // MARK: - Fetching
    func loadEpisodes() async throws {
       do {
-         let isFavorite = try await checkingFavorite()
-         if isFavorite { return }
-         
          withAnimation(.easeInOut) {
             seasons = Seasons.previews
             isLoading = true
+         }
+         
+         let isFavorite = try await checkingFavorite()
+         if isFavorite {
+            withAnimation(.easeInOut) { isLoading = false }
+            return
          }
          
          let repository = ShowsRepositoryImpl()
@@ -120,19 +123,19 @@ final class ShowDetailViewModel {
          
          if let fetchedError = fetchedEpisodes.errorMessage, !fetchedError.isEmpty {
             errorMessage = fetchedError
-            withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
+            withAnimation(.easeInOut) { isLoading = false }
             return
          }
          
          let allEpisodes = fetchedEpisodes.model?.episodes ?? []
          mapSeasonsFrom(episodes: allEpisodes)
          
-         withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
+         withAnimation(.easeInOut) { isLoading = false }
          
       } catch {
          seasons = []
          errorMessage = error.localizedDescription
-         withAnimation(.easeInOut.delay(0.3)) { isLoading = false }
+         withAnimation(.easeInOut) { isLoading = false }
       }
    }
    

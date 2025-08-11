@@ -1,10 +1,17 @@
 import SwiftUI
 
 struct ShowDetailView: View {
-   var viewModel: ShowDetailViewModel
+   @State private var viewModel: ShowDetailViewModel
    @State private var firstLoad = true
    private var seasonsCardBackgroundColor: Color { viewModel.isLoading ? .customLightGray : .gold }
    private var episodesForegroundColor: Color { viewModel.isLoading ? .customLightGray : .primaryRoyalPurple }
+   
+   init(coordinator: AppCoordinator, store: DatabaseStore, show: SingleShowModel) {
+      let viewModel = ShowDetailViewModel(coordinator: coordinator,
+                                          store: store,
+                                          show: show)
+      _viewModel = State(initialValue: viewModel)
+   }
    
    var body: some View {
       ScrollView {
@@ -211,5 +218,7 @@ struct ShowDetailView: View {
 }
 
 #Preview {
-   ShowDetailView(viewModel: .preview)
+   ShowDetailView(coordinator: .preview,
+                  store: .preview,
+                  show: .previewShow1)
 }

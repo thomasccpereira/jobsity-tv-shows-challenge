@@ -1,7 +1,13 @@
 import SwiftUI
 
 struct EpisodeDetailView: View {
-   var viewModel: EpisodeDetailViewModel
+   @State private var viewModel: EpisodeDetailViewModel
+   
+   init(coordinator: AppCoordinator, episode: SingleEpisodeModel) {
+      let viewModel = EpisodeDetailViewModel(coordinator: coordinator,
+                                             episode: episode)
+      _viewModel = State(initialValue: viewModel)
+   }
    
    var body: some View {
       ScrollView {
@@ -80,5 +86,6 @@ struct EpisodeDetailView: View {
 }
 
 #Preview {
-   EpisodeDetailView(viewModel: .preview)
+   EpisodeDetailView(coordinator: .preview,
+                     episode: .previewEpisode1)
 }

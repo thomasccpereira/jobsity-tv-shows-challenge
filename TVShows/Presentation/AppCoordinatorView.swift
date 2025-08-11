@@ -13,21 +13,16 @@ struct AppCoordinatorView: View {
             .onAppear {
                coordinator.start()
             }
-            .navigationDestination(for: AppCoordinator.Paths.self) { [paths = coordinator.paths] destination in
-               let nextDestination = paths.last ?? destination
-               
-               switch nextDestination {
+            .navigationDestination(for: AppCoordinator.Paths.self) { destination in
+               switch destination {
                case .showDetails(let show):
-                  let viewModel = ShowDetailViewModel(coordinator: coordinator, store: coordinator.store, show: show)
-                  ShowDetailView(viewModel: viewModel)
+                  ShowDetailView(coordinator: coordinator, store: coordinator.store, show: show)
                   
                case .episodeDetails(let episode):
-                  let viewModel = EpisodeDetailViewModel(coordinator: coordinator, episode: episode)
-                  EpisodeDetailView(viewModel: viewModel)
+                  EpisodeDetailView(coordinator: coordinator, episode: episode)
                   
                case .showFavorites:
-                  let viewModel = FavoritesListViewModel(coordinator: coordinator, store: coordinator.store)
-                  FavoritesListView(viewModel: viewModel)
+                  FavoritesListView(coordinator: coordinator, store: coordinator.store)
                }
             }
       }

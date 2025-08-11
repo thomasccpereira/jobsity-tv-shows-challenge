@@ -2,9 +2,15 @@ import SwiftUI
 
 struct FavoritesListView: View {
    static let scrollToTopViewID = "scrollToTop_favoritesList"
-   @State var viewModel: FavoritesListViewModel
+   @State private var viewModel: FavoritesListViewModel
    private var emptyListSystemImageNamed: String { "movieclapper" }
    private var errorSystemImageNamed: String { "xmark.octagon" }
+   
+   init(coordinator: AppCoordinator, store: DatabaseStore) {
+      let viewModel = FavoritesListViewModel(coordinator: coordinator,
+                                             store: store)
+      _viewModel = State(initialValue: viewModel)
+   }
    
    var body: some View {
       ZStack {
@@ -82,7 +88,7 @@ struct FavoritesListView: View {
                .frame(width: 32)
                .foregroundStyle(.softTeal)
          }
-
+         
       }
    }
    
@@ -109,5 +115,6 @@ struct FavoritesListView: View {
 }
 
 #Preview {
-   FavoritesListView(viewModel: .preview)
+   FavoritesListView(coordinator: .preview,
+                     store: .preview)
 }
