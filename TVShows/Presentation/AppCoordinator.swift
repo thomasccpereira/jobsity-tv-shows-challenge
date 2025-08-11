@@ -20,7 +20,7 @@ final class AppCoordinator: Coordinatable {
    // Init
    init(viewModel: ShowsListViewModel? = nil) {
       do {
-         self.store = try DatabaseStore(models: [ SingleShowDAO.self ],
+         self.store = try DatabaseStore(models: [ SingleShowDAO.self, SingleEpisodeDAO.self ],
                                         config: .init(inMemory: false))
          
          if let viewModel {

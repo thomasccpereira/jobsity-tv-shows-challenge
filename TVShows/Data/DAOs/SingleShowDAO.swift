@@ -8,7 +8,7 @@ final class SingleShowDAO {
       var medium: String?
       var original: String?
       
-      init(medium: String? = nil, original: String? = nil) {
+      init(medium: String?, original: String?) {
          self.medium = medium
          self.original = original
       }
@@ -34,12 +34,12 @@ final class SingleShowDAO {
    var summary: String?
    
    init(id: Int,
-        image: Posters? = nil,
+        image: Posters?,
         name: String,
         schedule: Schedule,
         genres: [String],
-        runtime: Int? = nil,
-        summary: String? = nil) {
+        runtime: Int?,
+        summary: String?) {
       self.id = id
       self.image = image
       self.name = name
@@ -111,12 +111,9 @@ extension SingleShowDAO {
       schedule.days = domain.schedule.days
       
       // Posters can be created/updated/cleared
-      let mediumURLString = domain.image?.mediumURL?.absoluteString
-      let originalURLString = domain.image?.originalURL?.absoluteString
-      
       if let image = domain.image {
-         self.image = Posters(medium: mediumURLString,
-                              original: originalURLString)
+         self.image = Posters(medium: image.mediumURL?.absoluteString,
+                              original: image.originalURL?.absoluteString)
          
       } else {
          self.image = nil

@@ -108,6 +108,7 @@
 		1240F5BA2E496E89001DEFDC /* RemoveShowFromFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5B92E496E89001DEFDC /* RemoveShowFromFavoritesUseCase.swift */; };
 		1240F5BC2E496F04001DEFDC /* FavoritesRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5BB2E496F03001DEFDC /* FavoritesRepositoryImpl.swift */; };
 		1240F5BF2E49736C001DEFDC /* DatabaseStore+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5BE2E497368001DEFDC /* DatabaseStore+Preview.swift */; };
+		1240F5C12E4976E3001DEFDC /* SingleEpisodeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5C02E4976DD001DEFDC /* SingleEpisodeDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +225,7 @@
 		1240F5B92E496E89001DEFDC /* RemoveShowFromFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveShowFromFavoritesUseCase.swift; sourceTree = "<group>"; };
 		1240F5BB2E496F03001DEFDC /* FavoritesRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepositoryImpl.swift; sourceTree = "<group>"; };
 		1240F5BE2E497368001DEFDC /* DatabaseStore+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseStore+Preview.swift"; sourceTree = "<group>"; };
+		1240F5C02E4976DD001DEFDC /* SingleEpisodeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEpisodeDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -773,6 +775,7 @@
 			children = (
 				1240F5AC2E496B2D001DEFDC /* Protocol */,
 				1240F5AF2E496B52001DEFDC /* SingleShowDAO.swift */,
+				1240F5C02E4976DD001DEFDC /* SingleEpisodeDAO.swift */,
 			);
 			path = DAOs;
 			sourceTree = "<group>";
@@ -977,6 +980,7 @@
 				1240F5B02E496B56001DEFDC /* SingleShowDAO.swift in Sources */,
 				1240F55A2E490CD0001DEFDC /* EpisodeDetailView.swift in Sources */,
 				1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */,
+				1240F5C12E4976E3001DEFDC /* SingleEpisodeDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
