@@ -205,6 +205,10 @@ final class ShowsListViewModel {
    }
    
    // MARK: - Navigation
+   func navigateToFavorites() {
+      coordinator.goToPath(.showFavorites)
+   }
+   
    func navigateToShowDetail(for show: SingleShowModel) {
       coordinator.goToPath(.showDetails(show: show))
    }

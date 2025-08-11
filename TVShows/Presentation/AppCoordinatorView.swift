@@ -24,6 +24,10 @@ struct AppCoordinatorView: View {
                case .episodeDetails(let episode):
                   let viewModel = EpisodeDetailViewModel(coordinator: coordinator, episode: episode)
                   EpisodeDetailView(viewModel: viewModel)
+                  
+               case .showFavorites:
+                  let viewModel = FavoritesListViewModel(coordinator: coordinator, store: coordinator.store)
+                  FavoritesListView(viewModel: viewModel)
                }
             }
       }

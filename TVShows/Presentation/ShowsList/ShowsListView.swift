@@ -32,6 +32,9 @@ struct ShowsListView: View {
          }
       }
       .navigationTitle("TV Shows")
+      .toolbar {
+         navigationTrailingView
+      }
       .onAppear {
          if firstLoad {
             firstLoad = false
@@ -39,6 +42,20 @@ struct ShowsListView: View {
          }
       }
       .disabled(viewModel.isLoading)
+   }
+   
+   @ToolbarContentBuilder
+   private var navigationTrailingView: some ToolbarContent {
+      ToolbarItem(placement: .topBarTrailing) {
+         Button {
+            viewModel.navigateToFavorites()
+         } label: {
+            Image(systemName: "heart.fill")
+               .resizable()
+               .aspectRatio(contentMode: .fit)
+               .frame(width: 24)
+         }
+      }
    }
    
    @ViewBuilder

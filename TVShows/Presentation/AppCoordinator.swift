@@ -4,7 +4,7 @@ import Foundation
 @Observable
 final class AppCoordinator: Coordinatable {
    // Properties
-   private let store: DatabaseStore
+   let store: DatabaseStore
    
    @ObservationIgnored
    lazy var showsListViewModel: ShowsListViewModel = ShowsListViewModel(coordinator: self,
