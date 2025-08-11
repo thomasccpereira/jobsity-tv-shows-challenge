@@ -97,6 +97,9 @@
 		1240F59A2E495CD5001DEFDC /* QueryShowsUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5992E495CCF001DEFDC /* QueryShowsUseCaseImplTests.swift */; };
 		1240F59D2E495D18001DEFDC /* EpisodeDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F59B2E495D18001DEFDC /* EpisodeDetailViewModelTests.swift */; };
 		1240F59E2E495D18001DEFDC /* ShowDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F59C2E495D18001DEFDC /* ShowDetailViewModelTests.swift */; };
+		1240F5A62E4968E7001DEFDC /* DatabaseStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5A52E4968E5001DEFDC /* DatabaseStoreError.swift */; };
+		1240F5A82E496932001DEFDC /* DatabaseStoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5A72E49692F001DEFDC /* DatabaseStoreConfig.swift */; };
+		1240F5AA2E496976001DEFDC /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5A92E496973001DEFDC /* DatabaseStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +205,9 @@
 		1240F5992E495CCF001DEFDC /* QueryShowsUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryShowsUseCaseImplTests.swift; sourceTree = "<group>"; };
 		1240F59B2E495D18001DEFDC /* EpisodeDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewModelTests.swift; sourceTree = "<group>"; };
 		1240F59C2E495D18001DEFDC /* ShowDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewModelTests.swift; sourceTree = "<group>"; };
+		1240F5A52E4968E5001DEFDC /* DatabaseStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStoreError.swift; sourceTree = "<group>"; };
+		1240F5A72E49692F001DEFDC /* DatabaseStoreConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStoreConfig.swift; sourceTree = "<group>"; };
+		1240F5A92E496973001DEFDC /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +338,7 @@
 			children = (
 				1240F4972E476D4E001DEFDC /* Extending */,
 				1240F4A82E476D4E001DEFDC /* Networking */,
+				1240F5A32E4968CB001DEFDC /* Database */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -431,6 +438,7 @@
 		1240F4D82E477158001DEFDC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1240F5BD2E497361001DEFDC /* Database */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -728,6 +736,24 @@
 			path = Stubs;
 			sourceTree = "<group>";
 		};
+		1240F5A32E4968CB001DEFDC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5A52E4968E5001DEFDC /* DatabaseStoreError.swift */,
+				1240F5A72E49692F001DEFDC /* DatabaseStoreConfig.swift */,
+				1240F5A92E496973001DEFDC /* DatabaseStore.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		1240F5BD2E497361001DEFDC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5BE2E497368001DEFDC /* DatabaseStore+Preview.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -871,6 +897,7 @@
 				1240F4B42E476D4E001DEFDC /* NetworkLogging.swift in Sources */,
 				1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */,
 				1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */,
+				1240F5A62E4968E7001DEFDC /* DatabaseStoreError.swift in Sources */,
 				1240F54B2E48B965001DEFDC /* Enveloped.swift in Sources */,
 				1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */,
 				1240F4FA2E478756001DEFDC /* EpisodesListDTO.swift in Sources */,
@@ -878,6 +905,7 @@
 				1240F5582E490CBF001DEFDC /* EpisodeDetailViewModel.swift in Sources */,
 				1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */,
 				1240F5012E478813001DEFDC /* SingleShowModel.swift in Sources */,
+				1240F5BF2E49736C001DEFDC /* DatabaseStore+Preview.swift in Sources */,
 				1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */,
 				1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */,
 				1240F5532E48E358001DEFDC /* ShowsListViewModel+Preview.swift in Sources */,
@@ -885,8 +913,10 @@
 				1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */,
 				1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */,
 				1240F5602E4915BA001DEFDC /* Int+.swift in Sources */,
+				1240F5AA2E496976001DEFDC /* DatabaseStore.swift in Sources */,
 				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
 				1240F55E2E490E60001DEFDC /* EpisodeDetailViewModel+Preview.swift in Sources */,
+				1240F5A82E496932001DEFDC /* DatabaseStoreConfig.swift in Sources */,
 				1240F50C2E478942001DEFDC /* SingleEpisodeModel+Preview.swift in Sources */,
 				1240F5032E47881D001DEFDC /* EpisodesListModel.swift in Sources */,
 				1240F5122E479365001DEFDC /* EpisodesList+Preview.swift in Sources */,
