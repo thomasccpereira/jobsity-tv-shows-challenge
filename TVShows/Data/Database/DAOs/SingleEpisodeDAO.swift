@@ -3,22 +3,11 @@ import Foundation
 
 @Model
 final class SingleEpisodeDAO {
-   @Model
-   class Posters {
-      var medium: String?
-      var original: String?
-      
-      init(medium: String?, original: String?) {
-         self.medium = medium
-         self.original = original
-      }
-   }
-   
    var showID: Int
    var id: Int
    var season: Int
    var number: Int?
-   var image: Posters?
+   @Relationship(deleteRule: .cascade) var image: PostersDAO?
    var name: String
    var summary: String?
    var runtime: Int?
@@ -27,7 +16,7 @@ final class SingleEpisodeDAO {
         id: Int,
         season: Int,
         number: Int?,
-        image: Posters?,
+        image: PostersDAO?,
         name: String,
         summary: String?,
         runtime: Int?) {
@@ -42,19 +31,13 @@ final class SingleEpisodeDAO {
    }
 }
 
-extension SingleEpisodeDAO.Posters: DataAccessibleObject {
-   var domainModelObject: SingleEpisodeModel.Posters {
-      .init(mediumURL: medium.flatMap(URL.init(string:)),
-            originalURL: original.flatMap(URL.init(string:)))
-   }
-}
-
 extension SingleEpisodeDAO: DataAccessibleObject {
    var domainModelObject: SingleEpisodeModel {
       .init(id: id,
             season: season,
             number: number,
-            image: image?.domainModelObject,
+            image: .init(mediumURL: image?.medium.flatMap(URL.init(string:)),
+                         originalURL: image?.original.flatMap(URL.init(string:))),
             name: name,
             summary: summary?.strippingHTML,
             runtime: runtime)
@@ -64,11 +47,11 @@ extension SingleEpisodeDAO: DataAccessibleObject {
 extension SingleEpisodeDAO {
    // Factory to persist a domain model into SwiftData.
    static func make(from domain: SingleEpisodeModel, ofShow show: SingleShowModel) -> SingleEpisodeDAO {
-      let posters: Posters? = {
+      let posters: PostersDAO? = {
          guard domain.image?.mediumURL != nil || domain.image?.originalURL != nil else { return nil }
          
-         return Posters(medium: domain.image?.mediumURL?.absoluteString,
-                        original: domain.image?.originalURL?.absoluteString)
+         return PostersDAO(medium: domain.image?.mediumURL?.absoluteString,
+                           original: domain.image?.originalURL?.absoluteString)
       }()
       
       return SingleEpisodeDAO(showID: show.id,
@@ -92,8 +75,8 @@ extension SingleEpisodeDAO {
       
       // Posters can be created/updated/cleared
       if let image = domain.image {
-         self.image = Posters(medium: image.mediumURL?.absoluteString,
-                              original: image.originalURL?.absoluteString)
+         self.image = PostersDAO(medium: image.mediumURL?.absoluteString,
+                                 original: image.originalURL?.absoluteString)
          
       } else {
          self.image = nil

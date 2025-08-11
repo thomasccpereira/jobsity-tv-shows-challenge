@@ -9,6 +9,11 @@ final class FavoritesRepositoryImpl: FavoritesRepository {
       self.databaseStore = databaseStore
    }
    
+   // MARK: - Check
+   func checkIfShowIsFavorite(_ showID: Int) async throws -> Bool {
+      try await findSingleShowDAO(by: showID) != nil
+   }
+   
    // MARK: - Create
    func addShowToFavorites(_ show: SingleShowModel) async throws {
       if let existing = try await findSingleShowDAO(by: show.id) {

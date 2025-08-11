@@ -23,7 +23,7 @@ struct ShowDetailView: View {
    @ViewBuilder
    private var showMainInfoView: some View {
       VStack(alignment: .center, spacing: 12) {
-         showPosterView
+         showPosterAndFavoriteView
          
          showNameView
          
@@ -42,6 +42,20 @@ struct ShowDetailView: View {
    }
    
    @ViewBuilder
+   private var showPosterAndFavoriteView: some View {
+      ZStack {
+         showPosterView
+         
+         Button {
+            Task { try await viewModel.addOrRemoveShowFromFavorites() }
+         } label: {
+            favoriteButtonView
+         }
+         .disabled(viewModel.isLoading)
+      }
+   }
+   
+   @ViewBuilder
    private var showPosterView: some View {
       AsyncImage(url: viewModel.showPosterImageURL) { posterImage in
          posterImage
@@ -54,6 +68,24 @@ struct ShowDetailView: View {
       }
       .frame(minHeight: 320, maxHeight: 320)
       .clipShape(RoundedRectangle(cornerRadius: 8))
+   }
+   
+   @ViewBuilder
+   private var favoriteButtonView: some View {
+      VStack(alignment: .trailing) {
+         HStack(alignment: .top) {
+            Spacer()
+            
+            Image(systemName: viewModel.favoriteImageNamed)
+               .resizable()
+               .aspectRatio(contentMode: .fit)
+               .frame(width: 32)
+               .padding(.all, 16)
+               .foregroundStyle(.softTeal)
+         }
+         
+         Spacer()
+      }
    }
    
    @ViewBuilder

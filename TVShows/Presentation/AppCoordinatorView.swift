@@ -18,7 +18,7 @@ struct AppCoordinatorView: View {
                
                switch nextDestination {
                case .showDetails(let show):
-                  let viewModel = ShowDetailViewModel(coordinator: coordinator, show: show)
+                  let viewModel = ShowDetailViewModel(coordinator: coordinator, store: coordinator.store, show: show)
                   ShowDetailView(viewModel: viewModel)
                   
                case .episodeDetails(let episode):

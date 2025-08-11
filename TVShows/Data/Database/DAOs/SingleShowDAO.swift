@@ -3,40 +3,18 @@ import Foundation
 
 @Model
 final class SingleShowDAO {
-   @Model
-   class Posters {
-      var medium: String?
-      var original: String?
-      
-      init(medium: String?, original: String?) {
-         self.medium = medium
-         self.original = original
-      }
-   }
-   
-   @Model
-   class Schedule {
-      var time: String
-      var days: [String]
-      
-      init(time: String, days: [String]) {
-         self.time = time
-         self.days = days
-      }
-   }
-   
    var id: Int
-   var image: Posters?
+   @Relationship(deleteRule: .cascade) var image: PostersDAO?
    var name: String
-   var schedule: Schedule
-   var genres: [String]
+   @Relationship(deleteRule: .cascade) var schedule: ScheduleDAO
+   var genres: String
    var runtime: Int?
    var summary: String?
    
    init(id: Int,
-        image: Posters?,
+        image: PostersDAO?,
         name: String,
-        schedule: Schedule,
+        schedule: ScheduleDAO,
         genres: [String],
         runtime: Int?,
         summary: String?) {
@@ -44,33 +22,20 @@ final class SingleShowDAO {
       self.image = image
       self.name = name
       self.schedule = schedule
-      self.genres = genres
+      self.genres = genres.joined(separator: "-")
       self.runtime = runtime
       self.summary = summary
-   }
-}
-
-extension SingleShowDAO.Posters: DataAccessibleObject {
-   var domainModelObject: SingleShowModel.Posters {
-      .init(mediumURL: medium.flatMap(URL.init(string:)),
-            originalURL: original.flatMap(URL.init(string:)))
-   }
-}
-
-extension SingleShowDAO.Schedule: DataAccessibleObject {
-   var domainModelObject: SingleShowModel.Schedule {
-      .init(time: time,
-            days: days)
    }
 }
 
 extension SingleShowDAO: DataAccessibleObject {
    var domainModelObject: SingleShowModel {
       .init(id: id,
-            image: image?.domainModelObject,
+            image: .init(mediumURL: image?.medium.flatMap(URL.init(string:)),
+                         originalURL: image?.original.flatMap(URL.init(string:))),
             name: name,
             schedule: schedule.domainModelObject,
-            genres: genres,
+            genres: genres.components(separatedBy: "-"),
             runtime: runtime,
             summary: summary?.strippingHTML)
    }
@@ -79,15 +44,15 @@ extension SingleShowDAO: DataAccessibleObject {
 extension SingleShowDAO {
    // Factory to persist a domain model into SwiftData.
    static func make(from domain: SingleShowModel) -> SingleShowDAO {
-      let posters: Posters? = {
+      let posters: PostersDAO? = {
          guard domain.image?.mediumURL != nil || domain.image?.originalURL != nil else { return nil }
          
-         return Posters(medium: domain.image?.mediumURL?.absoluteString,
-                        original: domain.image?.originalURL?.absoluteString)
+         return PostersDAO(medium: domain.image?.mediumURL?.absoluteString,
+                           original: domain.image?.originalURL?.absoluteString)
       }()
       
-      let schedule = Schedule(time: domain.schedule.time,
-                              days: domain.schedule.days)
+      let schedule = ScheduleDAO(time: domain.schedule.time,
+                                 days: domain.schedule.days)
       
       return SingleShowDAO(id: domain.id,
                            image: posters,
@@ -102,18 +67,17 @@ extension SingleShowDAO {
    func applyUpdate(from domain: SingleShowModel) {
       // Main info
       name = domain.name
-      genres = domain.genres
+      genres = domain.genres.joined(separator: "-")
       runtime = domain.runtime
       summary = domain.summary
       
       // Schedule
-      schedule.time = domain.schedule.time
-      schedule.days = domain.schedule.days
+      schedule = .init(time: domain.schedule.time, days: domain.schedule.days)
       
       // Posters can be created/updated/cleared
       if let image = domain.image {
-         self.image = Posters(medium: image.mediumURL?.absoluteString,
-                              original: image.originalURL?.absoluteString)
+         self.image = PostersDAO(medium: image.mediumURL?.absoluteString,
+                                 original: image.originalURL?.absoluteString)
          
       } else {
          self.image = nil

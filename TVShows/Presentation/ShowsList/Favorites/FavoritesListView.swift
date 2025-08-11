@@ -83,7 +83,8 @@ struct FavoritesListView: View {
                .resizable()
                .aspectRatio(contentMode: .fit)
                .frame(width: 32)
-               .padding(.top, 32)
+               .padding(.all, 12)
+               .foregroundStyle(.softTeal)
          }
 
       }

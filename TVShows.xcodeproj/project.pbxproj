@@ -116,6 +116,10 @@
 		1240F5CC2E497F33001DEFDC /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5CB2E497F2F001DEFDC /* FavoritesListView.swift */; };
 		1240F5CE2E4980D6001DEFDC /* FavoritesListViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5CD2E4980D6001DEFDC /* FavoritesListViewModel+Preview.swift */; };
 		1240F5D02E498100001DEFDC /* FetchFavoriteShowsUseCase+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5CF2E498100001DEFDC /* FetchFavoriteShowsUseCase+Preview.swift */; };
+		1240F5D22E498A32001DEFDC /* CheckShowIsFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5D12E498A32001DEFDC /* CheckShowIsFavoriteUseCase.swift */; };
+		1240F5DF2E4991BA001DEFDC /* DatabaseStore+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5DE2E4991B5001DEFDC /* DatabaseStore+Default.swift */; };
+		1240F5E12E49929F001DEFDC /* PostersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5E02E499299001DEFDC /* PostersDAO.swift */; };
+		1240F5E32E4992A6001DEFDC /* ScheduleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5E22E4992A2001DEFDC /* ScheduleDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +244,11 @@
 		1240F5CB2E497F2F001DEFDC /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 		1240F5CD2E4980D6001DEFDC /* FavoritesListViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesListViewModel+Preview.swift"; sourceTree = "<group>"; };
 		1240F5CF2E498100001DEFDC /* FetchFavoriteShowsUseCase+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchFavoriteShowsUseCase+Preview.swift"; sourceTree = "<group>"; };
+		1240F5D12E498A32001DEFDC /* CheckShowIsFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckShowIsFavoriteUseCase.swift; sourceTree = "<group>"; };
+		1240F5D62E498E76001DEFDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1240F5DE2E4991B5001DEFDC /* DatabaseStore+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseStore+Default.swift"; sourceTree = "<group>"; };
+		1240F5E02E499299001DEFDC /* PostersDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersDAO.swift; sourceTree = "<group>"; };
+		1240F5E22E4992A2001DEFDC /* ScheduleDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +387,7 @@
 		1240F4AD2E476D4E001DEFDC /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				1240F5D62E498E76001DEFDC /* Info.plist */,
 				1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */,
 				1240F4C62E476F88001DEFDC /* Domain */,
 				1240F4C82E476FAB001DEFDC /* Presentation */,
@@ -424,11 +434,8 @@
 		1240F4C72E476FA5001DEFDC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1240F4E32E477E79001DEFDC /* Requests */,
-				1240F52E2E480B03001DEFDC /* DataSources */,
-				1240F5222E47EB24001DEFDC /* Repositories */,
-				1240F4EB2E478211001DEFDC /* DTOs */,
-				1240F5AB2E496B16001DEFDC /* DAOs */,
+				1240F5DC2E49919F001DEFDC /* Network */,
+				1240F5DD2E4991AB001DEFDC /* Database */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -588,6 +595,7 @@
 				1240F5B52E496E7B001DEFDC /* AddShowToFavoritesUseCase.swift */,
 				1240F5C22E497DD2001DEFDC /* AddShowEpisodesToFavoritesUseCase.swift */,
 				1240F5B72E496E83001DEFDC /* FetchFavoriteShowsUseCase.swift */,
+				1240F5D12E498A32001DEFDC /* CheckShowIsFavoriteUseCase.swift */,
 				1240F5C42E497E0C001DEFDC /* FetchFavoriteShowEpisodesUseCase.swift */,
 				1240F5B92E496E89001DEFDC /* RemoveShowFromFavoritesUseCase.swift */,
 				1240F5C62E497E0E001DEFDC /* RemoveShowEpisodesFromFavoritesUseCase.swift */,
@@ -794,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				1240F5AC2E496B2D001DEFDC /* Protocol */,
+				1240F5D72E498EF5001DEFDC /* AuxiliaryDAOs */,
 				1240F5AF2E496B52001DEFDC /* SingleShowDAO.swift */,
 				1240F5C02E4976DD001DEFDC /* SingleEpisodeDAO.swift */,
 			);
@@ -823,6 +832,35 @@
 				1240F5CB2E497F2F001DEFDC /* FavoritesListView.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		1240F5D72E498EF5001DEFDC /* AuxiliaryDAOs */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5E02E499299001DEFDC /* PostersDAO.swift */,
+				1240F5E22E4992A2001DEFDC /* ScheduleDAO.swift */,
+			);
+			path = AuxiliaryDAOs;
+			sourceTree = "<group>";
+		};
+		1240F5DC2E49919F001DEFDC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1240F4E32E477E79001DEFDC /* Requests */,
+				1240F52E2E480B03001DEFDC /* DataSources */,
+				1240F5222E47EB24001DEFDC /* Repositories */,
+				1240F4EB2E478211001DEFDC /* DTOs */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1240F5DD2E4991AB001DEFDC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5DE2E4991B5001DEFDC /* DatabaseStore+Default.swift */,
+				1240F5AB2E496B16001DEFDC /* DAOs */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -931,6 +969,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1240F5DF2E4991BA001DEFDC /* DatabaseStore+Default.swift in Sources */,
 				1240F5372E4814E1001DEFDC /* ShowsListSingleItemView.swift in Sources */,
 				1240F53E2E489595001DEFDC /* BorderedView.swift in Sources */,
 				1240F4AE2E476D4E001DEFDC /* Dictionary+.swift in Sources */,
@@ -967,6 +1006,7 @@
 				1240F4D42E4770E6001DEFDC /* AppCoordinator+Paths.swift in Sources */,
 				1240F53B2E482703001DEFDC /* ShimmerView.swift in Sources */,
 				1240F50A2E478931001DEFDC /* SingleShowModel+Preview.swift in Sources */,
+				1240F5E12E49929F001DEFDC /* PostersDAO.swift in Sources */,
 				1240F5B42E496D31001DEFDC /* FavoritesRepository.swift in Sources */,
 				1240F50E2E478BF0001DEFDC /* ShowsListModel+Preview.swift in Sources */,
 				1240F5B62E496E7E001DEFDC /* AddShowToFavoritesUseCase.swift in Sources */,
@@ -981,12 +1021,14 @@
 				1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */,
 				1240F5CA2E497F26001DEFDC /* FavoritesListViewModel.swift in Sources */,
 				1240F5582E490CBF001DEFDC /* EpisodeDetailViewModel.swift in Sources */,
+				1240F5D22E498A32001DEFDC /* CheckShowIsFavoriteUseCase.swift in Sources */,
 				1240F5C72E497E0E001DEFDC /* RemoveShowEpisodesFromFavoritesUseCase.swift in Sources */,
 				1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */,
 				1240F5012E478813001DEFDC /* SingleShowModel.swift in Sources */,
 				1240F5BF2E49736C001DEFDC /* DatabaseStore+Preview.swift in Sources */,
 				1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */,
 				1240F5C32E497DD4001DEFDC /* AddShowEpisodesToFavoritesUseCase.swift in Sources */,
+				1240F5E32E4992A6001DEFDC /* ScheduleDAO.swift in Sources */,
 				1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */,
 				1240F5532E48E358001DEFDC /* ShowsListViewModel+Preview.swift in Sources */,
 				1240F5332E48108C001DEFDC /* ShowsListViewModel.swift in Sources */,

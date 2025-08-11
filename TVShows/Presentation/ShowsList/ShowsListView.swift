@@ -54,6 +54,7 @@ struct ShowsListView: View {
                .resizable()
                .aspectRatio(contentMode: .fit)
                .frame(width: 24)
+               .foregroundStyle(.softTeal)
          }
       }
    }
