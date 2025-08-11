@@ -100,6 +100,8 @@
 		1240F5A62E4968E7001DEFDC /* DatabaseStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5A52E4968E5001DEFDC /* DatabaseStoreError.swift */; };
 		1240F5A82E496932001DEFDC /* DatabaseStoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5A72E49692F001DEFDC /* DatabaseStoreConfig.swift */; };
 		1240F5AA2E496976001DEFDC /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5A92E496973001DEFDC /* DatabaseStore.swift */; };
+		1240F5AE2E496B44001DEFDC /* DataAccessibleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5AD2E496B39001DEFDC /* DataAccessibleObject.swift */; };
+		1240F5B02E496B56001DEFDC /* SingleShowDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5AF2E496B52001DEFDC /* SingleShowDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +210,8 @@
 		1240F5A52E4968E5001DEFDC /* DatabaseStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStoreError.swift; sourceTree = "<group>"; };
 		1240F5A72E49692F001DEFDC /* DatabaseStoreConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStoreConfig.swift; sourceTree = "<group>"; };
 		1240F5A92E496973001DEFDC /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
+		1240F5AD2E496B39001DEFDC /* DataAccessibleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessibleObject.swift; sourceTree = "<group>"; };
+		1240F5AF2E496B52001DEFDC /* SingleShowDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleShowDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +400,7 @@
 				1240F52E2E480B03001DEFDC /* DataSources */,
 				1240F5222E47EB24001DEFDC /* Repositories */,
 				1240F4EB2E478211001DEFDC /* DTOs */,
+				1240F5AB2E496B16001DEFDC /* DAOs */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -746,6 +751,23 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		1240F5AB2E496B16001DEFDC /* DAOs */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5AC2E496B2D001DEFDC /* Protocol */,
+				1240F5AF2E496B52001DEFDC /* SingleShowDAO.swift */,
+			);
+			path = DAOs;
+			sourceTree = "<group>";
+		};
+		1240F5AC2E496B2D001DEFDC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1240F5AD2E496B39001DEFDC /* DataAccessibleObject.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		1240F5BD2E497361001DEFDC /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +894,7 @@
 				1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */,
 				1240F5552E48E380001DEFDC /* FetchShowsPageUseCase+Preview.swift in Sources */,
 				1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */,
+				1240F5AE2E496B44001DEFDC /* DataAccessibleObject.swift in Sources */,
 				1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */,
 				1240F4EE2E47822E001DEFDC /* DataTransferableObjects.swift in Sources */,
 				1240F5512E48D863001DEFDC /* FetchEpisodesUseCase+Preview.swift in Sources */,
@@ -929,6 +952,7 @@
 				1240F4F02E4782FB001DEFDC /* SingleShowDTO.swift in Sources */,
 				1240F5052E478823001DEFDC /* SingleEpisodeModel.swift in Sources */,
 				1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */,
+				1240F5B02E496B56001DEFDC /* SingleShowDAO.swift in Sources */,
 				1240F55A2E490CD0001DEFDC /* EpisodeDetailView.swift in Sources */,
 				1240F4D62E47711D001DEFDC /* AppCoordinatorView.swift in Sources */,
 			);
