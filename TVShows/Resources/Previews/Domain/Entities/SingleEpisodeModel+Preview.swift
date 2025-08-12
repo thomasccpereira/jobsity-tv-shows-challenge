@@ -1,4 +1,3 @@
-#if DEBUG
 import Foundation
 
 extension SingleEpisodeModel {
@@ -130,4 +129,3 @@ extension Collection where Element == SingleEpisodeModel {
       ]
    }
 }
-#endif

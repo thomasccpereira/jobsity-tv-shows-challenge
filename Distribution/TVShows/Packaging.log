@@ -1,0 +1,133 @@
+2025-08-12 14:09:33 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x3493a5600; archive(resolved)="<IDEArchive: 0x60000fe2a220>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x3493a5600; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x12af08fc0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x33bebeb50; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x33be4da40; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x33be4b6b0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x33bec6bd0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3498a07d0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x34939d240; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3498bfb20; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000003c8cc0; teamID='6NW28QCL54', teamName='Thomas Calmon Pereira', teamType='Individual', username='thomascalmon.cp@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x34989cfe0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="(null)">
+	<IDEDistributionContext: 0x3403a3730; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="(null)">
+	<IDEDistributionContext: 0x340354190; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="(null)">
+	<IDEDistributionContext: 0x10a3ea1c0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x600005434e30>", team="(null)">
+	<IDEDistributionContext: 0x10a3e9fb0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x10a3e6be0; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x10a257d00; archive = "<IDEArchive: 0x60000fe2a220>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x3493a5600>
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionCreateDestRootStep
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionCopyItemStep
+2025-08-12 14:09:33 +0000  Running /usr/bin/ditto '-V' '/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app' '/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root/Payload/TVShows.app'
+2025-08-12 14:09:33 +0000  >>> Copying /Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app 
+2025-08-12 14:09:33 +0000  copying file ./_CodeSignature/CodeResources ... 
+2025-08-12 14:09:33 +0000  2775 bytes for ./_CodeSignature/CodeResources
+2025-08-12 14:09:33 +0000  copying file ./AppIcon60x60@2x.png ... 
+2025-08-12 14:09:33 +0000  8970 bytes for ./AppIcon60x60@2x.png
+2025-08-12 14:09:33 +0000  copying file ./TVShows ... 
+2025-08-12 14:09:33 +0000  682320 bytes for ./TVShows
+2025-08-12 14:09:33 +0000  copying file ./Assets.car ... 
+2025-08-12 14:09:33 +0000  6644928 bytes for ./Assets.car
+2025-08-12 14:09:33 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+14078 bytes for ./AppIcon76x76@2x~ipad.png
+copying file ./embedded.mobileprovision ... 
+12686 bytes for ./embedded.mobileprovision
+copying file ./Info.plist ... 
+1579 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+8 bytes for ./PkgInfo
+2025-08-12 14:09:33 +0000  /usr/bin/ditto exited with 0
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionEmbedProfileStep
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionInfoPlistStep
+2025-08-12 14:09:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2025-08-12 14:09:33 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionSymbolsStep
+2025-08-12 14:09:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionAppThinningStep
+2025-08-12 14:09:33 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionArchThinningStep
+2025-08-12 14:09:33 +0000  Item /Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-08-12 14:09:33 +0000  Archs to thin for item /Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app are ["arm64e"]
+2025-08-12 14:09:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root/Payload/TVShows.app/TVShows' '-verify_arch' 'arm64e'
+2025-08-12 14:09:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-08-12 14:09:33 +0000  Skipping architecture thinning for item "TVShows" because arch "arm64e" wasn't found
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionODRStep
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionStripXattrsStep
+2025-08-12 14:09:33 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-08-12 14:09:33 +0000  Processing step: IDEDistributionCodesignStep
+2025-08-12 14:09:33 +0000  Entitlements for <IDEDistributionItem: 0x60000f3bce40; bundleID='br.com.thomasccpereira.TVShows', path='<DVTFilePath:0x6000132cdc80:'/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000132b63a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000063a03c0; name='Apple Development: Thomas Calmon Pereira (QWGCVKFX2Z)', hash='9AC33EE3FC5617DFEB967BA69CCA221841E9EA19', serialNumber='3ADE4F78A9FB29689169210FB9CCE257', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-10-08 14:37:40 +0000''>', entitlements='{
+    "application-identifier" = "6NW28QCL54.br.com.thomasccpereira.TVShows";
+    "com.apple.developer.team-identifier" = 6NW28QCL54;
+    "get-task-allow" = 1;
+}', teamID='6NW28QCL54', identifier='br.com.thomasccpereira.TVShows', executablePath='<DVTFilePath:0x60000f337cc0:'/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app/TVShows'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "6NW28QCL54.br.com.thomasccpereira.TVShows";
+    "com.apple.developer.team-identifier" = 6NW28QCL54;
+    "get-task-allow" = 0;
+}
+2025-08-12 14:09:33 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-08-12 14:09:33 +0000  Entitlements for <IDEDistributionItem: 0x60000f3bce40; bundleID='br.com.thomasccpereira.TVShows', path='<DVTFilePath:0x6000132cdc80:'/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000132b63a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000063a03c0; name='Apple Development: Thomas Calmon Pereira (QWGCVKFX2Z)', hash='9AC33EE3FC5617DFEB967BA69CCA221841E9EA19', serialNumber='3ADE4F78A9FB29689169210FB9CCE257', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-10-08 14:37:40 +0000''>', entitlements='{
+    "application-identifier" = "6NW28QCL54.br.com.thomasccpereira.TVShows";
+    "com.apple.developer.team-identifier" = 6NW28QCL54;
+    "get-task-allow" = 1;
+}', teamID='6NW28QCL54', identifier='br.com.thomasccpereira.TVShows', executablePath='<DVTFilePath:0x60000f337cc0:'/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app/TVShows'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "6NW28QCL54.br.com.thomasccpereira.TVShows";
+    "com.apple.developer.team-identifier" = 6NW28QCL54;
+    "get-task-allow" = 0;
+}
+2025-08-12 14:09:33 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f3bce40; bundleID='br.com.thomasccpereira.TVShows', path='<DVTFilePath:0x6000132cdc80:'/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000132b63a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000063a03c0; name='Apple Development: Thomas Calmon Pereira (QWGCVKFX2Z)', hash='9AC33EE3FC5617DFEB967BA69CCA221841E9EA19', serialNumber='3ADE4F78A9FB29689169210FB9CCE257', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-10-08 14:37:40 +0000''>', entitlements='{
+    "application-identifier" = "6NW28QCL54.br.com.thomasccpereira.TVShows";
+    "com.apple.developer.team-identifier" = 6NW28QCL54;
+    "get-task-allow" = 1;
+}', teamID='6NW28QCL54', identifier='br.com.thomasccpereira.TVShows', executablePath='<DVTFilePath:0x60000f337cc0:'/Users/thomasccpereira/Developer/Xcode/Archives/2025-08-12/TVShows 12-08-25, 11.08.xcarchive/Products/Applications/TVShows.app/TVShows'>', hardenedRuntime='0'>'> to: /var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/entitlements~~~uEgZCU
+2025-08-12 14:09:33 +0000  invoking codesign: <NSConcreteTask: 0x60000f65d900; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    B08E5B9882B03E5A7F24BA0E1BAFA0E26A86778B,
+    "--entitlements",
+    "/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/entitlements~~~uEgZCU",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root/Payload/TVShows.app"
+)'>
+2025-08-12 14:09:55 +0000  codesign output: /var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root/Payload/TVShows.app: replacing existing signature
+/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root/Payload/TVShows.app: signed app bundle with Mach-O thin (arm64) [br.com.thomasccpereira.TVShows]
+2025-08-12 14:09:55 +0000  Processing step: IDEDistributionZipODRItemStep
+2025-08-12 14:09:55 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-08-12 14:09:55 +0000  Processing step: IDEDistributionCreateIPAStep
+2025-08-12 14:09:55 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root' '/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Packages/TVShows.ipa'
+2025-08-12 14:09:55 +0000  >>> Copying /var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root 
+2025-08-12 14:09:55 +0000  copying file ./Payload/TVShows.app/_CodeSignature/CodeResources ... 
+2025-08-12 14:09:55 +0000  2775 bytes for ./Payload/TVShows.app/_CodeSignature/CodeResources
+2025-08-12 14:09:55 +0000  copying file ./Payload/TVShows.app/AppIcon60x60@2x.png ... 
+2025-08-12 14:09:55 +0000  8970 bytes for ./Payload/TVShows.app/AppIcon60x60@2x.png
+2025-08-12 14:09:55 +0000  copying file ./Payload/TVShows.app/TVShows ... 
+2025-08-12 14:09:55 +0000  682320 bytes for ./Payload/TVShows.app/TVShows
+2025-08-12 14:09:55 +0000  copying file ./Payload/TVShows.app/Assets.car ... 
+2025-08-12 14:09:55 +0000  6644928 bytes for ./Payload/TVShows.app/Assets.car
+2025-08-12 14:09:55 +0000  copying file ./Payload/TVShows.app/AppIcon76x76@2x~ipad.png ... 
+14078 bytes for ./Payload/TVShows.app/AppIcon76x76@2x~ipad.png
+copying file ./Payload/TVShows.app/embedded.mobileprovision ... 
+2025-08-12 14:09:55 +0000  16517 bytes for ./Payload/TVShows.app/embedded.mobileprovision
+2025-08-12 14:09:55 +0000  copying file ./Payload/TVShows.app/Info.plist ... 
+2025-08-12 14:09:55 +0000  1579 bytes for ./Payload/TVShows.app/Info.plist
+copying file ./Payload/TVShows.app/PkgInfo ... 
+8 bytes for ./Payload/TVShows.app/PkgInfo
+2025-08-12 14:09:55 +0000  /usr/bin/ditto exited with 0
+2025-08-12 14:09:55 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2025-08-12 14:09:55 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2025-08-12 14:09:55 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2025-08-12 14:09:55 +0000  IDEDistributionItem init <DVTFilePath:0x60000f3bcfc0:'/var/folders/63/y22z4rz56hlf6pvn6kt0yzx00000gn/T/XcodeDistPipeline.~~~5mYCet/Root/Payload/TVShows.app'>
+2025-08-12 14:09:55 +0000  Processing step: IDEDistributionCreateManifestStep

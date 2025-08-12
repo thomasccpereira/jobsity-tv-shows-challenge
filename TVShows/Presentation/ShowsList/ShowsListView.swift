@@ -207,6 +207,9 @@ struct ShowsListView: View {
    }
 }
 
+// MARK: - Preview
+#if DEBUG
 #Preview {
    ShowsListView(viewModel: .preview)
 }
+#endif

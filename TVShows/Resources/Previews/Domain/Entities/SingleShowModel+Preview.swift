@@ -1,4 +1,3 @@
-#if DEBUG
 import Foundation
 
 extension SingleShowModel {
@@ -244,4 +243,3 @@ extension Collection where Element == SingleShowModel {
       ]
    }
 }
-#endif

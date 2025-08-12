@@ -85,7 +85,10 @@ struct EpisodeDetailView: View {
    }
 }
 
+// MARK: - Preview
+#if DEBUG
 #Preview {
    EpisodeDetailView(coordinator: .preview,
                      episode: .previewEpisode1)
 }
+#endif

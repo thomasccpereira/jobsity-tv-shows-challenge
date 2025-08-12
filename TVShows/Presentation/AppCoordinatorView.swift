@@ -33,6 +33,8 @@ struct AppCoordinatorView: View {
 }
 
 // MARK: - Preview
+#if DEBUG
 #Preview {
    AppCoordinatorView(coordinator: AppCoordinator(viewModel: .preview))
 }
+#endif

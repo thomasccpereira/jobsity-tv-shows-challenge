@@ -217,8 +217,11 @@ struct ShowDetailView: View {
    }
 }
 
+// MARK: - Preview
+#if DEBUG
 #Preview {
    ShowDetailView(coordinator: .preview,
                   store: .preview,
                   show: .previewShow1)
 }
+#endif

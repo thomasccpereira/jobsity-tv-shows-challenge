@@ -114,7 +114,10 @@ struct FavoritesListView: View {
    }
 }
 
+// MARK: - Preview
+#if DEBUG
 #Preview {
    FavoritesListView(coordinator: .preview,
                      store: .preview)
 }
+#endif
