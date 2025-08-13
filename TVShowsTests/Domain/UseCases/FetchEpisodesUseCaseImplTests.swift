@@ -14,20 +14,20 @@ struct FetchEpisodesUseCaseImplTests {
       let episodes = EpisodesListModel(episodes: [
          .init(id: 1, season: 1, number: 1, image: nil, name: "E1", summary: nil, runtime: 42)
       ])
-      let repo = StubRepo(result: Envelope(model: episodes))
-      let useCase = FetchEpisodesUseCaseImpl(repository: repo)
+      let repository = StubRepo(result: Envelope(model: episodes))
+      let useCase = FetchEpisodesUseCaseImpl(repository: repository)
       
-      let env = try await useCase(showID: 10)
-      #expect(env.model == episodes)
-      #expect(env.errorMessage == nil)
+      let fetched = try await useCase(showID: 10)
+      #expect(fetched.model == episodes)
+      #expect(fetched.errorMessage == nil)
    }
    
    @Test func returnsErrorMessageFromRepository() async throws {
-      let repo = StubRepo(result: Envelope<EpisodesListModel>(model: nil, errorMessage: "Oops"))
-      let useCase = FetchEpisodesUseCaseImpl(repository: repo)
+      let repository = StubRepo(result: Envelope<EpisodesListModel>(model: nil, errorMessage: "Oops"))
+      let useCase = FetchEpisodesUseCaseImpl(repository: repository)
       
-      let env = try await useCase(showID: 10)
-      #expect(env.model == nil)
-      #expect(env.errorMessage == "Oops")
+      let fetched = try await useCase(showID: 10)
+      #expect(fetched.model == nil)
+      #expect(fetched.errorMessage == "Oops")
    }
 }

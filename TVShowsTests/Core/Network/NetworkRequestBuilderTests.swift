@@ -7,10 +7,10 @@ struct NetworkRequestBuilderTests {
    @Test func buildsURLRequestWithQueryHeadersAndBody() throws {
       struct RC: NetworkRequestConfig {
          let path: String = "/shows"
-         var method: NetworkHTTPMethod { .get }
-         var headers: [String:String]? { ["Accept":"application/json"] }
+         var method: HTTPMethod { .get }
+         var headers: HTTPHeaders? { ["Accept":"application/json"] }
          var queryItems: [URLQueryItem]? { [URLQueryItem(name:"page", value:"2")] }
-         var body: [String : any Sendable]? { nil }
+         var body: HTTPBody? { nil }
       }
       let builder = DefaultRequestBuilder()
       let request = try builder.makeRequest(with: RC())

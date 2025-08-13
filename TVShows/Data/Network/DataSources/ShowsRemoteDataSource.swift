@@ -7,13 +7,13 @@ protocol ShowsRemoteDataSource: Sendable {
 }
 
 struct ShowsRemoteDataSourceImpl: ShowsRemoteDataSource {
-   private let networkFactory: any NetworkFactoryType
+   private let networkFactory: any NetworkFactoring
    
-   init(networkFactory: any NetworkFactoryType = NetworkFactory()) {
+   init(networkFactory: any NetworkFactoring = NetworkFactory()) {
       self.networkFactory = networkFactory
    }
    
-   // MARK: Endpoints
+   // MARK: - Endpoints
    func shows(page: Int) async throws -> ShowsListDTO {
       do {
          let requestConfig: ShowRequestConfigs = .listShows(page: page)

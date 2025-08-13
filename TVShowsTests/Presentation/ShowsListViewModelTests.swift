@@ -21,41 +21,50 @@ func eventually(timeout: UInt64 = 1_500_000_000, // 1.5s
 struct ShowsListViewModelTests {
    @Test func performQueryDebouncedUpdatesResults() async throws {
       let coordinator = AppCoordinator()
-      let queried = QueriedShowsModel(queriedShows: [
-         .init(score: 1.0,
-               show: .init(id: 1,
-                           image: nil,
-                           name: "Kirby",
-                           schedule:.init(time:"", days:[]),
-                           genres:[],
-                           runtime:nil,
-                           summary:nil))
-      ])
-      let vm = ShowsListViewModel(
-         coordinator: coordinator,
-         fetchShowsUseCase: nil,
-         queryShowsUseCase: StubQueryShowsUseCase(handler: { _ in Envelope(model: queried) })
-      )
+      // Use an in-memory SwiftData store for tests
+      let store = try DatabaseStore(models: DatabaseStore.databaseModels,
+                                    config: .init(inMemory: true))
       
-      vm.searchText = "Kir"
+      let show = SingleShowModel(id: 1,
+                                  image: nil,
+                                  name: "Kirby",
+                                  schedule:.init(time: "", days: []),
+                                  genres: [],
+                                  runtime: nil,
+                                  summary: nil)
+      let queriedShows = QueriedShowsModel.SingleQueriedShow(score: 1.0,
+                                                             show: show)
+      let queried = QueriedShowsModel(queriedShows: [ queriedShows ])
+      
+      let mockedUseCase = StubQueryShowsUseCase(handler: { _ in Envelope(model: queried) })
+      let viewModel = ShowsListViewModel(coordinator: coordinator,
+                                         store: store,
+                                         fetchShowsUseCase: nil,
+                                         queryShowsUseCase: mockedUseCase)
+      
+      viewModel.searchText = "Kir"
       
       // Wait for debounce (500ms) + work; poll until results land
-      let ok = await eventually( _ : vm.shows.first?.name == "Kirby" && vm.isPerformingQuery == false )
+      let ok = await eventually( _ : viewModel.shows.first?.name == "Kirby" && viewModel.isPerformingQuery == false )
       #expect(ok, "Expected debounced query to complete and results to be set")
    }
    
    @Test func cancelSearchClearsState() async throws {
       let coordinator = AppCoordinator()
-      let vm = ShowsListViewModel(coordinator: coordinator)
+      // Use an in-memory SwiftData store for tests
+      let store = try DatabaseStore(models: DatabaseStore.databaseModels,
+                                    config: .init(inMemory: true))
       
-      vm.searchText = "abc"
-      vm.cancelSearch()
+      let viewModel = ShowsListViewModel(coordinator: coordinator, store: store)
+      
+      viewModel.searchText = "abc"
+      viewModel.cancelSearch()
       
       // Allow any pending scheduled task to be cancelled and state to settle
-      _ = await eventually( _ : vm.isPerformingQuery == false )
+      _ = await eventually( _ : viewModel.isPerformingQuery == false )
       
-      #expect(vm.shows.isEmpty)
-      #expect(vm.isPerformingQuery == false)
-      #expect(vm.errorMessage == nil)
+      #expect(viewModel.shows.isEmpty)
+      #expect(viewModel.isPerformingQuery == false)
+      #expect(viewModel.errorMessage == nil)
    }
 }

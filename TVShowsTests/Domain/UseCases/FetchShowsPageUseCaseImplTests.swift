@@ -5,25 +5,21 @@ import Testing
 struct FetchShowsPageUseCaseImplTests {
    @Test func fetchShowsPageUseCasePassesThrough() async throws {
       let page = Page(items: [SingleShowModel(id: 1, image: nil, name: "X", schedule: .init(time:"", days:[]), genres: [], runtime: nil, summary: nil)], pageIndex: 0, hasNextPage: false)
-      let repo = StubShowsRepository(
-         fetchShowsHandler: { _ in Envelope(model: page) },
-         searchShowHandler: { _ in Envelope(model: .init(queriedShows: [])) },
-         fetchEpisodesHandler: { _ in Envelope(model: .init(episodes: [])) }
-      )
-      let uc = FetchShowsPageUseCaseImpl(respository: repo)
-      let env = try await uc(page: 0)
-      #expect(env.model == page)
+      let repository = StubShowsRepository(fetchShowsHandler: { _ in Envelope(model: page) },
+                                           searchShowHandler: { _ in Envelope(model: .init(queriedShows: [])) },
+                                           fetchEpisodesHandler: { _ in Envelope(model: .init(episodes: [])) })
+      let useCase = FetchShowsPageUseCaseImpl(respository: repository)
+      let fetched = try await useCase(page: 0)
+      #expect(fetched.model == page)
    }
    
    @Test func queryShowsUseCaseReturnsQueryResult() async throws {
       let model = QueriedShowsModel(queriedShows: [.init(score: 1.0, show: .init(id:1, image:nil, name:"Q", schedule:.init(time:"", days:[]), genres:[], runtime:nil, summary:nil))])
-      let repo = StubShowsRepository(
-         fetchShowsHandler: { _ in Envelope(model: .init(items: [], pageIndex: 0, hasNextPage: false)) },
-         searchShowHandler: { _ in Envelope(model: model) },
-         fetchEpisodesHandler: { _ in Envelope(model: .init(episodes: [])) }
-      )
-      let uc = QueryShowsUseCaseImpl(repository: repo)
-      let env = try await uc(query: "Q")
-      #expect(env.model == model)
+      let repository = StubShowsRepository(fetchShowsHandler: { _ in Envelope(model: .init(items: [], pageIndex: 0, hasNextPage: false)) },
+                                           searchShowHandler: { _ in Envelope(model: model) },
+                                           fetchEpisodesHandler: { _ in Envelope(model: .init(episodes: [])) })
+      let useCase = QueryShowsUseCaseImpl(repository: repository)
+      let fetched = try await useCase(query: "Q")
+      #expect(fetched.model == model)
    }
 }

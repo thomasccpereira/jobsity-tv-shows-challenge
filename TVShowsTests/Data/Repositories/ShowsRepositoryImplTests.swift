@@ -24,7 +24,7 @@ struct ShowsRepositoryImplTests {
    }
    
    // Stub that returns pre-built DTOs
-   private struct StubRemote: ShowsRemoteDataSource {
+   private struct StubRemoteDataSource: ShowsRemoteDataSource {
       let showsDTO: ShowsListDTO
       let searchDTO: QueriedShowsDTO
       let episodesDTO: EpisodesListDTO
@@ -39,18 +39,15 @@ struct ShowsRepositoryImplTests {
       let showArrayJSON = "[{\n  \"id\": 1, \"image\": null, \"name\": \"A\", \"schedule\": { \"time\": \"07:00\", \"days\": [\"Monday\"] }, \"genres\": [\"Comedy\"], \"runtime\": 30, \"summary\": \"Sample\" }]"
       
       let showsDTO = try decodeShowsListDTO(from: showArrayJSON)
-      let repo = ShowsRepositoryImpl(
-         remote: StubRemote(
-            showsDTO: showsDTO,
-            searchDTO: try emptyQueriedShowsDTO(),
-            episodesDTO: try emptyEpisodesListDTO()
-         )
-      )
+      let dataSource = StubRemoteDataSource(showsDTO: showsDTO,
+                                            searchDTO: try emptyQueriedShowsDTO(),
+                                            episodesDTO: try emptyEpisodesListDTO())
+      let repository = ShowsRepositoryImpl(remote: dataSource)
       
-      let env = try await repo.fetchShows(page: 0)
-      #expect(env.errorMessage == nil)
-      #expect(env.model?.items.count == 1)
-      #expect(env.model?.items.first?.name == "A")
+      let fetched = try await repository.fetchShows(page: 0)
+      #expect(fetched.errorMessage == nil)
+      #expect(fetched.model?.items.count == 1)
+      #expect(fetched.model?.items.first?.name == "A")
    }
    
    @Test func mapsDTOErrorToEnvelopeErrorMessage() async throws {
@@ -58,16 +55,13 @@ struct ShowsRepositoryImplTests {
       let errorJSON = "{\n  \"name\": \"Not Found\", \n  \"message\": \"Page not found.\", \n  \"code\": 0, \n  \"status\": 404, \n  \"previous\": null\n}"
       
       let showsDTO = try decodeShowsListDTO(from: errorJSON)
-      let repo = ShowsRepositoryImpl(
-         remote: StubRemote(
-            showsDTO: showsDTO,
-            searchDTO: try emptyQueriedShowsDTO(),
-            episodesDTO: try emptyEpisodesListDTO()
-         )
-      )
+      let dataSource = StubRemoteDataSource(showsDTO: showsDTO,
+                                            searchDTO: try emptyQueriedShowsDTO(),
+                                            episodesDTO: try emptyEpisodesListDTO())
+      let repository = ShowsRepositoryImpl(remote: dataSource)
       
-      let env = try await repo.fetchShows(page: 0)
-      #expect(env.model == nil)
-      #expect(env.errorMessage == "Page not found.")
+      let fetched = try await repository.fetchShows(page: 0)
+      #expect(fetched.model == nil)
+      #expect(fetched.errorMessage == "Page not found.")
    }
 }

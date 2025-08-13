@@ -1,8 +1,9 @@
 import Foundation
 @testable import TVShows
 
-final class StubSessionManager: NetworkSessionManager {
+final class StubSessionManager: NetworkSessionManaging {
    let urlSession: URLSession
+   
    init() {
       let config = URLSessionConfiguration.ephemeral
       config.protocolClasses = [StubURLProtocol.self]

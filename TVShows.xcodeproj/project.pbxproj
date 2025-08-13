@@ -12,13 +12,13 @@
 		1240F4B02E476D4E001DEFDC /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4962E476D4E001DEFDC /* String+.swift */; };
 		1240F4B12E476D4E001DEFDC /* NetworkCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4982E476D4E001DEFDC /* NetworkCacheManager.swift */; };
 		1240F4B22E476D4E001DEFDC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49A2E476D4E001DEFDC /* NetworkError.swift */; };
-		1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49C2E476D4E001DEFDC /* NetworkHTTP.swift */; };
+		1240F4B32E476D4E001DEFDC /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49C2E476D4E001DEFDC /* HTTPHeaders.swift */; };
 		1240F4B42E476D4E001DEFDC /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F49E2E476D4E001DEFDC /* NetworkLogging.swift */; };
-		1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A02E476D4E001DEFDC /* NetworkRequestBuilder.swift */; };
+		1240F4B52E476D4E001DEFDC /* NetworkRequestBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A02E476D4E001DEFDC /* NetworkRequestBuilding.swift */; };
 		1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A12E476D4E001DEFDC /* NetworkRequestConfig.swift */; };
-		1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */; };
-		1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A52E476D4E001DEFDC /* NetworkSessionManager.swift */; };
-		1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */; };
+		1240F4B72E476D4E001DEFDC /* NetworkResponseValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A32E476D4E001DEFDC /* NetworkResponseValidating.swift */; };
+		1240F4B82E476D4E001DEFDC /* NetworkSessionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A52E476D4E001DEFDC /* NetworkSessionManaging.swift */; };
+		1240F4B92E476D4E001DEFDC /* NetworkExecuting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4A72E476D4E001DEFDC /* NetworkExecuting.swift */; };
 		1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */; };
 		1240F4BC2E476D4E001DEFDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1240F4AA2E476D4E001DEFDC /* Assets.xcassets */; };
 		1240F4CC2E477020001DEFDC /* BaseCoordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F4CB2E47701C001DEFDC /* BaseCoordinatable.swift */; };
@@ -53,10 +53,10 @@
 		1240F51D2E47E374001DEFDC /* QueryShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51C2E47E36F001DEFDC /* QueryShowsUseCase.swift */; };
 		1240F51F2E47E393001DEFDC /* FetchEpisodesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */; };
 		1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */; };
-		1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5252E47F025001DEFDC /* NetworkFactory.swift */; };
-		1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */; };
+		1240F5262E47F02C001DEFDC /* NetworkFactoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5252E47F025001DEFDC /* NetworkFactoring.swift */; };
+		1240F5282E47F3C2001DEFDC /* NetworkErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5272E47F3BD001DEFDC /* NetworkErrorMapping.swift */; };
 		1240F52A2E47F4D8001DEFDC /* NetworkDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */; };
-		1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */; };
+		1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52C2E47FE57001DEFDC /* NetworkResponseDecoding.swift */; };
 		1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */; };
 		1240F5332E48108C001DEFDC /* ShowsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5322E481084001DEFDC /* ShowsListViewModel.swift */; };
 		1240F5352E481092001DEFDC /* ShowsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5342E48108F001DEFDC /* ShowsListView.swift */; };
@@ -120,6 +120,7 @@
 		1240F5DF2E4991BA001DEFDC /* DatabaseStore+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5DE2E4991B5001DEFDC /* DatabaseStore+Default.swift */; };
 		1240F5E12E49929F001DEFDC /* PostersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5E02E499299001DEFDC /* PostersDAO.swift */; };
 		1240F5E32E4992A6001DEFDC /* ScheduleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240F5E22E4992A2001DEFDC /* ScheduleDAO.swift */; };
+		126FC9D52E4CEE350027ACC2 /* DatabaseTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC9D42E4CEE350027ACC2 /* DatabaseTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,13 +141,13 @@
 		1240F4962E476D4E001DEFDC /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1240F4982E476D4E001DEFDC /* NetworkCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCacheManager.swift; sourceTree = "<group>"; };
 		1240F49A2E476D4E001DEFDC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		1240F49C2E476D4E001DEFDC /* NetworkHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHTTP.swift; sourceTree = "<group>"; };
+		1240F49C2E476D4E001DEFDC /* HTTPHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
 		1240F49E2E476D4E001DEFDC /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
-		1240F4A02E476D4E001DEFDC /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
+		1240F4A02E476D4E001DEFDC /* NetworkRequestBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilding.swift; sourceTree = "<group>"; };
 		1240F4A12E476D4E001DEFDC /* NetworkRequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestConfig.swift; sourceTree = "<group>"; };
-		1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseValidator.swift; sourceTree = "<group>"; };
-		1240F4A52E476D4E001DEFDC /* NetworkSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManager.swift; sourceTree = "<group>"; };
-		1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkExecutor.swift; sourceTree = "<group>"; };
+		1240F4A32E476D4E001DEFDC /* NetworkResponseValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseValidating.swift; sourceTree = "<group>"; };
+		1240F4A52E476D4E001DEFDC /* NetworkSessionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManaging.swift; sourceTree = "<group>"; };
+		1240F4A72E476D4E001DEFDC /* NetworkExecuting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkExecuting.swift; sourceTree = "<group>"; };
 		1240F4AA2E476D4E001DEFDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1240F4AC2E476D4E001DEFDC /* TVShowsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsApp.swift; sourceTree = "<group>"; };
 		1240F4CB2E47701C001DEFDC /* BaseCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatable.swift; sourceTree = "<group>"; };
@@ -181,10 +182,10 @@
 		1240F51C2E47E36F001DEFDC /* QueryShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryShowsUseCase.swift; sourceTree = "<group>"; };
 		1240F51E2E47E38B001DEFDC /* FetchEpisodesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEpisodesUseCase.swift; sourceTree = "<group>"; };
 		1240F5232E47EB2E001DEFDC /* ShowsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRemoteDataSource.swift; sourceTree = "<group>"; };
-		1240F5252E47F025001DEFDC /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
-		1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorMapper.swift; sourceTree = "<group>"; };
+		1240F5252E47F025001DEFDC /* NetworkFactoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactoring.swift; sourceTree = "<group>"; };
+		1240F5272E47F3BD001DEFDC /* NetworkErrorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorMapping.swift; sourceTree = "<group>"; };
 		1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDependencies.swift; sourceTree = "<group>"; };
-		1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseDecoder.swift; sourceTree = "<group>"; };
+		1240F52C2E47FE57001DEFDC /* NetworkResponseDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseDecoding.swift; sourceTree = "<group>"; };
 		1240F52F2E480B11001DEFDC /* ShowsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepositoryImpl.swift; sourceTree = "<group>"; };
 		1240F5322E481084001DEFDC /* ShowsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListViewModel.swift; sourceTree = "<group>"; };
 		1240F5342E48108F001DEFDC /* ShowsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListView.swift; sourceTree = "<group>"; };
@@ -249,6 +250,7 @@
 		1240F5DE2E4991B5001DEFDC /* DatabaseStore+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseStore+Default.swift"; sourceTree = "<group>"; };
 		1240F5E02E499299001DEFDC /* PostersDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersDAO.swift; sourceTree = "<group>"; };
 		1240F5E22E4992A2001DEFDC /* ScheduleDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDAO.swift; sourceTree = "<group>"; };
+		126FC9D42E4CEE350027ACC2 /* DatabaseTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,7 +311,7 @@
 		1240F49B2E476D4E001DEFDC /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				1240F5272E47F3BD001DEFDC /* NetworkErrorMapper.swift */,
+				1240F5272E47F3BD001DEFDC /* NetworkErrorMapping.swift */,
 				1240F49A2E476D4E001DEFDC /* NetworkError.swift */,
 			);
 			path = Error;
@@ -318,7 +320,7 @@
 		1240F49D2E476D4E001DEFDC /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				1240F49C2E476D4E001DEFDC /* NetworkHTTP.swift */,
+				1240F49C2E476D4E001DEFDC /* HTTPHeaders.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -334,7 +336,7 @@
 		1240F4A22E476D4E001DEFDC /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				1240F4A02E476D4E001DEFDC /* NetworkRequestBuilder.swift */,
+				1240F4A02E476D4E001DEFDC /* NetworkRequestBuilding.swift */,
 				1240F4A12E476D4E001DEFDC /* NetworkRequestConfig.swift */,
 			);
 			path = Request;
@@ -343,8 +345,8 @@
 		1240F4A42E476D4E001DEFDC /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				1240F4A32E476D4E001DEFDC /* NetworkResponseValidator.swift */,
-				1240F52C2E47FE57001DEFDC /* NetworkResponseDecoder.swift */,
+				1240F4A32E476D4E001DEFDC /* NetworkResponseValidating.swift */,
+				1240F52C2E47FE57001DEFDC /* NetworkResponseDecoding.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -352,7 +354,7 @@
 		1240F4A62E476D4E001DEFDC /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				1240F4A52E476D4E001DEFDC /* NetworkSessionManager.swift */,
+				1240F4A52E476D4E001DEFDC /* NetworkSessionManaging.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -368,8 +370,8 @@
 				1240F4A42E476D4E001DEFDC /* Response */,
 				1240F4A62E476D4E001DEFDC /* Session */,
 				1240F5292E47F4D4001DEFDC /* NetworkDependencies.swift */,
-				1240F5252E47F025001DEFDC /* NetworkFactory.swift */,
-				1240F4A72E476D4E001DEFDC /* NetworkExecutor.swift */,
+				1240F5252E47F025001DEFDC /* NetworkFactoring.swift */,
+				1240F4A72E476D4E001DEFDC /* NetworkExecuting.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -696,8 +698,8 @@
 			isa = PBXGroup;
 			children = (
 				1240F57E2E4955D0001DEFDC /* ShowsListViewModelTests.swift */,
-				1240F59B2E495D18001DEFDC /* EpisodeDetailViewModelTests.swift */,
 				1240F59C2E495D18001DEFDC /* ShowDetailViewModelTests.swift */,
+				1240F59B2E495D18001DEFDC /* EpisodeDetailViewModelTests.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -715,6 +717,7 @@
 		1240F5672E4952B6001DEFDC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				126FC9D32E4CEE270027ACC2 /* Database */,
 				1240F5722E4953C7001DEFDC /* Network */,
 			);
 			path = Core;
@@ -863,6 +866,14 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		126FC9D32E4CEE270027ACC2 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				126FC9D42E4CEE350027ACC2 /* DatabaseTestHelpers.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -995,7 +1006,7 @@
 				1240F5102E478D29001DEFDC /* QueriedShowsModel+Preview.swift in Sources */,
 				1240F4D22E477094001DEFDC /* AppCoordinator.swift in Sources */,
 				1240F51B2E47E306001DEFDC /* FetchShowsPageUseCase.swift in Sources */,
-				1240F4B32E476D4E001DEFDC /* NetworkHTTP.swift in Sources */,
+				1240F4B32E476D4E001DEFDC /* HTTPHeaders.swift in Sources */,
 				1240F4E72E477F07001DEFDC /* ShowRequestConfigs.swift in Sources */,
 				1240F5CE2E4980D6001DEFDC /* FavoritesListViewModel+Preview.swift in Sources */,
 				1240F51D2E47E374001DEFDC /* QueryShowsUseCase.swift in Sources */,
@@ -1012,11 +1023,11 @@
 				1240F5B62E496E7E001DEFDC /* AddShowToFavoritesUseCase.swift in Sources */,
 				1240F4F62E478599001DEFDC /* QueriedShowsDTO.swift in Sources */,
 				1240F4B42E476D4E001DEFDC /* NetworkLogging.swift in Sources */,
-				1240F4B52E476D4E001DEFDC /* NetworkRequestBuilder.swift in Sources */,
+				1240F4B52E476D4E001DEFDC /* NetworkRequestBuilding.swift in Sources */,
 				1240F4B62E476D4E001DEFDC /* NetworkRequestConfig.swift in Sources */,
 				1240F5A62E4968E7001DEFDC /* DatabaseStoreError.swift in Sources */,
 				1240F54B2E48B965001DEFDC /* Enveloped.swift in Sources */,
-				1240F4B72E476D4E001DEFDC /* NetworkResponseValidator.swift in Sources */,
+				1240F4B72E476D4E001DEFDC /* NetworkResponseValidating.swift in Sources */,
 				1240F4FA2E478756001DEFDC /* EpisodesListDTO.swift in Sources */,
 				1240F4D02E477031001DEFDC /* CoordinatablePath.swift in Sources */,
 				1240F5CA2E497F26001DEFDC /* FavoritesListViewModel.swift in Sources */,
@@ -1026,17 +1037,17 @@
 				1240F4DE2E4775E0001DEFDC /* Font+.swift in Sources */,
 				1240F5012E478813001DEFDC /* SingleShowModel.swift in Sources */,
 				1240F5BF2E49736C001DEFDC /* DatabaseStore+Preview.swift in Sources */,
-				1240F4B82E476D4E001DEFDC /* NetworkSessionManager.swift in Sources */,
+				1240F4B82E476D4E001DEFDC /* NetworkSessionManaging.swift in Sources */,
 				1240F5C32E497DD4001DEFDC /* AddShowEpisodesToFavoritesUseCase.swift in Sources */,
 				1240F5E32E4992A6001DEFDC /* ScheduleDAO.swift in Sources */,
 				1240F5242E47EB33001DEFDC /* ShowsRemoteDataSource.swift in Sources */,
 				1240F5532E48E358001DEFDC /* ShowsListViewModel+Preview.swift in Sources */,
 				1240F5332E48108C001DEFDC /* ShowsListViewModel.swift in Sources */,
 				1240F5302E480B1D001DEFDC /* ShowsRepositoryImpl.swift in Sources */,
-				1240F5262E47F02C001DEFDC /* NetworkFactory.swift in Sources */,
+				1240F5262E47F02C001DEFDC /* NetworkFactoring.swift in Sources */,
 				1240F5602E4915BA001DEFDC /* Int+.swift in Sources */,
 				1240F5AA2E496976001DEFDC /* DatabaseStore.swift in Sources */,
-				1240F4B92E476D4E001DEFDC /* NetworkExecutor.swift in Sources */,
+				1240F4B92E476D4E001DEFDC /* NetworkExecuting.swift in Sources */,
 				1240F55E2E490E60001DEFDC /* EpisodeDetailViewModel+Preview.swift in Sources */,
 				1240F5A82E496932001DEFDC /* DatabaseStoreConfig.swift in Sources */,
 				1240F50C2E478942001DEFDC /* SingleEpisodeModel+Preview.swift in Sources */,
@@ -1049,11 +1060,11 @@
 				1240F5402E4896C9001DEFDC /* Color+.swift in Sources */,
 				1240F4BB2E476D4E001DEFDC /* TVShowsApp.swift in Sources */,
 				1240F55C2E490CFF001DEFDC /* ShowDetailViewModel+Preview.swift in Sources */,
-				1240F5282E47F3C2001DEFDC /* NetworkErrorMapper.swift in Sources */,
+				1240F5282E47F3C2001DEFDC /* NetworkErrorMapping.swift in Sources */,
 				1240F4F02E4782FB001DEFDC /* SingleShowDTO.swift in Sources */,
 				1240F5052E478823001DEFDC /* SingleEpisodeModel.swift in Sources */,
 				1240F5D02E498100001DEFDC /* FetchFavoriteShowsUseCase+Preview.swift in Sources */,
-				1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoder.swift in Sources */,
+				1240F52D2E47FE5D001DEFDC /* NetworkResponseDecoding.swift in Sources */,
 				1240F5B02E496B56001DEFDC /* SingleShowDAO.swift in Sources */,
 				1240F5CC2E497F33001DEFDC /* FavoritesListView.swift in Sources */,
 				1240F55A2E490CD0001DEFDC /* EpisodeDetailView.swift in Sources */,
@@ -1084,6 +1095,7 @@
 				1240F5932E4957A8001DEFDC /* DefaultErrorMapperTests.swift in Sources */,
 				1240F59A2E495CD5001DEFDC /* QueryShowsUseCaseImplTests.swift in Sources */,
 				1240F5942E4957A8001DEFDC /* StubNetworkFactory.swift in Sources */,
+				126FC9D52E4CEE350027ACC2 /* DatabaseTestHelpers.swift in Sources */,
 				1240F5952E4957A8001DEFDC /* StatusCodeValidatorTests.swift in Sources */,
 				1240F5982E495CA8001DEFDC /* FetchEpisodesUseCaseImplTests.swift in Sources */,
 			);
@@ -1162,6 +1174,8 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_ACTOR_ISOLATED_TYPES_USABILITY = YES;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = YES;
 			};
 			name = Debug;
 		};
@@ -1219,6 +1233,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_ACTOR_ISOLATED_TYPES_USABILITY = YES;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

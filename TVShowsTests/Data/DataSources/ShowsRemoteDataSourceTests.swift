@@ -16,9 +16,9 @@ struct ShowsRemoteDataSourceTests {
    }
    
    // MARK: - Local stub for NetworkFactoryType (kept local to avoid cross-file coupling)
-   private struct LocalStubNetworkFactory: NetworkFactoryType {
+   private struct LocalStubNetworkFactory: NetworkFactoring {
       let handler: (NetworkRequestConfig) throws -> any Decodable
-      func fetch<Model>(requestConfig: NetworkRequestConfig, shouldCache: Bool) async throws -> Model where Model : Decodable {
+      func fetch<Model>(requestConfig: NetworkRequestConfig, cacheTTL: Duration) async throws -> Model where Model : Decodable {
          return try handler(requestConfig) as! Model
       }
    }
@@ -40,7 +40,7 @@ struct ShowsRemoteDataSourceTests {
         """#
       let showsDTO = try decodeShowsListDTO(showsJSON)
       
-      let ds = ShowsRemoteDataSourceImpl(networkFactory: LocalStubNetworkFactory(handler: { config in
+      let dataSource = ShowsRemoteDataSourceImpl(networkFactory: LocalStubNetworkFactory(handler: { config in
          // Verify endpoint and query
          #expect((config as! ShowRequestConfigs).path == "/shows")
          let items = (config as! ShowRequestConfigs).queryItems
@@ -49,7 +49,7 @@ struct ShowsRemoteDataSourceTests {
          return showsDTO
       }))
       
-      let result = try await ds.shows(page: 2)
+      let result = try await dataSource.shows(page: 2)
       #expect(result.shows.count == 1)
       #expect(result.error == nil)
    }
@@ -72,12 +72,12 @@ struct ShowsRemoteDataSourceTests {
       let episodesDTO = try decodeEpisodesListDTO(episodesJSON)
       
       let showID = 10
-      let ds = ShowsRemoteDataSourceImpl(networkFactory: LocalStubNetworkFactory(handler: { config in
-         #expect((config as! ShowRequestConfigs).path == "/seasons/\(showID)/episodes")
+      let dataSource = ShowsRemoteDataSourceImpl(networkFactory: LocalStubNetworkFactory(handler: { config in
+         #expect((config as! ShowRequestConfigs).path == "/shows/\(showID)/episodes")
          return episodesDTO
       }))
       
-      let result = try await ds.episodes(showID: showID)
+      let result = try await dataSource.episodes(showID: showID)
       #expect(result.episodes.count == 1)
       #expect(result.error == nil)
    }
@@ -103,7 +103,7 @@ struct ShowsRemoteDataSourceTests {
       let queriedDTO = try decodeQueriedShowsDTO(searchJSON)
       
       let query = "query"
-      let ds = ShowsRemoteDataSourceImpl(networkFactory: LocalStubNetworkFactory(handler: { config in
+      let dataSource = ShowsRemoteDataSourceImpl(networkFactory: LocalStubNetworkFactory(handler: { config in
          #expect((config as! ShowRequestConfigs).path == "/search/shows")
          let items = (config as! ShowRequestConfigs).queryItems
          let qValue = items?.first(where: { $0.name == "q" })?.value
@@ -111,7 +111,7 @@ struct ShowsRemoteDataSourceTests {
          return queriedDTO
       }))
       
-      let result = try await ds.searchShow(query: query)
+      let result = try await dataSource.searchShow(query: query)
       #expect(result.queriedShows.count == 1)
       #expect(result.error == nil)
    }

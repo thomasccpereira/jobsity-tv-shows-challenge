@@ -27,7 +27,7 @@ struct QueriedShowsDTO: Codable {
             self.error = error
             
          } catch {
-            throw NetworkError.decodingGenericError(error: error)
+            throw NetworkError.decodingGenericError
          }
       }
    }
