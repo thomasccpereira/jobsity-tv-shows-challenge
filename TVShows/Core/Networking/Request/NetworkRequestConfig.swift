@@ -3,18 +3,18 @@ import Foundation
 protocol NetworkRequestConfig: Sendable {
    var host: String { get }
    var path: String { get }
-   var method: NetworkHTTPMethod { get }
-   var headers: [String: String]? { get }
+   var method: HTTPMethod { get }
+   var headers: HTTPHeaders? { get }
    var queryItems: [URLQueryItem]? { get }
-   var body: [String: any Sendable]? { get }
+   var body: HTTPBody? { get }
 }
 
 extension NetworkRequestConfig {
    var host: String { "https://api.tvmaze.com" }
    
-   var method: NetworkHTTPMethod { .get }
+   var method: HTTPMethod { .get }
    
-   var headers: [String: String]? { [ "Content-Type": "application/json; charset=utf-8" ] }
+   var headers: HTTPHeaders? { [ "Content-Type": "application/json; charset=utf-8" ] }
    
-   var body: [String: any Sendable]? { nil }
+   var body: HTTPBody? { nil }
 }

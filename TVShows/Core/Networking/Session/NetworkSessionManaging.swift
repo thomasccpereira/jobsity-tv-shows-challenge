@@ -1,12 +1,12 @@
 import Foundation
 
-// MARK: - Session - Protocol
-protocol NetworkSessionManager: Sendable {
+// MARK: - Session manager - Protocol
+protocol NetworkSessionManaging: Sendable {
    var urlSession: URLSession { get }
 }
 
-// MARK: - Session - Implementation
-final class DefaultSessionManager: NetworkSessionManager {
+// MARK: - Session manager - Concrete implementation
+final class DefaultSessionManager: NetworkSessionManaging {
    let urlSession: URLSession
    
    init(configuration: URLSessionConfiguration? = nil) {

@@ -1,13 +1,13 @@
 import Foundation
 
 // MARK: - Request validator - Protocol
-protocol NetworkResponseValidator: Sendable {
+protocol NetworkResponseValidating: Sendable {
    func validate(_ response: URLResponse,
                  data: Data) throws
 }
 
-// MARK: - Request validator - Implementation
-struct StatusCodeValidator: NetworkResponseValidator {
+// MARK: - Request validator - Concrete implementation
+struct StatusCodeValidator: NetworkResponseValidating {
    private let validStatusCodes: Range<Int> = 200..<300
    
    func validate(_ response: URLResponse, data: Data) throws {

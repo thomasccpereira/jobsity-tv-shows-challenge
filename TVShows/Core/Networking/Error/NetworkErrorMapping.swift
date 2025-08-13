@@ -1,9 +1,11 @@
 import Foundation
 
+// MARK: - Error mapper - Protocol
 protocol NetworkErrorMapping: Sendable {
    func map(_ error: Error, url: URL?) -> NetworkError
 }
 
+// MARK: - Error mapper - Concrete implementation
 final class DefaultErrorMapper: NetworkErrorMapping {
    init() { }
    

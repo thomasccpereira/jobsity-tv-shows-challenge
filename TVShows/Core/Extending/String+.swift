@@ -9,6 +9,19 @@ extension String {
       return false
    }
    
+   var sanitizedURL: String {
+      let colonSlash = "://"
+      let components = self.components(separatedBy: colonSlash).map { String($0).trimmed }
+      
+      if let httpPrefix = components.first,
+         let endpoint = components.last {
+         let sanitizedEndpoint = endpoint.replacingOccurrences(of: "//", with: "/")
+         return String(httpPrefix) + colonSlash + sanitizedEndpoint
+      }
+      
+      return self
+   }
+   
    var strippingHTML: String {
       guard let data = data(using: .utf8) else { return self }
       
